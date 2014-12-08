@@ -1,0 +1,12 @@
+{
+  "name": "valentino",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.2",
+    "angular": "~1.3.5",
+    "angular-socket-io": "~0.7.0",
+    "angular-sanitize": "~1.3.5",
+    "bourbon": "~4.0.2"
+  }
+}
