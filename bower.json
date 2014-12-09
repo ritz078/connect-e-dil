@@ -8,5 +8,6 @@
     "angular-socket-io": "~0.7.0",
     "angular-sanitize": "~1.3.5",
     "bourbon": "~4.0.2"
-  }
+  },
+  "devDependencies": {}
 }
