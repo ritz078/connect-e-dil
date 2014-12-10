@@ -1,0 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@include font-face(face_itregular, '../fonts/face_it-webfont');
+
+@import "susy";
+
+/* Changing Susy default global settings */
+$susy: (
+/* Tells Susy to use 12 columns */
+columns: 12,
+  gutters:0,
+/* Tells Susy that the container has a max-width of 1120px */
+container: 100%,
+                 /* Tells Susy to use border-box */
+               global-box-sizing: border-box
+);
+
+
+/* ====== Configuration ===========*/
+$font-default:'Lato', sans-serif;
+$font-default2:'Roboto', sans-serif;
+$font-smiley:'face_itregular';
+
+$gradient1:#3023ae;
+$gradient2:#c86dd7;
+
+/*=================================*/
+

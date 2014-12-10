@@ -1,1 +1,5 @@
-angular.module('valentinoApp',['ngSanitize']);
+'use strict';
+
+angular.module('valentinoApp',['ngSanitize'])
+
+

@@ -2,17 +2,8 @@
 @import "bourbon/dist/_bourbon.scss";
 // endbower
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-@include font-face(face_itregular, '../fonts/face_it-webfont');
-
-
 @import "bootstrap";
-
-/* ====== Configuration ===========*/
-$font-default:'Lato', sans-serif;
-$font-smiley:'face_itregular';
-
-/*=================================*/
+@import "config";
 
 *{
   margin: 0;
@@ -20,28 +11,77 @@ $font-smiley:'face_itregular';
   @include box-sizing(border-box);
 }
 
-body {
-  background: #fafafa;
-  font-family: $font-default;
-  color: #333;
-  height: 100%;
+html{
   width: 100%;
-  @include linear-gradient(135deg, #3023ae 0%, #c86dd7 100%);
-  background-attachment: fixed;
+  height: 100%;
+  overflow: hidden;
+  body {
+    background: #fafafa;
+    font-family: $font-default2;
+    color: #333;
+    height: 100%;
+    width: 100%;
+    @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
+    background-attachment: fixed;
+    @include container;
 
-  .container{
-    header {
-      height: 40px;
-      width: 100%;
-      position: fixed;
-      background-color: #ffffff;
-      opacity: 0.8;
-      box-shadow:0px 1px 2px 0px rgba(0, 0, 0, 0.62);
+    .container{
+      height: 100%;
+      header {
+        @include span(12);
+        height: 40px;
+        background-color: #ffffff;
+        opacity: 0.8;
+        box-shadow:0px 1px 2px 0px rgba(0, 0, 0, 0.62);
+      }
+      .content{
+        @include calc(height, '100% - 40px');
+        div{
+          float:left;
+        }
+        .left,.right{
+          @include span(2.5);
+          height: 100%;
+          background-color: #ffffff;
+          opacity: 0.2;
+        }
+        .center{
+          @include span(7);
+          height: 100%;
+        }
+        .right{
+
+        }
+      }
     }
-  }
 
+  }
 }
 
 
+#rules{
+  height: 400px;
+  display: none;
+  @include span(9);
+  background-color: #ffffff;
+  @include border-top-radius(3px);
+  @include border-bottom-radius(3px);
+  opacity: 0.5;
+  padding: 10px;
+  header{
+    width: 100%;
+    height: 40px;
+    font-weight: 300;
+    margin-top: -60px;
+    color:#ffffff;
+    text-align: center;
+    font-size: 30px;
+  }
+  .close{
+    cursor: pointer;
+    float: right;
+    margin-top: 18px;
+  }
 
+}
 

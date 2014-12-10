@@ -425,8 +425,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'modernizr',
     'rev',
-    'usemin',
-    'htmlmin'
+    'usemin'  // add htmlmin
   ]);
 
   grunt.registerTask('default', [

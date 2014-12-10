@@ -8,7 +8,8 @@
     "angular-socket-io": "~0.7.0",
     "angular-sanitize": "~1.3.5",
     "bourbon": "~4.0.2",
-    "jquery-leanmodal": "*"
+    "jquery-leanmodal": "*",
+    "font-awesome": "~4.2.0"
   },
   "devDependencies": {}
 }
