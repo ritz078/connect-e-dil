@@ -2,55 +2,163 @@
 @import "bourbon/dist/_bourbon.scss";
 // endbower
 
-@import "bootstrap";
 @import "config";
+@import "bootstrap";
 
-*{
+
+* {
   margin: 0;
   padding: 0;
   @include box-sizing(border-box);
+  outline: none;
 }
 
-html{
+html {
   width: 100%;
   height: 100%;
   overflow: hidden;
   body {
     background: #fafafa;
-    font-family: $font-default2;
+    font-family: $font-default;
     color: #333;
     height: 100%;
     width: 100%;
     @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
     background-attachment: fixed;
     @include container;
+    -webkit-font-smoothing: antialiased;
 
-    .container{
+    .container {
       height: 100%;
       header {
         @include span(12);
         height: 40px;
         background-color: #ffffff;
         opacity: 0.8;
-        box-shadow:0px 1px 2px 0px rgba(0, 0, 0, 0.62);
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.62);
       }
-      .content{
+      .content {
         @include calc(height, '100% - 40px');
-        div{
-          float:left;
+        div {
+          float: left;
         }
-        .left,.right{
-          @include span(2.5);
+        .left, .right {
+          @include span(3);
           height: 100%;
-          background-color: #ffffff;
-          opacity: 0.2;
+          background-color: rgba(255, 255, 255, 0.2);
         }
-        .center{
-          @include span(7);
+        .center {
+          @include span(6);
           height: 100%;
         }
-        .right{
+        .right {
+          @include span(3);
+          .shoutbox {
+            @include calc(height,'100% - 50px');
+            overflow: hidden;
+            padding: 5px;
+            padding-right: 2px;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            .nano{
+              .nano-pane{
+                width: 6px;
+                .nano-slider{
+                  width: 100%;
+                  margin: 0;
+                  background-color: rgba(65, 27, 113, 0.5);
+                }
+              }
+            }
+            .shout {
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2);;
+              width: 100%;
+              padding: 5px;
+              .shouter{
+                width: 100%;
+                .userpic {
+                  img {
+                    @include border-bottom-radius(2px);
+                    @include border-top-radius(2px);
+                    height: 30px;
+                    width: 30px;
+                    overflow: hidden;
+                    background-color: #ffffff;
+                  }
+                }
+                .username {
+                  color: #ffffff;
+                  padding: 5px;
+                  @include calc(width,'60% - 30px');
+                  float: left;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  :before{
+                    content: "\e601";
+                  }
+                }
+                .time {
+                  width: 40%;
+                  text-align: right;
+                  padding: 9px 5px 9px 9px;
+                  float: left;
+                  font-size: 13px;
+                  color:#ffffff;
+                  opacity: 0.7;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                }
 
+
+              }
+              .shout-data {
+                font-size: 12px;
+                color: #ffffff;
+                padding: 5px 2px;
+                opacity: 0.9;
+
+                .icon-smiley{
+                  font-size: 15px;
+                  display: inline-block;
+                  width: 20px;
+                  text-align: center;
+                  color: lightyellow;
+                }
+                .icon-heart{
+                  //color:#BA5183;
+                }
+                a{
+                  text-decoration: none;
+                  color: aquamarine;
+                  &:hover{
+                    color: aqua;
+                  }
+                }
+
+              }
+
+            }
+          }
+          .shoutInput{
+            width: 100%;
+            padding: 3px 8px;
+            textarea{
+              width: 100%;
+              background-color: transparent;
+              border:1px solid rgba(255,255,255,0.6);
+              @include border-bottom-radius(2px);
+              @include border-top-radius(2px);
+              padding: 8px 10px;
+              height: 40px;
+              resize: none;
+              color: #ffffff;
+              font-family: $font-default;
+              -webkit-font-smoothing: antialiased;
+              font-size: 14px;
+            }
+          }
         }
       }
     }
@@ -58,26 +166,30 @@ html{
   }
 }
 
-
-#rules{
-  height: 400px;
+#rules {
   display: none;
-  @include span(9);
-  background-color: #ffffff;
+  @include span(8);
   @include border-top-radius(3px);
   @include border-bottom-radius(3px);
   opacity: 0.5;
   padding: 10px;
-  header{
+  ol{
+    li{
+      margin-bottom: 10px;
+      color:rgba(255,255,255,0.7);
+      text-align: justify;
+    }
+  }
+  header {
     width: 100%;
     height: 40px;
     font-weight: 300;
-    margin-top: -60px;
-    color:#ffffff;
+    color: #ffffff;
     text-align: center;
     font-size: 30px;
+    margin-bottom: 40px;
   }
-  .close{
+  .close {
     cursor: pointer;
     float: right;
     margin-top: 18px;

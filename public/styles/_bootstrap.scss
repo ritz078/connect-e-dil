@@ -17,6 +17,6 @@
   left: 0px;
   height:100%;
   width:100%;
-  background: #000;
+  @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
   display: none;
 }
