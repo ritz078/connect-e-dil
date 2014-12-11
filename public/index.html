@@ -36,11 +36,19 @@
   </header>
   <div class="content">
     <div class="left"></div>
-    <div class="center"></div>
+    <div class="center">
+      <div ng-view></div>
+    </div>
     <div class="right">
-      <div class="shoutbox" scrollable="{scroll:'bottom',scrollBottom:0}" watch-collection="shout">
+      <div class="shoutInput">
+        <form action="">
+          <textarea ng-keydown="submitShout($event)" id="shoutInput" placeholder="Shout here" ng-model="user.data" type="text" required/></textarea>
+        </form>
 
-        <div class="shout" ng-repeat="s in shout">
+      </div>
+      <div class="shoutbox" scrollable watch-collection="shout">
+
+        <div class="shout" ng-repeat="s in shout | orderBy:reverse">
           <div class="shouter">
             <div class="userpic"><img src="images/user.png" alt=""/></div>
             <div class="username">{{s.name}}</div>
@@ -54,27 +62,13 @@
 
 
       </div>
-      <div class="shoutInput">
-        <form action="">
-          <textarea ng-keydown="submitShout($event)" ng-model="user.data" type="text" required/></textarea>
-        </form>
 
-      </div>
     </div>
   </div>
 </div>
 
 
-<div id="rules">
-  <header>Rules</header>
-  <ol>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi molestias placeat voluptatum. Aut consequuntur est, illo impedit in iure molestias mollitia nobis, quia sequi temporibus, totam ut velit voluptas voluptate.</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi assumenda cum cupiditate deserunt ducimus ea expedita inventore laborum nostrum optio, quam quos recusandae rem sint tempora vitae. Asperiores, quo!</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate fuga iste praesentium quibusdam quisquam suscipit! Adipisci at doloremque ex impedit magnam modi quis recusandae! Exercitationem explicabo nobis soluta voluptas voluptate?</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque exercitationem impedit laborum minus neque nesciunt odit rem sapiente. Amet at eaque, earum et exercitationem in praesentium tenetur ut velit veritatis?</li>
 
-  </ol>
-</div>
 
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -89,12 +83,15 @@
 <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
 <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
 <script src="bower_components/ng-emoticons/ng-emoticons.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 
 <!-- build:js({public,.tmp}) scripts/main.js -->
 <script src="scripts/main.js"></script>
+<script src="scripts/components/main.routes.js"></script>
+<script src="scripts/components/main.services.js"></script>
 <script src="scripts/components/main.controller.js"></script>
 <script src="scripts/components/main.directives.js"></script>
 <!-- endbuild -->

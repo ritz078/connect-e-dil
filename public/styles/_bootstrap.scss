@@ -20,3 +20,19 @@
   @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
   display: none;
 }
+
+::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #ffffff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #ffffff;
+}
+
+:-ms-input-placeholder {
+  color: #ffffff;
+}

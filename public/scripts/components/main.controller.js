@@ -3,7 +3,7 @@
 
 angular.module('valentinoApp')
 
-  .controller('ValentinoController',['$scope','$timeout',function($scope,$timeout){
+  .controller('ValentinoController',['$scope','valinfo',function($scope,valinfo){
 
 
     var d=new Date();
@@ -43,13 +43,22 @@ angular.module('valentinoApp')
         'data':'Lorem ipsum dolor sit <3 , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatumjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjh.'
       }];
 
+    $scope.rules={};
+    var valPromise=valinfo.getRules();
+    valPromise.then(function(data){
+      $scope.rules=data.data.rules;
+    });
+
+
     $scope.user={
       'name':'Ritesh Kumar'
-    }
+    };
 
+
+    //Shout Submission
     $scope.submitShout=function(e){
       console.log(e.keyCode);
-      if(!(e.keyCode===13))return;
+      if(e.keyCode!==13){return;}
       e.preventDefault();
       $scope.user.time=new Date();
       $scope.shout.push($scope.user);
@@ -58,7 +67,17 @@ angular.module('valentinoApp')
       };
 
 
-    }
+    };
+
+    //transition effects
+    $('#shoutInput').focus(function(){
+      $(this).animate({height:'80px'});
+    });
+
+      $('#shoutInput').blur(function(){
+        $(this).animate({height:'40px'});
+      });
+
 
 
   }]);

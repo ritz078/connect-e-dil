@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('valentinoApp',['ngSanitize','angularMoment','btfordSocketIo','sun.scrollable','ngEmoticons']);
+angular.module('valentinoApp',['ngSanitize','angularMoment','btfordSocketIo','sun.scrollable','ngEmoticons','ngRoute']);
 
 
