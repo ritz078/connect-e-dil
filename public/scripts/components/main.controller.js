@@ -106,6 +106,6 @@ app.controller('ShoutController',['$scope',function($scope){
     'id':'4567',
     'name':'Ritesh Kumar',
     'time':d,
-    'data':'Lorem ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=gNmWybAyBHI , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatumjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjh.'
+    'data':'Lorem ipsum http://www.themiamiartscene.com/wp-content/uploads/2014/08/pop_art_by_purpledragongirl.jpg https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=gNmWybAyBHI , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error http://img.posterlounge.de/images/wbig/superman-pop-art-shield-22289.jpg excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatumjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjh.'
   };
 }]);

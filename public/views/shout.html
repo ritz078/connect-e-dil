@@ -1,4 +1,6 @@
 <div class="shoutView">
-  <div class="name">{{shout.name}}</div>
-  <div ng-bind-html="(shout.data | enhanceText ) "></div>
+  <div class="userInfo">
+    <div class="name">{{shout.name}}</div>
+  </div>
+  <div ng-bind-html="(shout.data | enhanceText ) " class="data"></div>
 </div>
