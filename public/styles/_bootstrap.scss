@@ -36,3 +36,62 @@
 :-ms-input-placeholder {
   color: #ffffff;
 }
+
+
+ol,ul{
+  margin-left: 30px;
+}
+
+
+.nano{
+  .nano-pane{
+    width: 6px;
+    .nano-slider{
+      width: 100%;
+      margin: 0;
+      cursor: ns-resize;
+      background-color: rgba(65, 27, 113, 0.5);
+    }
+  }
+}
+
+:invalid {
+  box-shadow: none;
+}
+
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow:none;
+}
+
+//animation
+.fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: 1;
+}
+.fade.ng-enter,
+.fade.ng-leave {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.fade.ng-enter {
+  opacity: 0;
+}
+.fade.ng-enter-active {
+  opacity: 1;
+}
+.fade.ng-leave {
+  opacity: 1;
+}
+.fade.ng-leave-active {
+  opacity: 0;
+}

@@ -29,15 +29,13 @@
   your browser</a> to improve your experience.</p>
 <![endif]-->
 <div class="container">
-  <header>
-        <span href="#rules" lean-modal='{ top : 95, overlay : 0.9, closeButton: ".close" }'>
-          Rules
-        </span>
+  <header><a href="#/rules"><span>Rules</span></a>
+    <a href="#/"><span><i class="fa fa-home"></i></span></a>
   </header>
   <div class="content">
     <div class="left"></div>
-    <div class="center">
-      <div ng-view></div>
+    <div class="center" id="center" scrollable="">
+      <div class="ng-view fade"></div>
     </div>
     <div class="right">
       <div class="shoutInput">
@@ -48,11 +46,13 @@
       </div>
       <div class="shoutbox" scrollable watch-collection="shout">
 
-        <div class="shout" ng-repeat="s in shout | orderBy:reverse">
+        <div class="shout" ng-repeat="s in shouts | reverse">
           <div class="shouter">
             <div class="userpic"><img src="images/user.png" alt=""/></div>
             <div class="username">{{s.name}}</div>
-            <div am-time-ago="s.time" class="time"></div>
+            <a ng-href="#/shout/{{s.id}}">
+              <div am-time-ago="s.time" class="time"></div>
+            </a>
           </div>
           <div class="shout-data" ng-bind-html="s.data | linky:'_blank' | emoticons">
 
@@ -84,6 +84,9 @@
 <script src="bower_components/angular-nanoscroller/scrollable.js"></script>
 <script src="bower_components/ng-emoticons/ng-emoticons.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-enhance-text/build/angular-enhance-text.js"></script>
+<script src="bower_components/angular-fitvids/angular-fitvids.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -91,6 +94,7 @@
 <!-- build:js({public,.tmp}) scripts/main.js -->
 <script src="scripts/main.js"></script>
 <script src="scripts/components/main.routes.js"></script>
+<script src="scripts/components/main.filters.js"></script>
 <script src="scripts/components/main.services.js"></script>
 <script src="scripts/components/main.controller.js"></script>
 <script src="scripts/components/main.directives.js"></script>
