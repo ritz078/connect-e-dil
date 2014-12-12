@@ -63,9 +63,9 @@ html {
           .ng-view{
             width: 100%;
             .shoutView{
+              font-size: 14px;
               padding: 20px;
               color:rgba(255,255,255,0.6);
-              text-align: center;
               .userInfo{
                 border-bottom: 1px solid rgba(255,255,255,0.1);
                 width: 100%;
@@ -77,6 +77,33 @@ html {
                   max-width: 100%;
                   display: block;
                   margin: 20px auto;
+                }
+              }
+              .youtube-shout{
+                padding: 5px;
+                margin: 20px 0;
+                width: 100%;
+                background-color: rgba(255,255,255,0.05);
+
+                @include border-top-radius(2px);
+                @include border-bottom-radius(2px);
+                img{
+                  height: 100%;
+                  float: left;
+                  width: 35%;
+                  @include border-top-radius(2px);
+                  @include border-bottom-radius(2px);
+                }
+                div{
+                  float: left;
+                  display: block;
+                  width: 65%;
+                  padding: 0 10px;
+                  h3{
+                    font-weight: 500;
+                    margin: 5px 0;
+                    text-transform: capitalize;
+                  }
                 }
               }
               a{

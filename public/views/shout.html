@@ -1,6 +1,17 @@
 <div class="shoutView">
   <div class="userInfo">
-    <div class="name">{{shout.name}}</div>
+    <div class="name">{{::shout.name}}</div>
   </div>
-  <div ng-bind-html="(shout.data | enhanceText ) " class="data"></div>
-</div>
+  <div>
+    <div ng-bind-html="(shout.data |linky:'_target'| emoticons) " class="data">
+    </div>
+
+    <div class="youtube-shout" ng-if="::shout.youtube.title" class="fade">
+      <img ng-src="http://img.youtube.com/vi/{{::shout.youtube.id}}/0.jpg" alt=""/>
+      <div>
+        <h3><a target="_blank" ng-href="https://www.youtube.com/watch?v={{::shout.youtube.id}}">{{::shout.youtube.title}}</a></h3>
+        <p ng-bind-html="shout.youtube.desc | linky:'_blank'"></p>
+      </div>
+    </div>
+  </div>
+ </div>

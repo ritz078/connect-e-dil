@@ -30,7 +30,7 @@ angular.module('valentinoApp')
     var x=(((angular.element('html').width())/12)*6)-40;
   enhanceTextFilterProvider.setOptions({
     cache: true,  // stores replaced text so angular update does not slow down
-    newLineToBr: true,  // replaces \n with <br/>
+    newLineToBr: false,  // replaces \n with <br/>
     embedLinks: true,  // replaces links with Html links
     embeddedLinkTarget: '_blank',  // sets the target of all replaced links
     embedImages: true,  // replaces links to images with Html images
@@ -40,8 +40,8 @@ angular.module('valentinoApp')
     embeddedVideosHeight: undefined,  // if given will be used to set height of embedded videos
     embeddedVideosWidth: undefined,  // if given will be used to set width of embedded videos
     embedYoutube: true,  // replaces links to youtube videos with iframed youtube videos
-    embeddedYoutubeHeight: (x/4)*2.5,  // height of youtube video
-    embeddedYoutubeWidth:x,  // width of youtube video
+    embeddedYoutubeHeight: ((x/4)*2.5)/2,  // height of youtube video
+    embeddedYoutubeWidth:x/2,  // width of youtube video
     smilies: {  // key = smilie, value = path to smilie
       '&lt;3': '&#xe604',
       ';)': '&#xe610',

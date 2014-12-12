@@ -17,8 +17,7 @@
     "angular-route": "~1.3.6",
     "angular-animate": "~1.3.6",
     "angular-enhance-text": "~0.0.13",
-    "angular-fitvids": "https://github.com/jimmyhillis/angular-fitvids.git#~0.1.0",
-    "svg-loaders": "~1.0.2"
+    "angular-fitvids": "https://github.com/jimmyhillis/angular-fitvids.git#~0.1.0"
   },
   "devDependencies": {}
 }
