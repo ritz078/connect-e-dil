@@ -99,36 +99,66 @@ app.controller('RulesController', ['$scope', 'valinfo', function ($scope, valinf
   });
 }]);
 
-app.controller('ShoutController', ['$scope', '$http', function ($scope, $http) {
+app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
   var d = new Date();
   var shout = {
     'id': '4567',
     'name': 'Ritesh Kumar',
     'time': d,
-    'data': 'Lorem ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=gNmWybAyBHI , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
+    'data': 'Lorem https://www.google.co.in/images/srpr/logo11w.png ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=gNmWybAyBHI , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
   };
 
-  var regex = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
+  /**
+   * Extracting youtube video url
+   * */
+
+   var regex = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
 
   var x = shout.data.match(regex);
-  if(x){
-    shout.youtube={};
+  if (x) {
+    shout.youtube = {};
     var y = x[0].split('=');
     shout.youtube.id = y[1];
     console.log(shout);
 
-    $http.get('https://www.googleapis.com/youtube/v3/videos?id='+shout.youtube.id+'&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,contentDetails,statistics,status')
+    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + shout.youtube.id + '&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,contentDetails,statistics,status')
       .success(function (e) {
-        shout.youtube.title= e.items[0].snippet.channelTitle;
-        shout.youtube.desc= e.items[0].snippet.description;
+        shout.youtube.title = e.items[0].snippet.channelTitle;
+        shout.youtube.desc = e.items[0].snippet.description;
+        shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + shout.youtube.id);
+
+
       });
 
 
   }
 
+  /**
+   * Calculating Video Dimensions
+   */
+  var width=$('.center').width()-100;
+  var height=width*(315/560);
+  $scope.videoDimensions={
+    'height':height,
+    'width':width
+  };
+
+  /*
+  Extracting image links
+   */
+
+  var imgRegex = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
+  var img=shout.data.match(imgRegex);
+  shout.imageUrl=img[0];
+
 
   $scope.shout = shout;
+
+
+
+  console.log(shout);
+
 
 
 }]);
