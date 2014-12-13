@@ -5,7 +5,7 @@
     <h3 class="name">{{::shout.name}}</h3>
     <span am-time-ago="::shout.time"></span>
   </div>
-  <div>
+  <div class="media-wrapper">
     <div ng-bind-html="(shout.data |linky:'_target'| emoticons) " class="data">
     </div>
 
@@ -27,7 +27,7 @@
     </div>
 
     <div class="image" ng-if="::shout.imageUrl">
-      <img src="{{::shout.imageUrl}}" alt="{{::}}"/>
+      <img ng-src="{{::shout.imageUrl}}" alt="{{::}}"/>
     </div>
   </div>
 </div>
