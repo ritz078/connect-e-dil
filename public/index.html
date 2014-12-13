@@ -33,7 +33,19 @@
     <a href="#/"><span><i class="fa fa-home"></i></span></a>
   </header>
   <div class="content">
-    <div class="left"></div>
+    <div class="left" >
+      <div class="left-wrapper">
+
+        <input type="text" ng-model="query"/>
+        <div class="leaderboard" scrollable watch-collection="leaderboard">
+
+          <div class="row slide-left" ng-repeat="l in leaderboard | filter:query">
+            <span class="name">{{l.name}}</span>
+            <span class="r-roses">{{l.red_roses}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="center" id="center" scrollable="">
       <div class="ng-view fade"></div>
     </div>
