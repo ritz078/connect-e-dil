@@ -130,7 +130,7 @@ html {
                       cursor: pointer;
                       i {
                         @include calc(padding-left, '50% - 10px');
-                        color: rgb(219, 0, 255);
+                        color: #CC6EDB;
                         opacity: 0.9;
                         font-size: 20px;
                         &:hover {
@@ -150,6 +150,7 @@ html {
                       font-weight: 500;
                       margin: 5px 0;
                       text-transform: capitalize;
+                      cursor: pointer;
                     }
                   }
                   iframe {
@@ -160,7 +161,7 @@ html {
                   }
                 }
                 .image{
-                  background-color: rgba(255,255,255,0.8);
+                  background-color: rgba(255,255,255,0.08);
                   width: 100%;
                   @include border-top-radius(2px);
                   @include border-bottom-radius(2px);
@@ -169,6 +170,9 @@ html {
                   margin-top: 20px;
                   display: block;
                   max-width: 100%;
+                  img{
+                    width: 100%;
+                  }
 
                 }
               }

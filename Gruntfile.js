@@ -297,8 +297,8 @@ module.exports = function (grunt) {
     //       ]
     //     }
     //   }
-    // },
-    // uglify: {
+    //// },
+    //uglify: {
     //   dist: {
     //     files: {
     //       '<%= config.dist %>/scripts/scripts.js': [
@@ -306,10 +306,16 @@ module.exports = function (grunt) {
     //       ]
     //     }
     //   }
-    // },
+    //},
     // concat: {
     //   dist: {}
     // },
+
+    uglify: {
+      options: {
+        mangle: false
+      }
+    },
 
     // Copies remaining files to places other tasks can use
     copy: {
@@ -323,7 +329,9 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             'images/{,*/}*.webp',
             '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'data/*',
+            'fonts/*'
           ]
         }, {
           src: 'node_modules/apache-server-configs/dist/.htaccess',

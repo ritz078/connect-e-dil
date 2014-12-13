@@ -16,10 +16,10 @@
         <div class="play"><i class="fa fa-play"></i></div>
       </div>
       <div ng-show="!showVideo">
-        <h3><a target="_blank" ng-href="https://www.youtube.com/watch?v={{::shout.youtube.id}}">{{::shout.youtube.title}}</a>
+        <h3 ng-click="showVideo=true"><a target="_blank" ng-href="">{{::shout.youtube.title}}</a>
         </h3>
 
-        <p ng-bind-html="shout.youtube.desc | linky:'_blank'"></p>
+        <p ng-bind-html="shout.youtube.desc"></p>
       </div>
       <div class="embed-you" ng-if="showVideo" ng-class="{{fade}}">
         <iframe width="{{::videoDimensions.width}}" height="{{::videoDimensions.height}}" ng-src="{{::shout.youtube.videoUrl}}" frameborder="0" allowfullscreen></iframe>

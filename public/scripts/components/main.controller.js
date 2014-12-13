@@ -106,7 +106,11 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
     'id': '4567',
     'name': 'Ritesh Kumar',
     'time': d,
-    'data': 'Lorem https://www.google.co.in/images/srpr/logo11w.png ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=gNmWybAyBHI , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
+    'data': 'Lorem http://i65.fastpic.ru/big/2014/1212/a4/3c68e26ca6d6ecf14994275eb9378da4.jpg ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=0fXlZ3vnQd0 , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
+  };
+
+  String.prototype.truncate=function(n){
+    return this.substr(0,n-1)+(this.length>n?'...':'');
   };
 
   /**
@@ -125,8 +129,8 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
     $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + shout.youtube.id + '&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,contentDetails,statistics,status')
       .success(function (e) {
         shout.youtube.title = e.items[0].snippet.channelTitle;
-        shout.youtube.desc = e.items[0].snippet.description;
-        shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + shout.youtube.id);
+        shout.youtube.desc = e.items[0].snippet.description.truncate(250);
+        shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + shout.youtube.id+'?autoplay=1&theme=light&rel=0');
 
 
       });
@@ -144,9 +148,9 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
     'width':width
   };
 
-  /*
+  /**
   Extracting image links
-   */
+   **/
 
   var imgRegex = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
   var img=shout.data.match(imgRegex);
