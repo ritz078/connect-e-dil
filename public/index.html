@@ -39,9 +39,11 @@
         <input type="text" ng-model="query"/>
         <div class="leaderboard" scrollable watch-collection="leaderboard">
 
-          <div class="row slide-left" ng-repeat="l in leaderboard | filter:query">
+          <div class="row slide-left" ng-repeat="l in leaderboard | leaderBfilter:query">
+            <img ng-src="{{l.dp}}" alt=""/>
             <span class="name">{{l.name}}</span>
             <span class="r-roses">{{l.red_roses}}</span>
+            <span class="y-roses">{{l.yellow_roses}}</span>
           </div>
         </div>
       </div>

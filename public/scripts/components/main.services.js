@@ -26,3 +26,16 @@ function($http,$q){
     return deferred.promise;
   };
 }]);
+
+app.service('dataShoutbox',['$http','$q',
+  function($http,$q){
+  var deferred=$q.defer();
+    $http.get('http://beta.json-generator.com/api/json/get/K0qt6bB')
+      .success(function(d){
+        deferred.resolve(d);
+      });
+
+    this.getShoutbox=function(){
+      return deferred.promise;
+    };
+}]);

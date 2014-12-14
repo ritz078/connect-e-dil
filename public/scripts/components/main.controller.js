@@ -2,57 +2,20 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['$scope','dataLeaderboard', function ($scope, dataLeaderboard) {
+app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbox',
+  function ($scope, dataLeaderboard, dataShoutbox) {
 
+    $scope.shouts = [];
+    var promiseShoutbox = dataShoutbox.getShoutbox();
+    promiseShoutbox.then(function (d) {
+      $scope.shouts = d;
+    });
 
-    var d = new Date();
-    $scope.shouts = [{
-      'name': 'Chintapenta Subramaniam Pramod',
-      'time': d,
-      'data': 'Lorem ipsum <br> https://www.google.com sit amet, consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatum.'
-    },
-      {
-        'id': '4566',
-        'name': 'Ritesh Kumar',
-        'time': d,
-        'data': 'Lorem :) ipsum dolor sit amet https://channeli.in , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatum.'
-      },
-      {
-        'id': '4566',
-        'name': 'Ritesh Kumar',
-        'time': d,
-        'data': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatum.'
-      },
-      {
-        'id': '4566',
-        'name': 'Ritesh Kumar',
-        'time': d,
-        'data': 'Lorem ipsum dolor ^_^ sit amet, consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatum.'
-      },
-      {
-        'id': '4566',
-        'name': 'Ritesh Kumar',
-        'time': d,
-        'data': 'Lorem ipsum \n dolor sit amet, consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatum.'
-      },
-      {
-        'id': '4566',
-        'name': 'Ritesh Kumar',
-        'time': d,
-        'data': 'Lorem ipsum do\nlkjlkjlkjlkjlkjlkjlkjlkjlkjlkjorhgjhgkjhgkhgkjhgkjhgkjhgkjhgkjhgkjhgkjhg sit amet :* , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatum.'
-      },
-      {
-        'id': '4567',
-        'name': 'Ritesh Kumar',
-        'time': d,
-        'data': 'Lorem ipsum dolor sit <3 , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error excepturi exercitationem facere fuga fugit iure minus omnis placeat porro quod sed, veniam voluptas voluptatibus voluptatumjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjhkjh.'
-      }];
-
-    $scope.leaderboard = {};
+    $scope.leaderboard = [];
     var promiseLeaderboard = dataLeaderboard.getLeaderboard();
     promiseLeaderboard.then(function (d) {
       $scope.leaderboard = d;
-      console.log(d);
+
     });
 
 
@@ -102,12 +65,11 @@ app.controller('RulesController', ['$scope', 'dataRules', function ($scope, data
 
 app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
 
-  var d = new Date();
   var shout = {
     'id': '4567',
     'name': 'Ritesh Kumar',
-    'time': d,
-    'data': 'Lorem http://i65.fastpic.ru/big/2014/1212/a4/3c68e26ca6d6ecf14994275eb9378da4.jpg ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=0fXlZ3vnQd0 , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
+    'time': 'Fri Feb 06 1970 00:34:19 GMT+0000 (UTC)',
+    'data': 'Lorem ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=0fXlZ3vnQd0 , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
   };
 
   String.prototype.truncate = function (n) {
@@ -155,7 +117,9 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
 
   var imgRegex = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
   var img = shout.data.match(imgRegex);
-  shout.imageUrl = img[0];
+  if (img) {
+    shout.imageUrl = img[0];
+  }
 
 
   $scope.shout = shout;

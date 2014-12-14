@@ -72,21 +72,37 @@ html {
             }
             .leaderboard {
               width: 100%;
+              margin-top: 20px;
               @include calc(height,'100% - 40px');
               .row {
                 width: 100%;
-                padding: 5px 0;
+                padding: 2px;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
                 span {
                   float: left;
                   display: block;
-                  color:rgba(255,255,255,0.6)
+                  color:rgba(255,255,255,0.6);
+                  padding: 6px;
                 }
                 .name {
-                  width: 50%;
+                  @include calc(width, '65% - 30px');
 
                 }
                 .r-roses {
-                  width: 25%;
+                  width: 15%;
+                  text-align: center;
+                }
+                .y-roses{
+                  width: 15%;
+                  text-align: center;
+                }
+                img{
+                  float: left;
+                  height: 28px;
+                  width: 28px;
+                  @include border-top-radius(2px);
+                  @include border-bottom-radius(2px)
                 }
               }
             }

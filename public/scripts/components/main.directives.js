@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('valentinoApp')
+var app=angular.module('valentinoApp');
 
-.directive('leanModal',function(){
+app.directive('leanModal',function(){
   return{
     restrict:'A',
     link:function(scope,elem,attr){
@@ -10,3 +10,6 @@ angular.module('valentinoApp')
     }
   };
 });
+
+
+
