@@ -9,14 +9,14 @@
     <div ng-bind-html="(shout.data |linky:'_target'| emoticons) " class="data">
     </div>
 
-    <div class="youtube-shout" ng-if="::shout.youtube.title" class="fade">
-      <div class="img-you" ng-hide="showVideo" ng-click="showVideo=true">
+    <div class="youtube-shout" ng-click="showVideo=true" ng-if="::shout.youtube.title" class="fade">
+      <div class="img-you" ng-hide="showVideo">
         <img ng-src="http://img.youtube.com/vi/{{::shout.youtube.id}}/0.jpg" alt=""/>
 
         <div class="play"><i class="fa fa-play"></i></div>
       </div>
       <div ng-show="!showVideo">
-        <h3 ng-click="showVideo=true"><a target="_blank" ng-href="">{{::shout.youtube.title}}</a>
+        <h3><a target="_blank" ng-href="">{{::shout.youtube.title}}</a>
         </h3>
 
         <p ng-bind-html="shout.youtube.desc"></p>
