@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400);
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
 @import "susy";
 
 /* Changing Susy default global settings */
@@ -15,7 +14,6 @@ $susy: (
 
 /* ====== Configuration ===========*/
 $font-default: 'Lato', sans-serif;
-$font-default2: 'Roboto', sans-serif;
 
 $gradient1: #3023ae;
 $gradient2: #c86dd7;

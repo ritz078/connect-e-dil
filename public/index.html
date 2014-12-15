@@ -40,8 +40,8 @@
       </div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable watch-collection="leaderboard">
-          <a ng-href="#/{{l.id}}" ng-repeat="l in leaderboard | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query">
-            <div class="row slide-left" >
+          <a ng-href="#/{{l.id}}" ng-repeat="l in leaderboard | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query" class="slide-left">
+            <div class="row" >
               <img ng-src="{{l.dp}}" alt=""/>
               <span class="name">{{l.name}}</span>
               <span class="r-roses">{{l.red_roses}}</span>

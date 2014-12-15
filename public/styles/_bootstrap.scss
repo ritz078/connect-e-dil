@@ -95,10 +95,9 @@ ol,ul{
 .fade.ng-leave-active {
   opacity: 0;
 }
-/* ------------------------------------------- */
-/* Slide Left
-/* ------------------------------------------- */
-/* line 217, ../sass/ng-animation.scss */
+
+
+
 .slide-left {
   -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -moz-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -171,7 +170,7 @@ ol,ul{
   display: block !important;
   opacity: 0;
 }
-/* line 259, ../sass/ng-animation.scss */
+
 .slide-left.ng-hide-remove.ng-hide-remove-active {
   transform: translateX(0);
   -ms-transform: translateX(0);

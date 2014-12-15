@@ -76,44 +76,49 @@ html {
             .leaderboard {
               width: 100%;
               @include calc(height,'100% - 40px');
-              .row {
-                &:hover{
-                  background-color: rgba(255,255,255,0.1);
-                }
-                width: 100%;
-                padding: 2px 10px;
-                font-size: 14px;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-                span {
-                  float: left;
-                  display: block;
-                  color:rgba(255,255,255,0.6);
-                  padding: 6px;
-                }
-                .name {
-                  @include calc(width, '65% - 30px');
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
+              a{
+                display: block;
+                overflow: auto;
+                .row {
+                  &:hover{
+                    background-color: rgba(255,255,255,0.1);
+                  }
+                  width: 100%;
+                  padding: 2px 10px;
+                  font-size: 14px;
+                  border-bottom: 1px solid rgba(255,255,255,0.05);
+                  span {
+                    float: left;
+                    display: block;
+                    color:rgba(255,255,255,0.6);
+                    padding: 6px;
+                  }
+                  .name {
+                    @include calc(width, '65% - 30px');
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
 
-                }
-                .r-roses {
-                  width: 15%;
-                  text-align: center;
-                }
-                .y-roses{
-                  width: 15%;
-                  text-align: center;
-                }
-                img{
-                  float: left;
-                  height: 25px;
-                  width: 25px;
-                  margin-top: 2px;
-                  @include border-top-radius(2px);
-                  @include border-bottom-radius(2px)
+                  }
+                  .r-roses {
+                    width: 15%;
+                    text-align: center;
+                  }
+                  .y-roses{
+                    width: 15%;
+                    text-align: center;
+                  }
+                  img{
+                    float: left;
+                    height: 25px;
+                    width: 25px;
+                    margin-top: 2px;
+                    @include border-top-radius(2px);
+                    @include border-bottom-radius(2px)
+                  }
                 }
               }
+
             }
           }
         }
