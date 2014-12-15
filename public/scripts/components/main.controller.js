@@ -129,3 +129,41 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
 
 
 }]);
+
+app.controller('UserController', ['$scope', '$http', '$routeParams','$timeout',
+  function ($scope, $http, $routeParams,$timeout) {
+  console.log($routeParams);
+
+  $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
+    $scope.user = d;
+    console.log(d);
+  });
+
+
+    $scope.lineChart={
+      labels:['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      series:['Series A', 'Series B'],
+      data : [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+      ],
+      onClick : function (points, evt) {
+        console.log(points, evt);
+      },
+      options:{
+        scaleGridLineColor : 'rgba(255,255,255,.05)',
+        bezierCurve : false
+      }
+    };
+
+
+
+  // Simulate async data update
+  $timeout(function () {
+    $scope.data = [
+      [28, 48, 40, 19, 86, 27, 90],
+      [65, 59, 80, 81, 56, 55, 40]
+    ];
+  }, 3000);
+
+}]);
