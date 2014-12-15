@@ -130,8 +130,8 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
 
 }]);
 
-app.controller('UserController', ['$scope', '$http', '$routeParams','$timeout',
-  function ($scope, $http, $routeParams,$timeout) {
+app.controller('UserController', ['$scope', '$http', '$routeParams',
+  function ($scope, $http, $routeParams) {
   console.log($routeParams);
 
   $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
@@ -144,7 +144,7 @@ app.controller('UserController', ['$scope', '$http', '$routeParams','$timeout',
       labels:['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       series:['Series A', 'Series B'],
       data : [
-        [65, 59, 80, 81, 56, 55, 40],
+        [65, 80, 81, 56, 55, 40],
         [28, 48, 40, 19, 86, 27, 90]
       ],
       onClick : function (points, evt) {
@@ -156,14 +156,28 @@ app.controller('UserController', ['$scope', '$http', '$routeParams','$timeout',
       }
     };
 
+    $scope.pieChart={
+      labels:['Bande','Bandiyan'],
+      data:[3,4],
+      'colors':[{
+        fillColor: 'rgba(255,255,255,0.3)',
+        strokeColor: 'rgba(255,255,255,0.3)',
+        pointColor: 'rgba(255,255,255,0.3)',
+        pointStrokeColor: 'rgba(255,255,255,0.3)',
+        pointHighlightFill: 'rgba(255,255,255,0.3)',
+        pointHighlightStroke: 'rgba(255,255,255,0.3)',
+      },{
+        fillColor: 'rgba(255,255,255,0.7)',
+        strokeColor: 'rgba(255,255,255,0.7)',
+        pointColor: 'rgba(255,255,255,0.7)',
+        pointStrokeColor: 'rgba(255,255,255,0.7)',
+        pointHighlightFill: 'rgba(255,255,255,0.7)',
+        pointHighlightStroke: 'rgba(255,255,255,0.7)'
+      }],
+      options:{
+        segmentShowStroke:false
+      }
 
-
-  // Simulate async data update
-  $timeout(function () {
-    $scope.data = [
-      [28, 48, 40, 19, 86, 27, 90],
-      [65, 59, 80, 81, 56, 55, 40]
-    ];
-  }, 3000);
+    };
 
 }]);

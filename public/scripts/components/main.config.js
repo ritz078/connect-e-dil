@@ -39,5 +39,8 @@ Chart.defaults.global.scaleLineColor='rgba(255,255,255,.1)';
 Chart.defaults.global.scaleFontColor='rgba(255,255,255,0.8)';
 Chart.defaults.global.scaleFontFamily='Lato,sans-serif';
 Chart.defaults.global.animationSteps=150;
+Chart.defaults.global.tooltipFillColor='rgba(131, 76, 196, 0.95)';
+Chart.defaults.global.tooltipFontFamily='Lato,sans-serif';
+Chart.defaults.global.tooltipTitleFontFamily='Lato,sans-serif';
 
 
