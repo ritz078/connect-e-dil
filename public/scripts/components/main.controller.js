@@ -142,10 +142,10 @@ app.controller('UserController', ['$scope', '$http', '$routeParams',
 
     $scope.lineChart={
       labels:['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      series:['Series A', 'Series B'],
+      series:['Red Roses', 'Yellow Roses'],
       data : [
-        [65, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
+        [5, 0, 1, 6, 5, 0],
+        [8, 8, 0, 9, 6, 7, 0]
       ],
       onClick : function (points, evt) {
         console.log(points, evt);
