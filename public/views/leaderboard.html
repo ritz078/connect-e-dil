@@ -1,11 +1,14 @@
 <div class="fl-wrapper">
   <input type="text" id="query" ng-model="query2" autocomplete="off"/>
-  <div class="fl-list-wrapper" scrollable="">
-    <a ng-href="#/user/{{u.enrolmentNo}}" ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query2))" class="slide-left">
+  <div class="fl-list-wrapper" scrollable watchCollections="filteredlb">
+    <a ng-href="#/user/{{u.enrolmentNo}}" ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query2)) track by $index" class="slide-left">
     <div class="fl-list">
       <img src="{{u.dp}}" alt="{{u.name}}"/>
       <span>{{u.name}}</span>
     </div>
       </a>
+    <div class="loading">
+      <img src="/images/hearts.svg" alt=""/>
+    </div>
   </div>
 </div>

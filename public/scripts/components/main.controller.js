@@ -52,12 +52,12 @@ app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbo
     });
 
     $scope.people = [
-      { label: 'Joe'},
-      { label: 'Mike'},
-      { label: 'Diane'},
-      {label:'Ritesh'},
-      {label:'Pulkit'},
-      {label:'Punit'}
+      {label: 'Joe'},
+      {label: 'Mike'},
+      {label: 'Diane'},
+      {label: 'Ritesh'},
+      {label: 'Pulkit'},
+      {label: 'Punit'}
     ];
 
 
@@ -141,41 +141,41 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
 
 app.controller('UserController', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
-  console.log($routeParams);
+    console.log($routeParams);
 
-  $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
-    $scope.user = d;
-    console.log(d);
-  });
+    $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
+      $scope.user = d;
+      console.log(d);
+    });
 
 
-    $scope.lineChart={
-      labels:['8th', '9th', '10th', '11th', '12th', '13th', '14th'],
-      series:['Red Roses', 'Yellow Roses'],
-      data : [
+    $scope.lineChart = {
+      labels: ['8th', '9th', '10th', '11th', '12th', '13th', '14th'],
+      series: ['Red Roses', 'Yellow Roses'],
+      data: [
         [5, 0, 1, 6, 5, 0],
         [8, 8, 0, 9, 6, 7, 0]
       ],
-      onClick : function (points, evt) {
+      onClick: function (points, evt) {
         console.log(points, evt);
       },
-      options:{
-        scaleGridLineColor : 'rgba(255,255,255,.05)',
-        bezierCurve : false
+      options: {
+        scaleGridLineColor: 'rgba(255,255,255,.05)',
+        bezierCurve: false
       }
     };
 
-    $scope.pieChart={
-      labels:['Bande','Bandiyan'],
-      data:[3,4],
-      'colors':[{
+    $scope.pieChart = {
+      labels: ['Bande', 'Bandiyan'],
+      data: [3, 4],
+      'colors': [{
         fillColor: 'rgba(255,255,255,0.3)',
         strokeColor: 'rgba(255,255,255,0.3)',
         pointColor: 'rgba(255,255,255,0.3)',
         pointStrokeColor: 'rgba(255,255,255,0.3)',
         pointHighlightFill: 'rgba(255,255,255,0.3)',
         pointHighlightStroke: 'rgba(255,255,255,0.3)'
-      },{
+      }, {
         fillColor: 'rgba(255,255,255,0.7)',
         strokeColor: 'rgba(255,255,255,0.7)',
         pointColor: 'rgba(255,255,255,0.7)',
@@ -183,19 +183,38 @@ app.controller('UserController', ['$scope', '$http', '$routeParams',
         pointHighlightFill: 'rgba(255,255,255,0.7)',
         pointHighlightStroke: 'rgba(255,255,255,0.7)'
       }],
-      options:{
-        segmentShowStroke:false
+      options: {
+        segmentShowStroke: false
       }
 
     };
 
-}]);
+  }]);
 
 
-app.controller('LeaderboardController',['$scope','$http',
-  function($scope,$http){
-$http.get('/data/v-leaderboard.json').success(function(d){
-  console.log(d);
-  $scope.users=d;
-});
-}]);
+app.controller('LeaderboardController', ['$scope', '$http',
+  function ($scope, $http) {
+    $http.get('/data/v-leaderboard.json').success(function (d) {
+      console.log(d);
+      $scope.users = d;
+    });
+
+
+    angular.element('.fl-list-wrapper .nano').bind('scrollend', function () {
+      addLeaderboard();
+
+    });
+
+    function addLeaderboard(){
+      angular.element('.f-list-wrapper .nano').unbind('scrollend');
+      $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
+        .success(function(ds){
+          angular.forEach(ds,function(d){
+            console.log(d);
+            $scope.users.push(d);
+          });
+        });
+    }
+
+
+  }]);

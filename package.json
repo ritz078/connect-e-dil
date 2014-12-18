@@ -31,7 +31,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "express": "^4.10.4",
+    "express": "^4.10.6",
     "mongoose": "^3.8.20",
     "socket.io": "^1.2.1"
   }

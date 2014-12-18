@@ -153,6 +153,14 @@ html {
                 @include border-bottom-radius(2px);
                 @include border-top-radius(2px);
                 @include calc(height,'100% - 40px');
+                .loading{
+                  width: 100%;
+                  img{
+                    display: block;
+                    margin: 10px auto;
+                    height: 30px;
+                  }
+                }
                 a{
                   text-decoration: none;
                   display: block;
