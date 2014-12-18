@@ -38,6 +38,11 @@
   </header>
   <div class="content">
     <div class="left" >
+      <a href="#/leaderboard">
+        <button>
+          lb
+        </button>
+      </a>
       <div class="left-wrapper">
 
         <input type="text" ng-model="query"/>
@@ -63,7 +68,7 @@
     <div class="right">
       <div class="shoutInput">
         <form action="">
-          <textarea ng-keydown="submitShout($event)" id="shoutInput" placeholder="Shout here" ng-model="user.data" type="text" required/></textarea>
+          <textarea mentio mentio-for="shoutInput" mentio-typed-text="typedTerm" mentio-template-url="/people-mentions.tpl" mentio-items="people|filter:typedTerm" ng-keydown="submitShout($event)" id="shoutInput" placeholder="Shout here" ng-model="user.data" type="text" required/></textarea>
         </form>
 
       </div>
@@ -90,6 +95,14 @@
   </div>
 </div>
 
+<script type="text/ng-template" id="/people-mentions.tpl">
+  <ul class="mentions">
+    <li ng-repeat="person in items" mentio-menu-item="person">
+      <span ng-bind-html="person.label | mentioHighlight:typedTerm:'menu-highlighted'"></span>
+    </li>
+  </ul>
+</script>
+
 
 
 
@@ -108,6 +121,7 @@
 <script src="bower_components/angular-moment/angular-moment.js"></script>
 <script src="bower_components/Chart.js/Chart.min.js"></script>
 <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+<script src="bower_components/ment.io/dist/mentio.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 

@@ -26,11 +26,11 @@ app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbo
 
     //Shout Submission
     $scope.submitShout = function (e) {
-      console.log(e.keyCode);
-      if (e.keyCode !== 13) {
+
+      if (e.keyCode !== 13 && !($('mentio-menu').is(':visible'))) {
         return;
       }
-      else if (e.keyCode === 13 && !e.shiftKey) {
+      else if (e.keyCode === 13 && !e.shiftKey && !($('mentio-menu').is(':visible'))) {
         e.preventDefault();
         $scope.user.time = new Date();
         $scope.shouts.push($scope.user);
@@ -50,6 +50,15 @@ app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbo
     $('#shoutInput').blur(function () {
       $(this).animate({height: '40px'});
     });
+
+    $scope.people = [
+      { label: 'Joe'},
+      { label: 'Mike'},
+      { label: 'Diane'},
+      {label:'Ritesh'},
+      {label:'Pulkit'},
+      {label:'Punit'}
+    ];
 
 
   }]);
@@ -141,7 +150,7 @@ app.controller('UserController', ['$scope', '$http', '$routeParams',
 
 
     $scope.lineChart={
-      labels:['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels:['8th', '9th', '10th', '11th', '12th', '13th', '14th'],
       series:['Red Roses', 'Yellow Roses'],
       data : [
         [5, 0, 1, 6, 5, 0],
@@ -165,7 +174,7 @@ app.controller('UserController', ['$scope', '$http', '$routeParams',
         pointColor: 'rgba(255,255,255,0.3)',
         pointStrokeColor: 'rgba(255,255,255,0.3)',
         pointHighlightFill: 'rgba(255,255,255,0.3)',
-        pointHighlightStroke: 'rgba(255,255,255,0.3)',
+        pointHighlightStroke: 'rgba(255,255,255,0.3)'
       },{
         fillColor: 'rgba(255,255,255,0.7)',
         strokeColor: 'rgba(255,255,255,0.7)',
@@ -180,4 +189,13 @@ app.controller('UserController', ['$scope', '$http', '$routeParams',
 
     };
 
+}]);
+
+
+app.controller('LeaderboardController',['$scope','$http',
+  function($scope,$http){
+$http.get('/data/v-leaderboard.json').success(function(d){
+  console.log(d);
+  $scope.users=d;
+});
 }]);

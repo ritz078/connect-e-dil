@@ -30,6 +30,11 @@ app.config(['$routeProvider',
         templateUrl: '/views/user.html',
         controller: 'UserController',
         resolve: resolve
+      })
+      .when('/leaderboard',{
+        templateUrl:'/views/leaderboard.html',
+        controller:'LeaderboardController',
+        resolve:resolve
       });
 
 

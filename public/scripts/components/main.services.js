@@ -17,7 +17,7 @@ app.service('dataRules', ['$http', '$q',
 app.service('dataLeaderboard',['$http','$q',
 function($http,$q){
   var deferred=$q.defer();
-  $http.get('http://beta.json-generator.com/api/json/get/B1ewljb')
+  $http.get('/data/v-leaderboard.json')
     .success(function(d){
       deferred.resolve(d);
     });
@@ -30,7 +30,7 @@ function($http,$q){
 app.service('dataShoutbox',['$http','$q',
   function($http,$q){
   var deferred=$q.defer();
-    $http.get('http://beta.json-generator.com/api/json/get/K0qt6bB')
+    $http.get('/data/v-shout.json')
       .success(function(d){
         deferred.resolve(d);
       });

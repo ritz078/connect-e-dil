@@ -128,6 +128,63 @@ html {
           .ng-view {
             width: 100%;
             padding: 20px;
+            @include calc(min-height,'100% - 100px');
+            .fl-wrapper{
+              width: 100%;
+              height: 100%;
+              #query{
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                border-bottom-left-radius: 2px;
+                border-bottom-right-radius: 2px;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+                padding: 5px;
+                color: #ffffff;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing:grayscale;
+              }
+              .fl-list-wrapper{
+                background-color: $bg-center;
+                width: 100%;
+                margin-top: 20px;
+                overflow: auto;
+                @include border-bottom-radius(2px);
+                @include border-top-radius(2px);
+                @include calc(height,'100% - 40px');
+                a{
+                  text-decoration: none;
+                  display: block;
+                  overflow: auto;
+                  color: rgba(255, 255, 255, 0.6);
+                  &:hover{
+                    background-color: rgba(255, 255, 255, 0.1);
+                  }
+                  .fl-list{
+                    width: 100%;
+                    padding: 2px 5px;
+                    font-size: 14px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                    img{
+                      width: 25px;
+                      height: 25px;
+                      border-radius: 2px;
+                      margin-top: 2px;
+                      float: left;
+
+                    }
+                    span{
+                      display: block;
+                      float:left;
+                      padding: 6px;
+                    }
+                  }
+                }
+              }
+            }
+
+            //ShoutView  ==========================
             .shoutView {
               font-size: 14px;
               padding: 15px;
@@ -252,6 +309,8 @@ html {
 
             }
 
+            //User Profile View ===========================
+
             .user-wrapper{
               padding: 10px;
               width: 100%;
@@ -259,9 +318,16 @@ html {
                 img{
                   height: 80px;
                   width: 80px;
+                  float: left;
                   @include border-bottom-radius(2px);
                   @include border-top-radius(2px);
 
+                }
+                span{
+                  display: block;
+                  float: left;
+                  color: rgba(255,255,255,0.6);
+                  padding: 5px 10px;
                 }
               }
               .linechart-wrapper{
@@ -420,5 +486,27 @@ html {
     font-family: 'latolight';
   }
 
+}
+
+
+.mentions{
+  background-color: rgba(131, 76, 196, 0.95);
+  border-radius: 2px;
+  margin-left: 10px;
+  min-width: 200px;
+  li{
+    list-style-type: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    &:last-of-type{
+      border-bottom: none;
+    }
+  }
+  .active{
+    background-color: rgb(100, 58, 196);
+  }
 }
 

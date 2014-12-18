@@ -1,0 +1,11 @@
+<div class="fl-wrapper">
+  <input type="text" id="query" ng-model="query" autocomplete="off"/>
+  <div class="fl-list-wrapper" scrollable>
+    <a ng-href="#/user/{{u.enrolmentNo}}" ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query))" class="slide-left">
+    <div class="fl-list">
+      <img src="{{u.dp}}" alt="{{u.name}}"/>
+      <span>{{u.name}}</span>
+    </div>
+      </a>
+  </div>
+</div>
