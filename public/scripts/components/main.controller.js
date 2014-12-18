@@ -30,7 +30,7 @@ app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbo
       if (e.keyCode !== 13 && !($('mentio-menu').is(':visible'))) {
         return;
       }
-      else if (e.keyCode === 13 && !e.shiftKey && !($('mentio-menu').is(':visible'))) {
+      else if (e.keyCode === 13 && !e.shiftKey && !($('mentio-menu').is(':visible')) && $scope.user.data) {
         e.preventDefault();
         $scope.user.time = new Date();
         $scope.shouts.push($scope.user);
