@@ -39,14 +39,22 @@
   <div class="content">
     <div class="left" >
 <div class="left-wrapper">
-  <a href="#/leaderboard"><span>LeaderBoard</span></a>
+
+  <a href="#/leaderboard"><span class="title">LeaderBoard</span></a>
+
+  <div class="hd">
+    <span class="serial">#</span>
+    <span class="name">Name</span>
+    <span class="r-roses">R</span>
+    <span class="y-roses">Y</span>
+  </div>
 </div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable="" watchCollection="leaderboard">
-          <a ng-href="#/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard" class="slide-left">
+          <a ng-href="#/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:15" class="slide-left">
             <div class="row" >
-              <img ng-src="{{l.dp}}" alt=""/>
-              <span class="name">{{l.name}}</span>
+              <span class="serial">{{$index+1}}.</span>
+              <span class="name"><img ng-src="{{l.dp}}" alt=""/><span>{{l.name}}</span></span>
               <span class="r-roses">{{l.red_roses}}</span>
               <span class="y-roses">{{l.yellow_roses}}</span>
             </div>
@@ -55,13 +63,17 @@
         </div>
 
     </div>
+
       <div class="left-wrapper">
 
         <a href="#/leaderboard">
-          <button>
-            See All
-          </button>
+          <button>See All</button>
         </a>
+        <span class="copyright">
+          Copyright &copy; 2015 <br/>
+        Information Management Group
+        </span>
+
       </div>
     </div>
     <div class="center" id="center" scrollable>

@@ -58,20 +58,61 @@ html {
           .left-wrapper{
             width: 100%;
             padding: 10px;
+            .hd{
+              width: 100%;
+              background-color: rgba(255, 255, 255, 0.04);
+              margin-top: 5px;
+              border-radius: 2px;
+              .name,.serial,.r-roses,.y-roses {
+                float: left;
+                display: block;
+                color:rgba(255,255,255,0.6);
+                padding: 6px;
+                font-size: 13px;
+                border-right: 1px solid rgba(255, 255, 255, 0.04);
+                &:last-of-type{
+                  border-right: 0;
+                }
+              }
+              .name {
+                width: 60%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+              }
+              .serial{
+                width: 10%;
+                text-align: center;
+              }
+              .r-roses {
+                width: 15%;
+                text-align: center;
+              }
+              .y-roses{
+                width: 15%;
+                text-align: center;
+              }
+            }
+            .copyright{
+              display: block;
+              font-size: 13px;
+              color: rgba(255,255,255,0.7);
+              text-align: center;
+              padding-top: 5px;
+            }
             a{
               display: block;
               width: 100%;
               text-decoration: none;
-              span{
+              .title{
                 color: rgba(255, 255, 255, 0.8);
                 display: block;
                 text-align: center;
                 padding: 8px;
-                background-color: $bg-center;
                 @include border-bottom-radius(2px);
                 @include border-top-radius(2px);
                 &:hover{
-                  background-color: rgba(255,255,255,0.4);
                   color: #ffffff;
                 }
               }
@@ -79,10 +120,16 @@ html {
                 padding: 5px;
                 width: 100%;
                 border-radius: 2px;
-                border: 1px solid rgba(255, 255, 255, 0.58);
-                background-color: rgba(255, 255, 255, 0.76);
-                color: #000;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                background-color: rgba(255, 255, 255, 0.10);
+                color: #fff;
                 margin-bottom: 10px;
+                font-size: 13px;
+                -webkit-font-smoothing: antialiased;
+                &:hover{
+                  color: #ffffff;
+                  background-color: rgba(255,255,255,0.4);
+                }
               }
             }
             input {
@@ -99,7 +146,7 @@ html {
           }
           .left-wrapper1{
             width: 100%;
-            @include calc(height,'100% - 100px');
+            @include calc(height,'100% - 180px');
 
             .leaderboard {
               width: 100%;
@@ -115,18 +162,36 @@ html {
                   padding: 2px 10px;
                   font-size: 14px;
                   border-bottom: 1px solid $bg-center;
-                  span {
+                  span:not(.name) {
                     float: left;
                     display: block;
                     color:rgba(255,255,255,0.6);
                     padding: 6px;
                   }
                   .name {
-                    @include calc(width, '65% - 30px');
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    width: 60%;
+                    display: block;
+                    float: left;
+                    img{
+                      float: left;
+                      height: 25px;
+                      width: 25px;
+                      margin-top: 2px;
+                      @include border-top-radius(2px);
+                      @include border-bottom-radius(2px)
+                    }
+                    span{
+                      padding: 6px;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      display: block;
+                      @include calc(width,'100% - 30px')
+                    }
 
+                  }
+                  .serial{
+                    width: 10%;
                   }
                   .r-roses {
                     width: 15%;
@@ -136,14 +201,7 @@ html {
                     width: 15%;
                     text-align: center;
                   }
-                  img{
-                    float: left;
-                    height: 25px;
-                    width: 25px;
-                    margin-top: 2px;
-                    @include border-top-radius(2px);
-                    @include border-bottom-radius(2px)
-                  }
+
                 }
               }
 

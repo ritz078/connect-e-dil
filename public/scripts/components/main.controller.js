@@ -210,7 +210,6 @@ app.controller('LeaderboardController', ['$scope', '$http',
       $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
         .success(function(ds){
           angular.forEach(ds,function(d){
-            console.log(d);
             $scope.users.push(d);
           });
         });
