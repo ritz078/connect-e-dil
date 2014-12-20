@@ -215,5 +215,15 @@ app.controller('LeaderboardController', ['$scope', '$http',
         });
     }
 
+    $scope.selectedGender={
+      'male':false,
+      'female':false,
+      'getGender':function(){
+        if(this.male && !this.female){return 'Male';}
+        else if(this.female && !this.male){return 'Female';}
+        else{return 'All';}
+      }
+    };
+
 
   }]);

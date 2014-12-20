@@ -55,22 +55,23 @@ html {
           background-color: rgba(255, 255, 255, 0.2);
         }
         .left {
-          .left-wrapper{
+          .left-wrapper {
             width: 100%;
             padding: 10px;
-            .hd{
+            .hd {
               width: 100%;
               background-color: rgba(255, 255, 255, 0.04);
               margin-top: 5px;
               border-radius: 2px;
-              .name,.serial,.r-roses,.y-roses {
+              box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+              .name, .serial, .r-roses, .y-roses {
                 float: left;
                 display: block;
-                color:rgba(255,255,255,0.6);
+                color: rgba(255, 255, 255, 0.6);
                 padding: 6px;
                 font-size: 13px;
                 border-right: 1px solid rgba(255, 255, 255, 0.04);
-                &:last-of-type{
+                &:last-of-type {
                   border-right: 0;
                 }
               }
@@ -81,7 +82,7 @@ html {
                 text-overflow: ellipsis;
 
               }
-              .serial{
+              .serial {
                 width: 10%;
                 text-align: center;
               }
@@ -89,34 +90,34 @@ html {
                 width: 15%;
                 text-align: center;
               }
-              .y-roses{
+              .y-roses {
                 width: 15%;
                 text-align: center;
               }
             }
-            .copyright{
+            .copyright {
               display: block;
               font-size: 13px;
-              color: rgba(255,255,255,0.7);
+              color: rgba(255, 255, 255, 0.7);
               text-align: center;
               padding-top: 5px;
             }
-            a{
+            a {
               display: block;
               width: 100%;
               text-decoration: none;
-              .title{
+              .title {
                 color: rgba(255, 255, 255, 0.8);
                 display: block;
                 text-align: center;
                 padding: 8px;
                 @include border-bottom-radius(2px);
                 @include border-top-radius(2px);
-                &:hover{
+                &:hover {
                   color: #ffffff;
                 }
               }
-              button{
+              button {
                 padding: 5px;
                 width: 100%;
                 border-radius: 2px;
@@ -126,9 +127,10 @@ html {
                 margin-bottom: 10px;
                 font-size: 13px;
                 -webkit-font-smoothing: antialiased;
-                &:hover{
+                box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+                &:hover {
                   color: #ffffff;
-                  background-color: rgba(255,255,255,0.4);
+                  background-color: rgba(255, 255, 255, 0.4);
                 }
               }
             }
@@ -144,19 +146,19 @@ html {
               -moz-osx-font-smoothing: grayscale;
             }
           }
-          .left-wrapper1{
+          .left-wrapper1 {
             width: 100%;
-            @include calc(height,'100% - 180px');
+            @include calc(height, '100% - 180px');
 
             .leaderboard {
               width: 100%;
               height: 100%;
-              a{
+              a {
                 display: block;
                 overflow: auto;
                 .row {
-                  &:hover{
-                    background-color: rgba(255,255,255,0.1);
+                  &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
                   }
                   width: 100%;
                   padding: 2px 10px;
@@ -165,14 +167,14 @@ html {
                   span:not(.name) {
                     float: left;
                     display: block;
-                    color:rgba(255,255,255,0.6);
+                    color: rgba(255, 255, 255, 0.6);
                     padding: 6px;
                   }
                   .name {
                     width: 60%;
                     display: block;
                     float: left;
-                    img{
+                    img {
                       float: left;
                       height: 25px;
                       width: 25px;
@@ -180,24 +182,24 @@ html {
                       @include border-top-radius(2px);
                       @include border-bottom-radius(2px)
                     }
-                    span{
+                    span {
                       padding: 6px;
                       white-space: nowrap;
                       overflow: hidden;
                       text-overflow: ellipsis;
                       display: block;
-                      @include calc(width,'100% - 30px')
+                      @include calc(width, '100% - 30px')
                     }
 
                   }
-                  .serial{
+                  .serial {
                     width: 10%;
                   }
                   .r-roses {
                     width: 15%;
                     text-align: center;
                   }
-                  .y-roses{
+                  .y-roses {
                     width: 15%;
                     text-align: center;
                   }
@@ -214,12 +216,12 @@ html {
           .ng-view {
             width: 100%;
             padding: 20px;
-            @include calc(min-height,'100% - 100px');
-            .fl-wrapper{
+            @include calc(min-height, '100% - 100px');
+            .fl-wrapper {
               width: 100%;
               height: 100%;
-              #query{
-                width: 100%;
+              #query {
+                width: 86%;
                 background-color: rgba(255, 255, 255, 0.3);
                 border: 1px solid rgba(255, 255, 255, 0.5);
                 border-bottom-left-radius: 2px;
@@ -229,38 +231,61 @@ html {
                 padding: 5px;
                 color: #ffffff;
                 -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing:grayscale;
+                -moz-osx-font-smoothing: grayscale;
+                float: left;
               }
-              .fl-list-wrapper{
+              .gender,.active{
+                float: left;
+                width: 5%;
+                margin-left: 2%;
+                text-align: center;
+                padding: 6px;
+                color: #ffffff;
+                background-color: $bg-center;
+                border-radius: 2px;
+                cursor: pointer;
+                box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+                &:hover {
+                  box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.4);
+                  background-color: rgba(255,255,255,0.1);
+                }
+              }
+              .active{
+                background-color: rgba(255,255,255,0.35);
+                &:hover{
+                  background-color: rgba(255,255,255,0.35);
+                }
+              }
+              .fl-list-wrapper {
                 background-color: $bg-center;
                 width: 100%;
                 margin-top: 20px;
                 overflow: auto;
                 @include border-bottom-radius(2px);
                 @include border-top-radius(2px);
-                @include calc(height,'100% - 40px');
-                .loading{
+                @include calc(height, '100% - 40px');
+                .loading {
                   width: 100%;
-                  img{
+                  img {
                     display: block;
                     margin: 10px auto;
                     height: 30px;
                   }
                 }
-                a{
+                a {
                   text-decoration: none;
                   display: block;
                   overflow: auto;
                   color: rgba(255, 255, 255, 0.6);
-                  &:hover{
+                  &:hover {
                     background-color: rgba(255, 255, 255, 0.1);
                   }
-                  .fl-list{
+                  .fl-list {
                     width: 100%;
                     padding: 2px 5px;
                     font-size: 14px;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-                    img{
+                    img {
                       width: 25px;
                       height: 25px;
                       border-radius: 2px;
@@ -268,9 +293,9 @@ html {
                       float: left;
 
                     }
-                    span{
+                    span {
                       display: block;
-                      float:left;
+                      float: left;
                       padding: 6px;
                     }
                   }
@@ -406,11 +431,11 @@ html {
 
             //User Profile View ===========================
 
-            .user-wrapper{
+            .user-wrapper {
               padding: 10px;
               width: 100%;
-              .user-info{
-                img{
+              .user-info {
+                img {
                   height: 80px;
                   width: 80px;
                   float: left;
@@ -418,30 +443,30 @@ html {
                   @include border-top-radius(2px);
 
                 }
-                span{
+                span {
                   display: block;
                   float: left;
-                  color: rgba(255,255,255,0.6);
+                  color: rgba(255, 255, 255, 0.6);
                   padding: 5px 10px;
                 }
               }
-              .linechart-wrapper{
+              .linechart-wrapper {
                 padding: 20px;
                 width: 100%;
                 background-color: $bg-center;
                 border-radius: 2px;
                 margin-top: 20px;
-                .chart-container{
+                .chart-container {
                   width: 100%;
                 }
               }
-              .piechart-wrapper{
+              .piechart-wrapper {
                 padding: 20px;
                 width: 100%;
                 background-color: $bg-center;
                 border-radius: 2px;
                 margin-top: 20px;
-                .chart-container{
+                .chart-container {
                   float: right;
                   width: 50%;
                 }
@@ -583,24 +608,23 @@ html {
 
 }
 
-
-.mentions{
+.mentions {
   background-color: rgba(131, 76, 196, 0.95);
   border-radius: 2px;
   margin-left: 10px;
   min-width: 200px;
-  li{
+  li {
     list-style-type: none;
     color: #ffffff;
     padding: 5px 10px;
     font-size: 13px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-    &:last-of-type{
+    &:last-of-type {
       border-bottom: none;
     }
   }
-  .active{
+  .active {
     background-color: rgb(100, 58, 196);
   }
 }

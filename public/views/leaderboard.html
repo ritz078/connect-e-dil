@@ -1,5 +1,7 @@
 <div class="fl-wrapper">
-  <input type="text" id="query" ng-model="query2" autocomplete="off"/>
+  <input type="text" id="query" ng-model="query2" autocomplete="off" placeholder="Search for {{selectedGender.getGender()}} friends"/>
+  <div ng-click="selectedGender.male=!(selectedGender.male)" ng-class="{true:'active',false:'gender'}[selectedGender.male]"><i class="fa fa-male"></i></div>
+  <div ng-click="selectedGender.female=!(selectedGender.female)" ng-class="{true:'active',false:'gender'}[selectedGender.female]"><i class="fa fa-female"></i></div>
   <div class="fl-list-wrapper" scrollable watchCollections="filteredlb">
     <a ng-href="#/user/{{u.enrolmentNo}}" ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query2)) track by $index" class="slide-left">
     <div class="fl-list">
