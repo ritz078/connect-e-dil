@@ -38,18 +38,12 @@
   </header>
   <div class="content">
     <div class="left" >
-      <a href="#/leaderboard">
-        <button>
-          lb
-        </button>
-      </a>
-      <div class="left-wrapper">
-
-        <input type="text" ng-model="query"/>
-      </div>
+<div class="left-wrapper">
+  <a href="#/leaderboard"><span>LeaderBoard</span></a>
+</div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable="" watchCollection="leaderboard">
-          <a ng-href="#/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query" class="slide-left">
+          <a ng-href="#/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard" class="slide-left">
             <div class="row" >
               <img ng-src="{{l.dp}}" alt=""/>
               <span class="name">{{l.name}}</span>
@@ -61,6 +55,14 @@
         </div>
 
     </div>
+      <div class="left-wrapper">
+
+        <a href="#/leaderboard">
+          <button>
+            See All
+          </button>
+        </a>
+      </div>
     </div>
     <div class="center" id="center" scrollable>
       <div class="ng-view fade"></div>
