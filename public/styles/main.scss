@@ -250,6 +250,33 @@ html {
                   background-color: rgba(255,255,255,0.1);
                 }
               }
+              .fl-hd{
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.04);
+                margin-top: 15px;
+                border-radius: 2px;
+                box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+                span{
+                  float: left;
+                  display: block;
+                  color: rgba(255, 255, 255, 0.6);
+                  padding: 6px;
+                  font-size: 13px;
+                  border-right: 1px solid rgba(255, 255, 255, 0.04);
+                }
+                .fl-name{
+                  @include calc(width,'50% - 40px');
+                }
+                .fl-serial{
+                  width: 40px;
+                  text-align: center;
+                }
+                .fl-num{
+                  @include span(6/4);
+                  text-align: center;
+                }
+
+              }
               .active{
                 background-color: rgba(255,255,255,0.35);
                 &:hover{
@@ -259,11 +286,11 @@ html {
               .fl-list-wrapper {
                 background-color: $bg-center;
                 width: 100%;
-                margin-top: 20px;
+                margin-top: 5px;
                 overflow: auto;
                 @include border-bottom-radius(2px);
                 @include border-top-radius(2px);
-                @include calc(height, '100% - 40px');
+                @include calc(height, '100% - 60px');
                 .loading {
                   width: 100%;
                   img {
@@ -285,15 +312,31 @@ html {
                     padding: 2px 5px;
                     font-size: 14px;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-                    img {
-                      width: 25px;
-                      height: 25px;
-                      border-radius: 2px;
-                      margin-top: 2px;
-                      float: left;
+                    .fl-name{
 
+                      img {
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 2px;
+                        margin-top: 2px;
+                        float: left;
+
+                      }
                     }
-                    span {
+                    .fl-serial{
+                      width: 40px;
+                    }
+                    .fl-name{
+                      float: left;
+                      display: block;
+                      @include calc(width,'50% - 40px');
+                    }
+                    .fl-num{
+                      display: block;
+                      @include span(6/4);
+                      text-align: center;
+                    }
+                    span:not(.fl-name) {
                       display: block;
                       float: left;
                       padding: 6px;
