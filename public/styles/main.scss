@@ -313,7 +313,9 @@ html {
                     font-size: 14px;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
                     .fl-name{
-
+                      float: left;
+                      display: block;
+                      @include calc(width,'50% - 40px');
                       img {
                         width: 25px;
                         height: 25px;
@@ -322,14 +324,15 @@ html {
                         float: left;
 
                       }
+                      span{
+                        @include calc(width,'100% - 25px');
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                      }
                     }
                     .fl-serial{
                       width: 40px;
-                    }
-                    .fl-name{
-                      float: left;
-                      display: block;
-                      @include calc(width,'50% - 40px');
                     }
                     .fl-num{
                       display: block;
@@ -478,6 +481,7 @@ html {
               padding: 10px;
               width: 100%;
               .user-info {
+                width: 100%;
                 img {
                   height: 80px;
                   width: 80px;
@@ -485,6 +489,21 @@ html {
                   @include border-bottom-radius(2px);
                   @include border-top-radius(2px);
 
+                }
+                .user-details{
+                  @include calc(width,'100% - 160px');
+                }
+                .user-score{
+                  height: 80px;
+                  width: 80px;
+                  background-color: $bg-center;
+                  border-radius: 2px;
+                  float: left;
+                  text-align: center;
+                  padding: 10px;
+                  font-size: 50px;
+                  color: #ffffff;
+                  font-family:'latolight' ;
                 }
                 span {
                   display: block;
@@ -656,6 +675,7 @@ html {
     overflow: auto;
     margin-bottom: 40px;
     font-family: 'latolight';
+    padding: 3px;
   }
 
 }

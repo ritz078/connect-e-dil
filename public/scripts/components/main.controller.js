@@ -2,8 +2,8 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['$scope','$http', 'dataLeaderboard', 'dataShoutbox',
-  function ($scope,$http, dataLeaderboard, dataShoutbox) {
+app.controller('ValentinoController', ['$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
+  function ($scope, $http, dataLeaderboard, dataShoutbox) {
 
     $scope.shouts = [];
     var promiseShoutbox = dataShoutbox.getShoutbox();
@@ -45,8 +45,8 @@ app.controller('ValentinoController', ['$scope','$http', 'dataLeaderboard', 'dat
     //shout infinitescroll
     angular.element('.shoutbox .nano').bind('scrollend', function () {
       $http.get('http://beta.json-generator.com/api/json/get/FR1rX3L')
-        .success(function(ds){
-          angular.forEach(ds,function(d){
+        .success(function (ds) {
+          angular.forEach(ds, function (d) {
             $scope.shouts.push(d);
           });
         });
@@ -82,7 +82,7 @@ app.controller('RulesController', ['$scope', 'dataRules', function ($scope, data
   });
 }]);
 
-app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
+app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', function ($scope, $http, $sce, embed) {
 
   var shout = {
     'id': '4567',
@@ -98,27 +98,17 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', function ($scope, 
   /**
    * Extracting youtube video url
    * */
+  shout.youtube = {};
 
-  var regex = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
-
-  var x = shout.data.match(regex);
-  if (x) {
-    shout.youtube = {};
-    var y = x[0].split('=');
-    shout.youtube.id = y[1];
-    console.log(shout);
-
-    $http.get('https://www.googleapis.com/youtube/v3/videos?id=' + shout.youtube.id + '&key=AIzaSyCoJ6dFXpqs39y48isvRjv_yKpPsRtS_Uc&part=snippet,contentDetails,statistics,status')
-      .success(function (e) {
-        shout.youtube.title = e.items[0].snippet.channelTitle;
-        shout.youtube.desc = e.items[0].snippet.description.truncate(250);
-        shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + shout.youtube.id + '?autoplay=1&theme=light&rel=0');
-
-
-      });
-
-
-  }
+  var embedPromise = embed.getVideo(shout.data);
+  embedPromise.then(function (e) {
+    console.log(e);
+    shout.youtube.id = e.items[0].id;
+    shout.youtube.title = e.items[0].snippet.channelTitle;
+    shout.youtube.desc = e.items[0].snippet.description.truncate(250);
+    shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + e.items[0].id + '?autoplay=1&theme=light&rel=0');
+  });
+  console.log(embedPromise);
 
   /**
    * Calculating Video Dimensions
@@ -209,28 +199,38 @@ app.controller('LeaderboardController', ['$scope', '$http',
       $scope.users = d;
     });
 
+    /**
+     * TODO:search optimizations
+     */
+
 
     angular.element('.fl-list-wrapper .nano').bind('scrollend', function () {
       addtoLeaderboard();
 
     });
 
-    function addtoLeaderboard(){
+    function addtoLeaderboard() {
       $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
-        .success(function(ds){
-          angular.forEach(ds,function(d){
+        .success(function (ds) {
+          angular.forEach(ds, function (d) {
             $scope.users.push(d);
           });
         });
     }
 
-    $scope.selectedGender={
-      'male':false,
-      'female':false,
-      'getGender':function(){
-        if(this.male && !this.female){return 'Male';}
-        else if(this.female && !this.male){return 'Female';}
-        else{return 'All';}
+    $scope.selectedGender = {
+      'male': false,
+      'female': false,
+      'getGender': function () {
+        if (this.male && !this.female) {
+          return 'Male';
+        }
+        else if (this.female && !this.male) {
+          return 'Female';
+        }
+        else {
+          return 'All';
+        }
       }
     };
 
