@@ -36,3 +36,20 @@ app.filter('leaderBfilter', function() {
     return filtered;
   };
 });
+
+app.filter('profanity',function(){
+  var words=['sex','fuck'];
+  return function(input){
+    angular.forEach(words,function(word){
+      var x=word;
+      var len=word.length;
+      String.prototype.repeat = function( num )
+      {
+        return new Array( num + 1 ).join( this );
+      };
+      var re=new RegExp(x,'g');
+      input=input.replace(re,'*'.repeat(len));
+    });
+    return input;
+  };
+});
