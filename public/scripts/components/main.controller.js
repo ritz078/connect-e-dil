@@ -2,8 +2,8 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbox',
-  function ($scope, dataLeaderboard, dataShoutbox) {
+app.controller('ValentinoController', ['$scope','$http', 'dataLeaderboard', 'dataShoutbox',
+  function ($scope,$http, dataLeaderboard, dataShoutbox) {
 
     $scope.shouts = [];
     var promiseShoutbox = dataShoutbox.getShoutbox();
@@ -41,6 +41,16 @@ app.controller('ValentinoController', ['$scope', 'dataLeaderboard', 'dataShoutbo
 
 
     };
+
+    //shout infinitescroll
+    angular.element('.shoutbox .nano').bind('scrollend', function () {
+      $http.get('http://beta.json-generator.com/api/json/get/FR1rX3L')
+        .success(function(ds){
+          angular.forEach(ds,function(d){
+            $scope.shouts.push(d);
+          });
+        });
+    });
 
     //transition effects
     $('#shoutInput').focus(function () {
@@ -201,12 +211,11 @@ app.controller('LeaderboardController', ['$scope', '$http',
 
 
     angular.element('.fl-list-wrapper .nano').bind('scrollend', function () {
-      addLeaderboard();
+      addtoLeaderboard();
 
     });
 
-    function addLeaderboard(){
-      angular.element('.f-list-wrapper .nano').unbind('scrollend');
+    function addtoLeaderboard(){
       $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
         .success(function(ds){
           angular.forEach(ds,function(d){

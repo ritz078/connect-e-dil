@@ -88,7 +88,7 @@
       </div>
       <div class="shoutbox" scrollable="" watchCollection="shouts">
 
-        <div class="shout" ng-repeat="s in shouts | reverse">
+        <div class="shout" ng-repeat="s in shouts">
           <div class="shouter">
             <div class="userpic"><img src="images/user.png" alt=""/></div>
             <div class="username">{{s.name}}</div>
@@ -101,7 +101,9 @@
           </div>
 
         </div>
-
+<div class="loading">
+  <img src="images/hearts.svg" alt="loading"/>
+</div>
 
       </div>
 
