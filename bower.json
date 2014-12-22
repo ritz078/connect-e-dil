@@ -17,7 +17,8 @@
     "ment.io": "~0.9.17",
     "jquery-debounce": "~1.0.6",
     "angucomplete-alt": "~0.0.33",
-    "ng-nanoscroller": "*"
+    "ng-nanoscroller": "*",
+    "ng-notify": "~0.5.1"
   },
   "devDependencies": {},
   "resolutions": {

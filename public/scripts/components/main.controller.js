@@ -2,8 +2,8 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
-  function ($scope, $http, dataLeaderboard, dataShoutbox) {
+app.controller('ValentinoController', ['ngNotify','$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
+  function (ngNotify,$scope, $http, dataLeaderboard, dataShoutbox) {
 
     $scope.shouts = [];
     var promiseShoutbox = dataShoutbox.getShoutbox();
@@ -50,6 +50,7 @@ app.controller('ValentinoController', ['$scope', '$http', 'dataLeaderboard', 'da
             $scope.shouts.push(d);
           });
         });
+      ngNotify.set('Woho','success');
     };
 
     //transition effects
@@ -205,13 +206,14 @@ app.controller('LeaderboardController', ['$scope', '$http',
      * TODO:search optimizations
      */
 
-    $scope.addtoLeaderborad=function () {
+    $scope.addtoLeaderboard=function () {
       $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
         .success(function (ds) {
           angular.forEach(ds, function (d) {
             $scope.users.push(d);
           });
         });
+
     };
 
     $scope.selectedGender = {

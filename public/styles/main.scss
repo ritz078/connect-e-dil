@@ -228,8 +228,8 @@ html {
 
                 .input {
                   width: 100%;
-                  background-color: rgba(255, 255, 255, 0.3);
-                  border: 1px solid rgba(255, 255, 255, 0.5);
+                  background-color: rgba(255, 255, 255, 0.2);
+                  border: 1px solid rgba(255, 255, 255, 0.4);
                   border-bottom-left-radius: 2px;
                   border-bottom-right-radius: 2px;
                   border-top-left-radius: 2px;
@@ -757,3 +757,7 @@ html {
   }
 }
 
+
+.ngn-success{
+  background-color: rgba(0, 255, 34, 0.38);
+}
