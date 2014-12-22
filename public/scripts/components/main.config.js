@@ -40,6 +40,9 @@ app.config(['$routeProvider',
         templateUrl:'/views/leaderboard.html',
         controller:'LeaderboardController',
         resolve:resolve
+      })
+      .otherwise({
+        redirectTo:'/'
       });
 
 
