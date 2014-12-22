@@ -16,6 +16,11 @@ var app = angular.module('valentinoApp');
 app.config(['$routeProvider',
   function ($routeProvider) {
     $routeProvider
+      .when('/',{
+        templateUrl:'/views/home.html',
+        controller:'HomeController',
+        resolve:resolve
+      })
       .when('/rules', {
         templateUrl: '/views/rules.html',
         controller: 'RulesController',

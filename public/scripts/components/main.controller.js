@@ -43,14 +43,14 @@ app.controller('ValentinoController', ['$scope', '$http', 'dataLeaderboard', 'da
     };
 
     //shout infinitescroll
-    angular.element('.shoutbox .nano').bind('scrollend', function () {
+    $scope.loadShout=function(){
       $http.get('http://beta.json-generator.com/api/json/get/FR1rX3L')
         .success(function (ds) {
           angular.forEach(ds, function (d) {
             $scope.shouts.push(d);
           });
         });
-    });
+    };
 
     //transition effects
     $('#shoutInput').focus(function () {
@@ -72,6 +72,10 @@ app.controller('ValentinoController', ['$scope', '$http', 'dataLeaderboard', 'da
 
 
   }]);
+
+app.controller('HomeController',['$scope',function($scope){
+
+}]);
 
 
 app.controller('RulesController', ['$scope', 'dataRules', function ($scope, dataRules) {
@@ -141,11 +145,9 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', function 
 
 app.controller('UserController', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
-    console.log($routeParams);
 
     $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
       $scope.user = d;
-      console.log(d);
     });
 
 
@@ -203,20 +205,14 @@ app.controller('LeaderboardController', ['$scope', '$http',
      * TODO:search optimizations
      */
 
-
-    angular.element('.fl-list-wrapper .nano').bind('scrollend', function () {
-      addtoLeaderboard();
-
-    });
-
-    function addtoLeaderboard() {
+    $scope.addtoLeaderborad=function () {
       $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
         .success(function (ds) {
           angular.forEach(ds, function (d) {
             $scope.users.push(d);
           });
         });
-    }
+    };
 
     $scope.selectedGender = {
       'male': false,

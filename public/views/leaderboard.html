@@ -13,7 +13,7 @@
     <span class="fl-num">R</span><span class="fl-num">Y</span><span class="fl-num"><i class="fa fa-male"></i> </span><span
     class="fl-num"><i class="fa fa-female"></i> </span>
   </div>
-  <div class="fl-list-wrapper" scrollable watchCollections="filteredlb">
+  <div class="fl-list-wrapper" scrollable watchCollections="filteredlb" scrollend="addtoLeaderboard();">
     <a ng-href="#/user/{{u.enrolmentNo}}"
        ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query2)) track by $index"
        class="slide-left">

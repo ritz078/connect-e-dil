@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="bower_components/ng-emoticons/ng-emoticons.css" />
   <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
   <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+  <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css" />
   <link rel="stylesheet" href="bower_components/nanoscroller/bin/css/nanoscroller.css" />
   <!-- endbower -->
   <!-- endbuild -->
@@ -86,7 +87,7 @@
         </form>
 
       </div>
-      <div class="shoutbox" scrollable="" watchCollection="shouts">
+      <div class="shoutbox" scrollable="" watchCollection="shouts" scrollend="loadShout()">
 
         <div class="shout" ng-repeat="s in shouts">
           <div class="shouter">
@@ -137,8 +138,9 @@
 <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
 <script src="bower_components/ment.io/dist/mentio.js"></script>
 <script src="bower_components/jquery-debounce/jquery.debounce.js"></script>
+<script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
 <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
-<script src="bower_components/angular-nanoscroller/scrollable.js"></script>
+<script src="bower_components/ng-nanoscroller/scrollable.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
