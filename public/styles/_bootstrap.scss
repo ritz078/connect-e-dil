@@ -190,3 +190,21 @@ ol,ul{
   opacity: 1;
 }
 
+.angucomplete-dropdown::-webkit-scrollbar {
+  width: 5px;
+  background: rgba(255,255,255,.15);
+  opacity: .01;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.angucomplete-dropdown::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+.angucomplete-dropdown::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255, 0.4);
+  border-radius: 2.5px;
+}
+

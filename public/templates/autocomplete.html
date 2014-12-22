@@ -11,7 +11,7 @@
          autocorrect="off"
          autocomplete="off"
          ng-change="inputChangeHandler(searchStr)"/>
-  <div class="angucomplete-dropdown"  ng-show="showDropdown" scrollable="" watchCollection="results">
+  <div class="angucomplete-dropdown"  ng-show="showDropdown">
     <div class="angucomplete-searching" ng-show="searching" ng-bind="textSearching"></div>
     <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0)" ng-bind="textNoResults"></div>
     <div class="angucomplete-row" ng-repeat="result in results" ng-click="selectResult(result)" ng-mouseenter="hoverRow($index)" ng-class="{'angucomplete-selected-row': $index == currentIndex}">
