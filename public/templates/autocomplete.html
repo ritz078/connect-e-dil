@@ -19,10 +19,10 @@
         <img ng-if="result.image && result.image != ''" ng-src="{{result.image}}" class="angucomplete-image"/>
         <div ng-if="!result.image && result.image != ''" class="angucomplete-image-default"></div>
       </div>
-      <div class="angucomplete-title" ng-if="matchClass" ng-bind-html="result.title"></div>
-      <div class="angucomplete-title" ng-if="!matchClass">{{ result.title }}</div>
-      <div ng-if="matchClass && result.description && result.description != ''" class="angucomplete-description" ng-bind-html="result.description"></div>
-      <div ng-if="!matchClass && result.description && result.description != ''" class="angucomplete-description">{{result.description}}</div>
+      <span class="angucomplete-title" ng-if="matchClass" ng-bind-html="result.title"></span>
+      <span class="angucomplete-title" ng-if="!matchClass">{{ result.title }}</span>
+      <span ng-if="matchClass && result.description && result.description != ''" class="angucomplete-description" ng-bind-html="result.description"></span>
+      <span ng-if="!matchClass && result.description && result.description != ''" class="angucomplete-description">{{result.description}}</span>
     </div>
 
   </div>
