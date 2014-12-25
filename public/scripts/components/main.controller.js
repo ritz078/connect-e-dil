@@ -2,8 +2,8 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['ngNotify','$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
-  function (ngNotify,$scope, $http, dataLeaderboard, dataShoutbox) {
+app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
+  function (ngNotify, $scope, $http, dataLeaderboard, dataShoutbox) {
 
     $scope.shouts = [];
     var promiseShoutbox = dataShoutbox.getShoutbox();
@@ -43,14 +43,14 @@ app.controller('ValentinoController', ['ngNotify','$scope', '$http', 'dataLeader
     };
 
     //shout infinitescroll
-    $scope.loadShout=function(){
+    $scope.loadShout = function () {
       $http.get('http://beta.json-generator.com/api/json/get/FR1rX3L')
         .success(function (ds) {
           angular.forEach(ds, function (d) {
             $scope.shouts.push(d);
           });
         });
-      ngNotify.set('Woho','success');
+      ngNotify.set('Woho', 'success');
     };
 
     //transition effects
@@ -74,8 +74,21 @@ app.controller('ValentinoController', ['ngNotify','$scope', '$http', 'dataLeader
 
   }]);
 
-app.controller('HomeController',['$scope',function($scope){
+app.controller('HomeController', ['$scope','ngNotify', function ($scope,ngNotify) {
 
+  $scope.message = {
+    'anon':false
+  };
+  console.log($scope.message);
+  $scope.sendMessage = function () {
+    if ($scope.selectedReceiver.originalObject) {
+      $scope.message.to = $scope.selectedReceiver.originalObject.enrolmentNo;
+      console.log($scope.message);
+      if($scope.message.anon && $scope.message.message){
+        ngNotify.set('Anonymous ? Really ? Why ? Why ? Why ?','error');
+      }
+    }
+  };
 }]);
 
 
@@ -206,7 +219,7 @@ app.controller('LeaderboardController', ['$scope', '$http',
      * TODO:search optimizations
      */
 
-    $scope.addtoLeaderboard=function () {
+    $scope.addtoLeaderboard = function () {
       $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
         .success(function (ds) {
           angular.forEach(ds, function (d) {

@@ -25,9 +25,6 @@ $susy: (
 
 }
 
-
-
-
 @font-face {
   font-family: 'latoregular';
   src: url('../fonts/lato-regular-webfont.eot');
@@ -41,15 +38,30 @@ $susy: (
 
 }
 
+@mixin color($opacity) {
+  color: rgba(255, 255, 255, $opacity);
+}
+
+@mixin bg-color($opacity) {
+  background-color: rgba(255, 255, 255, $opacity);
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
 /* ====== Configuration ===========*/
 $font-default: 'latoregular', sans-serif;
 
 $gradient1: #000047;
-$gradient2: #6d3353;//#c86dd7;
+$gradient2: #6d3353;
+//#c86dd7;
 
-$bg-center:rgba(255,255,255,0.06);
+$bg-center: rgba(255, 255, 255, 0.06);
 
-$linkcolor:aquamarine;
+$linkcolor: aquamarine;
 
 /*=================================*/
 
