@@ -5,6 +5,7 @@
   <title>Connect-e-dil</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
+  <base href="/"/>
   <link rel="shortcut icon" href="/favicon.ico">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
@@ -38,16 +39,16 @@
 <![endif]-->
 <div class="container">
   <header>
-    <a href="#"><span>Logout</span></a>
-    <a href="#/rules"><span>Rules</span></a>
-    <a href="#/"><span><i class="fa fa-home"></i></span></a>
+    <a href=""><span>Logout</span></a>
+    <a href="/rules"><span>Rules</span></a>
+    <a href="/"><span><i class="fa fa-home"></i></span></a>
 
   </header>
   <div class="content">
     <div class="left">
       <div class="left-wrapper">
 
-        <a href="#/leaderboard"><span class="title">LeaderBoard</span></a>
+        <a href="/leaderboard"><span class="title">LeaderBoard</span></a>
 
         <div class="hd">
           <span class="serial">#</span>
@@ -58,7 +59,7 @@
       </div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable="" watch-collection="leaderboard">
-          <a ng-href="#/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:15" class="slide-left">
+          <a ng-href="/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:15" class="slide-left">
             <div class="row">
               <span class="serial">{{$index+1}}.</span>
               <span class="name"><img ng-src="{{l.dp}}" alt=""/><span>{{l.name}}</span></span>
@@ -73,7 +74,7 @@
 
       <div class="left-wrapper">
 
-        <a href="#/leaderboard">
+        <a href="/leaderboard">
           <button>See All</button>
         </a>
         <span class="copyright">
@@ -104,7 +105,7 @@
           <div class="shouter">
             <div class="userpic"><img src="images/user.png" alt=""/></div>
             <div class="username">{{s.name}}</div>
-            <a ng-href="#/shout/{{s.id}}">
+            <a ng-href="/shout/{{s.id}}">
               <div am-time-ago="s.time" class="time"></div>
             </a>
           </div>

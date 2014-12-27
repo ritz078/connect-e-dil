@@ -13,8 +13,8 @@ var resolve = {
 
 var app = angular.module('valentinoApp');
 
-app.config(['$routeProvider',
-  function ($routeProvider) {
+app.config(['$routeProvider','$locationProvider',
+  function ($routeProvider,$locationProvider) {
     $routeProvider
       .when('/',{
         templateUrl:'/views/home.html',
@@ -44,6 +44,8 @@ app.config(['$routeProvider',
       .otherwise({
         redirectTo:'/'
       });
+
+    $locationProvider.html5Mode(true).hashPrefix('!');
 
 
   }]);

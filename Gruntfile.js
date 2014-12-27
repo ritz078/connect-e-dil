@@ -10,6 +10,8 @@
 
 module.exports = function (grunt) {
 
+  var modRewrite = require('connect-modrewrite');
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -81,6 +83,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function(connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use('/bower_components', connect.static('./bower_components')),
               connect.static(config.app)
@@ -94,6 +97,7 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function(connect) {
             return [
+              modRewrite(['^[^\\.]*$ /index.html [L]']),  //html5mode for angular
               connect.static('.tmp'),
               connect.static('test'),
               connect().use('/bower_components', connect.static('./bower_components')),
