@@ -1,11 +1,15 @@
 <div class="fl-wrapper">
-  <input type="text" id="query" ng-model="query2" autocomplete="off"
-         placeholder="Search for {{selectedGender.getGender()}} friends"/>
+  <div class="fl-gender">
+    <div ng-click="selectedGender.male=!(selectedGender.male)"
+         ng-class="{true:'active',false:'gender'}[selectedGender.male]"><i class="fa fa-male"></i></div>
+    <div ng-click="selectedGender.female=!(selectedGender.female)"
+         ng-class="{true:'active',false:'gender'}[selectedGender.female]"><i class="fa fa-female"></i></div>
+  </div>
 
-  <div ng-click="selectedGender.male=!(selectedGender.male)"
-       ng-class="{true:'active',false:'gender'}[selectedGender.male]"><i class="fa fa-male"></i></div>
-  <div ng-click="selectedGender.female=!(selectedGender.female)"
-       ng-class="{true:'active',false:'gender'}[selectedGender.female]"><i class="fa fa-female"></i></div>
+
+
+  <input type="text" id="query" ng-model="query2" autocomplete="off"
+         placeholder="Search for friends"/>
 
   <div class="fl-hd">
     <span class="fl-serial">#</span>
