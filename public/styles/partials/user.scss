@@ -1,57 +1,60 @@
-.user-wrapper {
-  padding: 10px;
-  width: 100%;
-  .user-info {
+.ng-view {
+  .user-wrapper {
+    padding: 10px;
     width: 100%;
-    img {
-      height: 80px;
-      width: 80px;
-      float: left;
-      @include border-bottom-radius(2px);
-      @include border-top-radius(2px);
+    .user-info {
+      width: 100%;
+      img {
+        height: 80px;
+        width: 80px;
+        float: left;
+        @include border-radius(2px);
 
+      }
+      .user-details {
+        @include calc(width, '100% - 160px');
+      }
+      .user-score {
+        height: 80px;
+        min-width: 80px;
+        background-color: $bg-center;
+        border-radius: 2px;
+        float: right;
+        text-align: center;
+        padding: 10px;
+        font-size: 50px;
+        color: #ffffff;
+        font-family: 'latolight';
+      }
+      span {
+        display: block;
+        float: left;
+        @include color(0.6);
+        padding: 5px 10px;
+      }
     }
-    .user-details {
-      @include calc(width, '100% - 160px');
-    }
-    .user-score {
-      height: 80px;
-      min-width:80px;
+    .linechart-wrapper {
+      padding: 20px;
+      width: 100%;
       background-color: $bg-center;
       border-radius: 2px;
-      float: right;
-      text-align: center;
-      padding: 10px;
-      font-size: 50px;
-      color: #ffffff;
-      font-family: 'latolight';
+      margin-top: 20px;
+      .chart-container {
+        width: 100%;
+      }
     }
-    span {
-      display: block;
-      float: left;
-      color: rgba(255, 255, 255, 0.6);
-      padding: 5px 10px;
-    }
-  }
-  .linechart-wrapper {
-    padding: 20px;
-    width: 100%;
-    background-color: $bg-center;
-    border-radius: 2px;
-    margin-top: 20px;
-    .chart-container {
-      width: 100%;
-    }
-  }
-  .piechart-wrapper {
-    padding: 20px;
-    width: 100%;
-    background-color: $bg-center;
-    border-radius: 2px;
-    margin-top: 20px;
-    .chart-container {
-      float: right;
+    .piechart-wrapper {
+      padding: 20px;
       width: 50%;
+      background-color: $bg-center;
+      border-radius: 2px;
+      margin-top: 20px;
+      float: right;
+      .chart-container {
+        width: 100%;
+      }
     }
   }
 }
+
+

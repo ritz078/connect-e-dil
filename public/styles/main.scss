@@ -52,7 +52,7 @@ html {
         .left, .right {
           @include span(3);
           height: 100%;
-          background-color: rgba(255, 255, 255, 0.2);
+          @include bg-color(0.2);
         }
         .left {
           .left-wrapper {
@@ -60,14 +60,14 @@ html {
             padding: 10px;
             .hd {
               width: 100%;
-              background-color: rgba(255, 255, 255, 0.04);
+              @include bg-color(0.04);
               margin-top: 5px;
               border-radius: 2px;
               box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
               .name, .serial, .r-roses, .y-roses {
                 float: left;
                 display: block;
-                color: rgba(255, 255, 255, 0.6);
+                @include color(0.6);
                 padding: 6px;
                 font-size: 13px;
                 border-right: 1px solid rgba(255, 255, 255, 0.04);
@@ -98,7 +98,7 @@ html {
             .copyright {
               display: block;
               font-size: 13px;
-              color: rgba(255, 255, 255, 0.7);
+              @include color(0.7);
               text-align: center;
               padding-top: 5px;
               a {
@@ -110,12 +110,11 @@ html {
               width: 100%;
               text-decoration: none;
               .title {
-                color: rgba(255, 255, 255, 0.8);
+                @include color(0.8);
                 display: block;
                 text-align: center;
                 padding: 8px;
-                @include border-bottom-radius(2px);
-                @include border-top-radius(2px);
+                @include border-radius(2px);
                 &:hover {
                   color: #ffffff;
                 }
@@ -124,8 +123,8 @@ html {
                 padding: 5px;
                 width: 100%;
                 border-radius: 2px;
-                border: 1px solid rgba(255, 255, 255, 0.05);
-                background-color: rgba(255, 255, 255, 0.10);
+                @include border(0.05);
+                @include bg-color(0.10);
                 color: #fff;
                 margin-bottom: 10px;
                 font-size: 13px;
@@ -133,16 +132,15 @@ html {
                 box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
                 &:hover {
                   color: #ffffff;
-                  background-color: rgba(255, 255, 255, 0.4);
+                  @include bg-color(0.4);
                 }
               }
             }
             input {
               width: 100%;
-              background-color: rgba(255, 255, 255, 0.3);
-              border: 1px solid rgba(255, 255, 255, 0.5);
-              @include border-bottom-radius(2px);
-              @include border-top-radius(2px);
+              @include bg-color(0.3);
+              @include border(0.5);
+              @include border-radius(2px);
               padding: 5px;
               color: #ffffff;
               -webkit-font-smoothing: antialiased;
@@ -161,7 +159,7 @@ html {
                 overflow: auto;
                 .row {
                   &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
+                    @include bg-color(0.1);
                   }
                   width: 100%;
                   padding: 2px 10px;
@@ -170,7 +168,7 @@ html {
                   span:not(.name) {
                     float: left;
                     display: block;
-                    color: rgba(255, 255, 255, 0.6);
+                    @include color(0.6);
                     padding: 6px;
                   }
                   .name {
@@ -182,8 +180,7 @@ html {
                       height: 25px;
                       width: 25px;
                       margin-top: 2px;
-                      @include border-top-radius(2px);
-                      @include border-bottom-radius(2px)
+                      @include border-radius(2px);
                     }
                     span {
                       padding: 6px;
@@ -242,15 +239,14 @@ html {
               }
             }
             .shout {
-              border-bottom: 1px solid rgba(255, 255, 255, 0.1);;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
               width: 100%;
               padding: 5px;
               .shouter {
                 width: 100%;
                 .userpic {
                   img {
-                    @include border-bottom-radius(2px);
-                    @include border-top-radius(2px);
+                    @include border-radius(2px);
                     height: 30px;
                     width: 30px;
                     overflow: hidden;
