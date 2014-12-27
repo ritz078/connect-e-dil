@@ -47,8 +47,8 @@ app.filter('profanity',function(){
       {
         return new Array( num + 1 ).join( this );
       };
-      var re=new RegExp(x,'g');
-      input=input.replace(re,'*'.repeat(len));
+      var re=new RegExp(' '.concat(x).concat(' '),'g');
+      input=input.replace(re,' '.concat('*'.repeat(len)).concat(' '));
     });
     return input;
   };
