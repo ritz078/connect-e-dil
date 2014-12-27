@@ -74,10 +74,10 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
 
   }]);
 
-app.controller('HomeController', ['$scope','ngNotify', function ($scope,ngNotify) {
+app.controller('HomeController', ['$scope','ngNotify','messages', function ($scope,ngNotify,messages) {
 
   $scope.message = {
-    'anon':false
+    'anon':true
   };
   console.log($scope.message);
   $scope.sendMessage = function () {
@@ -86,6 +86,12 @@ app.controller('HomeController', ['$scope','ngNotify', function ($scope,ngNotify
       console.log($scope.message);
       if($scope.message.anon && $scope.message.message){
         ngNotify.set('Anonymous ? Really ? Why ? Why ? Why ?','error');
+      }
+      else{
+        var sendMsgPromise=messages.sendMsg($scope.message);
+        sendMsgPromise.then(function(d){
+console.log(d);
+        });
       }
     }
   };
@@ -159,6 +165,8 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', function 
 
 app.controller('UserController', ['$scope', '$http', '$routeParams',
   function ($scope, $http, $routeParams) {
+
+    console.log($routeParams);
 
     $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
       $scope.user = d;

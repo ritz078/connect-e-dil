@@ -52,6 +52,10 @@ $susy: (
   -webkit-border-radius: $radius;
 }
 
+@mixin border($opacity){
+  border:1px solid rgba(255,255,255,$opacity);
+}
+
 /* ====== Configuration ===========*/
 $font-default: 'latoregular', sans-serif;
 

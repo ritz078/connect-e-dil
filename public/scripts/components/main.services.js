@@ -44,7 +44,6 @@ app.service('embed', ['$http', '$q',
   function ($http, $q) {
     this.getVideo = function (input) {
       var deferred = $q.defer();
-      console.log(input);
       var regex = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/ytscreeningroom\?v=|\/feeds\/api\/videos\/|\/user\S*[^\w\-\s]|\S*[^\w\-\s]))([\w\-]{11})[?=&+%\w-]*/gi;
       var x = input.match(regex);
       String.prototype.truncate = function (n) {
@@ -62,4 +61,17 @@ app.service('embed', ['$http', '$q',
       return deferred.promise;
     };
   }]);
+
+app.service('messages',['$http','$q',function($http,$q){
+  var deferredSendMsg=$q.defer();
+  this.sendMsg=function(d){
+    $http.post('abc',d).success(function(d){
+      deferredSendMsg.resolve(d);
+    })
+      .error(function(d){
+        deferredSendMsg.resolve(d);
+      });
+    return deferredSendMsg.promise;
+  };
+}]);
 
