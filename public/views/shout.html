@@ -22,7 +22,8 @@
         <p ng-bind-html="shout.youtube.desc"></p>
       </div>
       <div class="embed-you" ng-if="showVideo" ng-class="{{fade}}">
-        <iframe width="{{::videoDimensions.width}}" height="{{::videoDimensions.height}}" ng-src="{{::shout.youtube.videoUrl}}" frameborder="0" allowfullscreen></iframe>
+        <iframe width="{{::videoDimensions.width}}" height="{{::videoDimensions.height}}"
+                ng-src="{{::shout.youtube.videoUrl}}" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
 

@@ -13,14 +13,14 @@
       -moz-osx-font-smoothing: grayscale;
       float: left;
     }
-    .fl-gender{
+    .fl-gender {
       width: 100px;
       margin: 0 auto;
       float: none;
-      .gender{
+      .gender {
         width: 40px;
         height: 40px;
-        float:left;
+        float: left;
         margin: 0 5px;
         text-align: center;
         padding: 6px;
@@ -107,7 +107,7 @@
             display: block;
             @include calc(width, '50% - 40px');
 
-            border-right: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
             img {
               width: 25px;
               height: 25px;
@@ -130,10 +130,10 @@
             display: block;
             @include span(6/4);
             text-align: center;
-            &:nth-of-type(2n){
-              border-right: 1px solid rgba(255,255,255,0.1);
+            &:nth-of-type(2n) {
+              border-right: 1px solid rgba(255, 255, 255, 0.1);
             }
-            &:last-of-type{
+            &:last-of-type {
               border: none;
             }
           }

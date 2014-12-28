@@ -1,10 +1,10 @@
 'use strict';
 
-var app=angular.module('valentinoApp');
+var app = angular.module('valentinoApp');
 
-app.filter('reverse', function() {
-  return function(items) {
-    if(items!==undefined){
+app.filter('reverse', function () {
+  return function (items) {
+    if (items !== undefined) {
 
       return items.slice().reverse();
     }
@@ -13,22 +13,21 @@ app.filter('reverse', function() {
   };
 });
 
-app.filter('leaderBfilter', function() {
-  return function( items, input) {
+app.filter('leaderBfilter', function () {
+  return function (items, input) {
     var filtered = [];
 
-    if(input === undefined || input === ''){
+    if (input === undefined || input === '') {
       return items;
     }
 
-    function capitaliseFirstLetter(string)
-    {
+    function capitaliseFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    angular.forEach(items, function(item) {
+    angular.forEach(items, function (item) {
 
-      if(item.name.indexOf(capitaliseFirstLetter(input)) === 0){
+      if (item.name.indexOf(capitaliseFirstLetter(input)) === 0) {
         filtered.push(item);
       }
     });
@@ -37,29 +36,36 @@ app.filter('leaderBfilter', function() {
   };
 });
 
-app.filter('profanity',function(){
-  var words=['sex','fuck'];
-  return function(input){
-    angular.forEach(words,function(word){
-      var x=word;
-      var len=word.length;
-      String.prototype.repeat = function( num )
-      {
-        return new Array( num + 1 ).join( this );
+app.filter('profanity', function () {
+  var words = ['sex', 'fuck'];
+  return function (input) {
+    angular.forEach(words, function (word) {
+      var x = word;
+      var len = word.length;
+      String.prototype.repeat = function (num) {
+        return new Array(num + 1).join(this);
       };
-      var re=new RegExp(' '.concat(x).concat(' '),'g');
-      input=input.replace(re,' '.concat('*'.repeat(len)).concat(' '));
+      var re = new RegExp(' '.concat(x).concat(' '), 'g');
+      input = input.replace(re, ' '.concat('*'.repeat(len)).concat(' '));
     });
     return input;
   };
 });
 
-app.filter('numberSuffix', function() {
-  return function(input) {
-    if(input===1){return input+'st';}
-    else if(input===2){return input+'nd';}
-    else if(input===3){return input+'rd';}
-    else{return input+'th';}
+app.filter('numberSuffix', function () {
+  return function (input) {
+    if (input === 1) {
+      return input + 'st';
+    }
+    else if (input === 2) {
+      return input + 'nd';
+    }
+    else if (input === 3) {
+      return input + 'rd';
+    }
+    else {
+      return input + 'th';
+    }
   };
 });
 

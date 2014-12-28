@@ -10,14 +10,14 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="bower_components/ng-emoticons/ng-emoticons.css" />
-  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
-  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
-  <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css" />
-  <link rel="stylesheet" href="bower_components/nanoscroller/bin/css/nanoscroller.css" />
-  <link rel="stylesheet" href="bower_components/ng-notify/src/styles/ng-notify.css" />
-  <link rel="stylesheet" href="bower_components/hint.css/hint.min.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+  <link rel="stylesheet" href="bower_components/ng-emoticons/ng-emoticons.css"/>
+  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css"/>
+  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css"/>
+  <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css"/>
+  <link rel="stylesheet" href="bower_components/nanoscroller/bin/css/nanoscroller.css"/>
+  <link rel="stylesheet" href="bower_components/ng-notify/src/styles/ng-notify.css"/>
+  <link rel="stylesheet" href="bower_components/hint.css/hint.min.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -96,13 +96,13 @@
           <textarea mentio mentio-for="shoutInput" mentio-typed-text="typedTerm"
                     mentio-template-url="/people-mentions.tpl" mentio-items="people|filter:typedTerm"
                     ng-keydown="submitShout($event)" id="shoutInput" placeholder="Shout here" ng-model="user.data"
-                    type="text" required></textarea>
+                    type="text" maxlength="255" required></textarea>
         </form>
 
       </div>
       <div class="shoutbox" scrollable="" watch-collection="shouts" scrollend="loadShout()">
 
-        <div class="shout" ng-repeat="s in shouts">
+        <div class="shout" ng-repeat="s in shouts|reverse">
           <div class="shouter">
             <div class="userpic"><img src="images/user.png" alt=""/></div>
             <div class="username">{{s.name}}</div>

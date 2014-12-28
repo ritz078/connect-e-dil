@@ -13,13 +13,13 @@ var resolve = {
 
 var app = angular.module('valentinoApp');
 
-app.config(['$routeProvider','$locationProvider',
-  function ($routeProvider,$locationProvider) {
+app.config(['$routeProvider', '$locationProvider',
+  function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/',{
-        templateUrl:'/views/home.html',
-        controller:'HomeController',
-        resolve:resolve
+      .when('/', {
+        templateUrl: '/views/home.html',
+        controller: 'HomeController',
+        resolve: resolve
       })
       .when('/rules', {
         templateUrl: '/views/rules.html',
@@ -36,13 +36,13 @@ app.config(['$routeProvider','$locationProvider',
         controller: 'UserController',
         resolve: resolve
       })
-      .when('/leaderboard',{
-        templateUrl:'/views/leaderboard.html',
-        controller:'LeaderboardController',
-        resolve:resolve
+      .when('/leaderboard', {
+        templateUrl: '/views/leaderboard.html',
+        controller: 'LeaderboardController',
+        resolve: resolve
       })
       .otherwise({
-        redirectTo:'/'
+        redirectTo: '/'
       });
 
     $locationProvider.html5Mode(true).hashPrefix('!');
@@ -50,12 +50,12 @@ app.config(['$routeProvider','$locationProvider',
 
   }]);
 
-Chart.defaults.global.scaleLineColor='rgba(255,255,255,.1)';
-Chart.defaults.global.scaleFontColor='rgba(255,255,255,0.8)';
-Chart.defaults.global.scaleFontFamily='latoregular,sans-serif';
-Chart.defaults.global.animationSteps=150;
-Chart.defaults.global.tooltipFillColor='rgba(131, 76, 196, 0.95)';
-Chart.defaults.global.tooltipFontFamily='latoregular,sans-serif';
-Chart.defaults.global.tooltipTitleFontFamily='latoregular,sans-serif';
+Chart.defaults.global.scaleLineColor = 'rgba(255,255,255,.1)';
+Chart.defaults.global.scaleFontColor = 'rgba(255,255,255,0.8)';
+Chart.defaults.global.scaleFontFamily = 'latoregular,sans-serif';
+Chart.defaults.global.animationSteps = 150;
+Chart.defaults.global.tooltipFillColor = 'rgba(131, 76, 196, 0.95)';
+Chart.defaults.global.tooltipFontFamily = 'latoregular,sans-serif';
+Chart.defaults.global.tooltipTitleFontFamily = 'latoregular,sans-serif';
 
 

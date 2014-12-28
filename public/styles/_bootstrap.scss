@@ -12,53 +12,53 @@
 
 #lean_overlay {
   position: fixed;
-  z-index:100;
+  z-index: 100;
   top: 0px;
   left: 0px;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
   @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
   display: none;
 }
 
 ::-webkit-input-placeholder {
   color: #ffffff;
-  opacity:0.5;
+  opacity: 0.5;
   font-size: 14px;
   line-height: 18px;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {
+  /* Firefox 18- */
   color: #ffffff;
-  opacity:0.5;
+  opacity: 0.5;
   font-size: 14px;
   line-height: 18px;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {
+  /* Firefox 19+ */
   color: #ffffff;
-  opacity:0.5;
+  opacity: 0.5;
   font-size: 14px;
   line-height: 18px;
 }
 
 :-ms-input-placeholder {
   color: #ffffff;
-  opacity:0.5;
+  opacity: 0.5;
   font-size: 14px;
   line-height: 18px;
 }
 
-
-ol,ul{
+ol, ul {
   margin-left: 30px;
 }
 
-
-.nano{
-  .nano-pane{
+.nano {
+  .nano-pane {
     width: 6px;
-    .nano-slider{
+    .nano-slider {
       width: 100%;
       margin: 0;
       cursor: ns-resize;
@@ -76,7 +76,7 @@ ol,ul{
 }
 
 :-moz-ui-invalid {
-  box-shadow:none;
+  box-shadow: none;
 }
 
 //animation
@@ -88,6 +88,7 @@ ol,ul{
   height: 100%;
   opacity: 1;
 }
+
 .fade.ng-enter,
 .fade.ng-leave {
   -webkit-transition: all 1s ease;
@@ -95,20 +96,22 @@ ol,ul{
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
+
 .fade.ng-enter {
   opacity: 0;
 }
+
 .fade.ng-enter-active {
   opacity: 1;
 }
+
 .fade.ng-leave {
   opacity: 1;
 }
+
 .fade.ng-leave-active {
   opacity: 0;
 }
-
-
 
 .slide-left {
   -webkit-transition: all 0 cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -124,6 +127,7 @@ ol,ul{
   transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* easeOutQuad */
 }
+
 /* line 219, ../sass/ng-animation.scss */
 .slide-left.ng-enter {
   transform: translateX(-60px);
@@ -133,6 +137,7 @@ ol,ul{
   -webkit-transition-duration: 250ms;
   opacity: 0;
 }
+
 /* line 225, ../sass/ng-animation.scss */
 .slide-left.ng-enter-active {
   transform: translateX(0);
@@ -140,6 +145,7 @@ ol,ul{
   -webkit-transform: translateX(0);
   opacity: 1;
 }
+
 /* line 230, ../sass/ng-animation.scss */
 .slide-left.ng-leave {
   transform: translateX(0);
@@ -149,6 +155,7 @@ ol,ul{
   -webkit-transition-duration: 250ms;
   opacity: 1;
 }
+
 /* line 236, ../sass/ng-animation.scss */
 .slide-left.ng-leave-active {
   transform: translateX(-60px);
@@ -156,6 +163,7 @@ ol,ul{
   -webkit-transform: translateX(-60px);
   opacity: 0;
 }
+
 /* line 242, ../sass/ng-animation.scss */
 .slide-left.ng-hide-add {
   transform: translateX(0);
@@ -165,6 +173,7 @@ ol,ul{
   -webkit-transition-duration: 250ms;
   opacity: 1;
 }
+
 /* line 247, ../sass/ng-animation.scss */
 .slide-left.ng-hide-add.ng-hide-add-active {
   transform: translateX(-60px);
@@ -172,6 +181,7 @@ ol,ul{
   -webkit-transform: translateX(-60px);
   opacity: 0;
 }
+
 /* line 253, ../sass/ng-animation.scss */
 .slide-left.ng-hide-remove {
   transform: translateX(-60px);
@@ -192,7 +202,7 @@ ol,ul{
 
 .angucomplete-dropdown::-webkit-scrollbar {
   width: 5px;
-  background: rgba(255,255,255,.15);
+  background: rgba(255, 255, 255, .15);
   opacity: .01;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -204,7 +214,7 @@ ol,ul{
 }
 
 .angucomplete-dropdown::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 2.5px;
 }
 

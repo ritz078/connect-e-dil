@@ -62,23 +62,23 @@ app.service('embed', ['$http', '$q',
     };
   }]);
 
-app.service('messages',['$http','$q',function($http,$q){
-  var deferredSendMsg=$q.defer();
-  this.sendMsg=function(d){
-    $http.post('abc',d).success(function(d){
+app.service('messages', ['$http', '$q', function ($http, $q) {
+  var deferredSendMsg = $q.defer();
+  this.sendMsg = function (d) {
+    $http.post('abc', d).success(function (d) {
       deferredSendMsg.resolve(d);
     })
-      .error(function(d){
+      .error(function (d) {
         deferredSendMsg.resolve(d);
       });
     return deferredSendMsg.promise;
   };
 }]);
 
-app.service('dataUser',['$http','$q',function($http,$q){
-  var deferred=$q.defer();
-  this.getUser=function(enr){
-    $http.get('/data/v-user.json?enr='+enr).success(function(d){
+app.service('dataUser', ['$http', '$q', function ($http, $q) {
+  var deferred = $q.defer();
+  this.getUser = function (enr) {
+    $http.get('/data/v-user.json?enr=' + enr).success(function (d) {
       deferred.resolve(d);
     });
     return deferred.promise;

@@ -42,7 +42,7 @@ html {
           float: right;
           cursor: pointer;
           font-size: 14px;
-          i{
+          i {
             font-size: 20px;
           }
         }
@@ -250,17 +250,18 @@ html {
                 .userpic {
                   img {
                     @include border-radius(2px);
-                    height: 30px;
-                    width: 30px;
+                    height: 25px;
+                    width: 25px;
                     overflow: hidden;
                     background-color: #ffffff;
                   }
                 }
                 .username {
                   color: #ffffff;
-                  padding: 5px;
-                  @include calc(width, '60% - 30px');
+                  padding: 3px 5px;
+                  @include calc(width, '60% - 25px');
                   float: left;
+                  font-size: 15px;
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
@@ -271,7 +272,7 @@ html {
                 .time {
                   width: 40%;
                   text-align: right;
-                  padding: 9px 5px 9px 9px;
+                  padding: 4px 5px 4px 9px;
                   float: left;
                   font-size: 13px;
                   color: #ffffff;

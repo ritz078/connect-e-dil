@@ -50,7 +50,6 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
             $scope.shouts.push(d);
           });
         });
-      ngNotify.set('Woho', 'success');
     };
 
     //transition effects
@@ -74,23 +73,23 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
 
   }]);
 
-app.controller('HomeController', ['$scope','ngNotify','messages', function ($scope,ngNotify,messages) {
+app.controller('HomeController', ['$scope', 'ngNotify', 'messages', function ($scope, ngNotify, messages) {
 
   $scope.message = {
-    'anon':true
+    'anon': true
   };
   console.log($scope.message);
   $scope.sendMessage = function () {
     if ($scope.selectedReceiver.originalObject) {
       $scope.message.to = $scope.selectedReceiver.originalObject.enrolmentNo;
       console.log($scope.message);
-      if($scope.message.anon && $scope.message.message){
-        ngNotify.set('Anonymous ? Really ? Why ? Why ? Why ?','error');
+      if ($scope.message.anon && $scope.message.message) {
+        ngNotify.set('Anonymous ? Really ? Why ? Why ? Why ?', 'error');
       }
-      else{
-        var sendMsgPromise=messages.sendMsg($scope.message);
-        sendMsgPromise.then(function(d){
-console.log(d);
+      else {
+        var sendMsgPromise = messages.sendMsg($scope.message);
+        sendMsgPromise.then(function (d) {
+          console.log(d);
         });
       }
     }
@@ -163,15 +162,15 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', function 
 
 }]);
 
-app.controller('UserController', ['$scope', '$http', '$routeParams','dataUser',
-  function ($scope, $http, $routeParams,dataUser) {
+app.controller('UserController', ['$scope', '$http', '$routeParams', 'dataUser',
+  function ($scope, $http, $routeParams, dataUser) {
 
     console.log($routeParams);
 
-    var promise=dataUser.getUser($routeParams.enrolmentNo);
-    promise.then(function(d){
+    var promise = dataUser.getUser($routeParams.enrolmentNo);
+    promise.then(function (d) {
       console.log(d);
-      $scope.user=d;
+      $scope.user = d;
       $scope.pieChart1 = {
         labels: ['Bande', 'Bandiyan'],
         data: [d.rosesReceived.fromMale, d.rosesReceived.fromFemale]
@@ -197,7 +196,7 @@ app.controller('UserController', ['$scope', '$http', '$routeParams','dataUser',
 
     });
 
-    $scope.pieChart={
+    $scope.pieChart = {
       'colors': [{
         fillColor: 'rgba(255,255,255,0.3)',
         strokeColor: 'rgba(255,255,255,0.3)',
@@ -217,10 +216,6 @@ app.controller('UserController', ['$scope', '$http', '$routeParams','dataUser',
         segmentShowStroke: false
       }
     };
-
-
-
-
 
 
   }]);

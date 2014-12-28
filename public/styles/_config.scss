@@ -52,15 +52,15 @@ $susy: (
   -webkit-border-radius: $radius;
 }
 
-@mixin border($opacity){
-  border:1px solid rgba(255,255,255,$opacity);
+@mixin border($opacity) {
+  border: 1px solid rgba(255, 255, 255, $opacity);
 }
 
 /* ====== Configuration ===========*/
 $font-default: 'latoregular', sans-serif;
 
-$gradient1: #020031 ;
-$gradient2: #6d3353;
+$gradient1: #251b86;
+$gradient2: #774180;
 
 $bg-center: rgba(255, 255, 255, 0.06);
 

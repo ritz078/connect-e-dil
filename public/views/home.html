@@ -30,20 +30,22 @@
   <div class="h-receiver fade" ng-if="selectedReceiver">
     <form ng-submit="sendMessage()">
 
-    <div class="h-sendingInfo">
-      <div class="hsi1">
-        <img ng-src="{{selectedReceiver.originalObject.image}}" alt=""/>
+      <div class="h-sendingInfo">
+        <div class="hsi1">
+          <img ng-src="{{selectedReceiver.originalObject.image}}" alt=""/>
         <span class="hsi1-1">{{selectedReceiver.originalObject.name}}<br/>
         <span>{{selectedReceiver.originalObject.details}}</span></span>
         <span class="hsi1-2">
           <input type="checkbox" id="anon" ng-model="message.anon"/>
           <label for="anon">Send as Anonymous</label>
         </span>
+        </div>
+        <textarea class="" ng-model="message.message" ng-disabled="message.anon" maxlength="200"
+                  placeholder="{{message.anon?'You cannot send message while being anonymous':'Message'}}"></textarea>
+
+        <div class="hsi2" ng-show="!(message.anon)">{{200-message.message.length}}</div>
+        <button type="submit"><i class="fa fa-send"></i>Send</button>
       </div>
-      <textarea class="" ng-model="message.message" ng-disabled="message.anon" maxlength="200" placeholder="{{message.anon?'You cannot send message while being anonymous':'Message'}}"></textarea>
-      <div class="hsi2" ng-show="!(message.anon)">{{200-message.message.length}}</div>
-      <button type="submit"><i class="fa fa-send"></i>Send</button>
-    </div>
     </form>
 
   </div>

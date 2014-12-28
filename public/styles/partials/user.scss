@@ -6,7 +6,7 @@
       width: 100%;
       padding-bottom: 15px;
 
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       img {
         height: 80px;
         width: 80px;
@@ -25,7 +25,7 @@
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
-          &:last-of-type{
+          &:last-of-type {
             @include color(0.4);
             font-size: 14px;
           }
@@ -61,10 +61,10 @@
       border-radius: 2px;
       margin-top: 10px;
       float: right;
-      &:nth-of-type(2n){
+      &:nth-of-type(2n) {
         margin-right: 2%;
       }
-      &:nth-of-type(2n+1){
+      &:nth-of-type(2n+1) {
         margin-left: 2%;
       }
 
@@ -72,36 +72,47 @@
         width: 100%;
       }
     }
-    .title{
+    .title {
       width: 100%;
       padding-top: 10px;
-      @include color(0.65);
-      text-align: center;
-      font-size: 13px;
-      span{
+      @include color(0.35);
+      font-size: 14px;
+      span {
 
         display: block;
-        width: 50%;
+        width: 48%;
         float: left;
+        &:last-of-type {
+          margin-left: 4%;
+        }
       }
     }
   }
 }
 
-.hint:after, [data-hint]:after{
+.hint:after, [data-hint]:after {
   font-weight: bolder;
 }
 
 .hint--error:after {
   @include bg-color(0.3);
-  text-shadow: 0 -1px 0px #592726; }
+  text-shadow: 0 -1px 0px #592726;
+}
+
 .hint--error.hint--top:before {
-  border-top-color: rgba(255,255,255,0.3); }
+  border-top-color: rgba(255, 255, 255, 0.3);
+}
+
 .hint--error.hint--bottom:before {
-  border-bottom-color:rgba(255,255,255,0.3); }
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
 .hint--error.hint--left:before {
-  border-left-color:rgba(255,255,255,0.3); }
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
 .hint--error.hint--right:before {
-  border-right-color: rgba(255,255,255,0.3); }
+  border-right-color: rgba(255, 255, 255, 0.3);
+}
 
 
