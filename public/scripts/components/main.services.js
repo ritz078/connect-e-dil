@@ -75,3 +75,13 @@ app.service('messages',['$http','$q',function($http,$q){
   };
 }]);
 
+app.service('dataUser',['$http','$q',function($http,$q){
+  var deferred=$q.defer();
+  this.getUser=function(enr){
+    $http.get('/data/v-user.json?enr='+enr).success(function(d){
+      deferred.resolve(d);
+    });
+    return deferred.promise;
+  };
+}]);
+

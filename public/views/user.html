@@ -1,20 +1,36 @@
 <div class="user-wrapper">
 
   <div class="user-info">
-    <img src="/images/user.png" alt=""/>
+    <img ng-src="{{user.image}}" alt=""/>
     <div class="user-details">
-      <span>Chintapenta Subramaniam Pramod</span>
+      <span>{{user.name}}</span>
+      <span>{{user.course}}, {{user.year | numberSuffix}} Year, {{user.dept}}</span>
     </div>
-    <div class="user-score">16</div>
+    <div class="user-score hint--left hint--rounded hint--error" data-hint="Roses Received">16</div>
+  </div>
+
+  <div class="title">
+    <span>Roses Received</span>
+    <span>Received from boy/girl</span>
+
+  </div>
+
+  <div class="piechart-wrapper">
+
+    <canvas id="pie" class="chart chart-pie" data="::pieChart2.data"
+            labels="::pieChart2.labels" colours="::pieChart.colors" options="::pieChart.options"></canvas>
+
   </div>
 
 
   <div class="piechart-wrapper">
-    <canvas id="pie" class="chart chart-pie" data="::pieChart.data"
-            labels="::pieChart.labels" colours="::pieChart.colors" options="::pieChart.options"></canvas>
+
+    <canvas id="pie" class="chart chart-pie" data="::pieChart1.data"
+            labels="::pieChart1.labels" colours="::pieChart.colors" options="::pieChart.options"></canvas>
 
   </div>
 
+  <div class="title">Day by day statistics</div>
   <div class="linechart-wrapper">
     <canvas id="line" class="chart chart-line" data="::lineChart.data" labels="::lineChart.labels"
             series="::lineChart.series" options="::lineChart.options"

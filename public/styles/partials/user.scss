@@ -13,6 +13,19 @@
       }
       .user-details {
         @include calc(width, '100% - 160px');
+        span {
+          display: block;
+          float: left;
+          @include color(0.6);
+          padding: 5px 10px;
+          width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          &:last-of-type{
+            @include color(0.4);
+          }
+        }
       }
       .user-score {
         height: 80px;
@@ -25,12 +38,6 @@
         font-size: 50px;
         color: #ffffff;
         font-family: 'latolight';
-      }
-      span {
-        display: block;
-        float: left;
-        @include color(0.6);
-        padding: 5px 10px;
       }
     }
     .linechart-wrapper {
@@ -45,16 +52,53 @@
     }
     .piechart-wrapper {
       padding: 20px;
-      width: 50%;
+      width: 48%;
       background-color: $bg-center;
       border-radius: 2px;
-      margin-top: 20px;
+      margin-top: 10px;
       float: right;
+      &:nth-of-type(2n){
+        margin-right: 2%;
+      }
+      &:nth-of-type(2n+1){
+        margin-left: 2%;
+      }
+
       .chart-container {
         width: 100%;
       }
     }
+    .title{
+      width: 100%;
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      @include color(0.5);
+      text-align: center;
+      span{
+
+        display: block;
+        width: 50%;
+        float: left;
+      }
+    }
   }
 }
+
+.hint:after, [data-hint]:after{
+  font-weight: bolder;
+}
+
+.hint--error:after {
+  @include bg-color(0.3);
+  text-shadow: 0 -1px 0px #592726; }
+.hint--error.hint--top:before {
+  border-top-color: rgba(255,255,255,0.3); }
+.hint--error.hint--bottom:before {
+  border-bottom-color:rgba(255,255,255,0.3); }
+.hint--error.hint--left:before {
+  border-left-color:rgba(255,255,255,0.3); }
+.hint--error.hint--right:before {
+  border-right-color: rgba(255,255,255,0.3); }
 
 

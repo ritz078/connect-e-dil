@@ -1,3 +1,16 @@
 {
-  "name": "Ritesh Kumar"
+  "enrolmentNo":"11115090",
+  "name": "Chintapenta Subramaniam Pramod",
+  "course":"B.Tech",
+  "dept":"Electronics & Communication",
+  "year":4,
+  "image":"images/user.png",
+  "rosesReceived":{
+    "r":8,
+    "y":9,
+    "fromMale":7,
+    "fromFemale":10,
+    "total":17,
+    "daily":[[1,2,0,0,3,5,7],[2,0,0,3,1,8,1]]
+  }
 }

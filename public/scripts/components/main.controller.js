@@ -163,35 +163,41 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', function 
 
 }]);
 
-app.controller('UserController', ['$scope', '$http', '$routeParams',
-  function ($scope, $http, $routeParams) {
+app.controller('UserController', ['$scope', '$http', '$routeParams','dataUser',
+  function ($scope, $http, $routeParams,dataUser) {
 
     console.log($routeParams);
 
-    $http.get('http://beta.json-generator.com/api/json/get/O_6cJ37').success(function (d) {
-      $scope.user = d;
+    var promise=dataUser.getUser($routeParams.enrolmentNo);
+    promise.then(function(d){
+      console.log(d);
+      $scope.user=d;
+      $scope.pieChart1 = {
+        labels: ['Bande', 'Bandiyan'],
+        data: [d.rosesReceived.fromMale, d.rosesReceived.fromFemale]
+      };
+
+      $scope.pieChart2 = {
+        labels: ['Red Roses', 'Yellow Roses'],
+        data: [d.rosesReceived.r, d.rosesReceived.y]
+      };
+
+      $scope.lineChart = {
+        labels: ['8th', '9th', '10th', '11th', '12th', '13th', '14th'],
+        series: ['Red Roses', 'Yellow Roses'],
+        data: [
+          d.rosesReceived.daily[0], d.rosesReceived.daily[1]
+        ],
+        options: {
+          scaleGridLineColor: 'rgba(255,255,255,.05)',
+          bezierCurve: false
+        }
+      };
+
+
     });
 
-
-    $scope.lineChart = {
-      labels: ['8th', '9th', '10th', '11th', '12th', '13th', '14th'],
-      series: ['Red Roses', 'Yellow Roses'],
-      data: [
-        [5, 0, 1, 6, 5, 0],
-        [8, 8, 0, 9, 6, 7, 0]
-      ],
-      onClick: function (points, evt) {
-        console.log(points, evt);
-      },
-      options: {
-        scaleGridLineColor: 'rgba(255,255,255,.05)',
-        bezierCurve: false
-      }
-    };
-
-    $scope.pieChart = {
-      labels: ['Bande', 'Bandiyan'],
-      data: [3, 4],
+    $scope.pieChart={
       'colors': [{
         fillColor: 'rgba(255,255,255,0.3)',
         strokeColor: 'rgba(255,255,255,0.3)',
@@ -210,8 +216,12 @@ app.controller('UserController', ['$scope', '$http', '$routeParams',
       options: {
         segmentShowStroke: false
       }
-
     };
+
+
+
+
+
 
   }]);
 
