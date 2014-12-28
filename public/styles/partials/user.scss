@@ -4,6 +4,9 @@
     width: 100%;
     .user-info {
       width: 100%;
+      padding-bottom: 15px;
+
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       img {
         height: 80px;
         width: 80px;
@@ -16,7 +19,7 @@
         span {
           display: block;
           float: left;
-          @include color(0.6);
+          @include color(0.7);
           padding: 5px 10px;
           width: 100%;
           text-overflow: ellipsis;
@@ -24,6 +27,7 @@
           white-space: nowrap;
           &:last-of-type{
             @include color(0.4);
+            font-size: 14px;
           }
         }
       }
@@ -45,7 +49,7 @@
       width: 100%;
       background-color: $bg-center;
       border-radius: 2px;
-      margin-top: 20px;
+      margin-top: 12px;
       .chart-container {
         width: 100%;
       }
@@ -70,11 +74,10 @@
     }
     .title{
       width: 100%;
-      margin-top: 20px;
       padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      @include color(0.5);
+      @include color(0.65);
       text-align: center;
+      font-size: 13px;
       span{
 
         display: block;
