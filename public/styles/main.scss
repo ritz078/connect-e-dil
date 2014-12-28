@@ -247,6 +247,18 @@ html {
               padding: 5px;
               .shouter {
                 width: 100%;
+                a{
+                  text-decoration: none;
+                  color: $linkcolor;
+                  padding: 2px 3px;
+                  display: inline-block;
+                  i{
+                    font-size: 14px;
+                  }
+                  &:hover{
+                    color: aqua;
+                  }
+                }
                 .userpic {
                   img {
                     @include border-radius(2px);
@@ -259,7 +271,7 @@ html {
                 .username {
                   color: #ffffff;
                   padding: 3px 5px;
-                  @include calc(width, '60% - 25px');
+                  @include calc(width, '50% - 25px');
                   float: left;
                   font-size: 15px;
                   white-space: nowrap;
@@ -270,7 +282,7 @@ html {
                   }
                 }
                 .time {
-                  width: 40%;
+                  @include calc(width,'50% - 30px');
                   text-align: right;
                   padding: 4px 5px 4px 9px;
                   float: left;

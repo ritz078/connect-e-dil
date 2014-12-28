@@ -106,8 +106,10 @@
           <div class="shouter">
             <div class="userpic"><img src="images/user.png" alt=""/></div>
             <div class="username">{{s.name}}</div>
-            <a ng-href="/shout/{{s.id}}">
+
               <div am-time-ago="s.time" class="time"></div>
+            <a ng-href="/shout/{{s.id}}">
+              <i class="fa fa-external-link"></i>
             </a>
           </div>
           <div class="shout-data" ng-bind-html="s.data | profanity |linky:'_blank'| emoticons">
