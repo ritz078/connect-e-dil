@@ -45,8 +45,8 @@ app.filter('profanity', function () {
       String.prototype.repeat = function (num) {
         return new Array(num + 1).join(this);
       };
-      var re = new RegExp(' '.concat(x).concat(' '), 'g');
-      input = input.replace(re, ' '.concat('*'.repeat(len)).concat(' '));
+      var re = new RegExp(x, 'g');
+      input = input.replace(re, '*'.repeat(len));
     });
     return input;
   };
