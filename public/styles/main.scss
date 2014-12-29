@@ -277,9 +277,6 @@ html {
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
-                  :before {
-                    content: "\e601";
-                  }
                 }
                 .time {
                   @include calc(width,'50% - 30px');
