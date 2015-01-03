@@ -4,9 +4,31 @@
     <div class="h-dp">
       <img ng-src="images/user.png" alt=""/>
     </div>
-    <div class="h-details"></div>
+    <div class="h-details">
+      <span>{{dash.name}}</span>
+      <span>{{dash.course}}, {{dash.year|numberSuffix}} Year, {{dash.dept}}</span>
+    </div>
     <div class="h-score">
-      {{6}}
+      {{dash.rosesReceived.total}}
+    </div>
+  </div>
+
+  <div class="break">
+    <div class="h-br">
+      <div class="h-title">R</div>
+      <div class="h-title">{{dash.rosesReceived.r}}</div>
+    </div>
+    <div class="h-br">
+      <div class="h-title">Y</div>
+      <div class="h-title">{{dash.rosesReceived.y}}</div>
+    </div>
+    <div class="h-br">
+      <div class="h-title"><i class="fa fa-female"></i></div>
+      <div class="h-title">{{dash.rosesReceived.fromFemale}}</div>
+    </div>
+    <div class="h-br">
+      <div class="h-title"><i class="fa fa-male"></i></div>
+      <div class="h-title">{{dash.rosesReceived.fromMale}}</div>
     </div>
   </div>
 

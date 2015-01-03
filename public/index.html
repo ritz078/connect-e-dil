@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="left-wrapper1">
-        <div class="leaderboard" scrollable="" watch-collection="leaderboard">
+        <div class="leaderboard" scrollable>
           <a ng-href="/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:15" class="slide-left">
             <div class="row">
               <span class="serial">{{$index+1}}.</span>
@@ -100,7 +100,7 @@
         </form>
 
       </div>
-      <div class="shoutbox" scrollable="" watch-collection="shouts" scrollend="loadShout()">
+      <div class="shoutbox" scrollable scrollend="loadShout()">
 
         <div class="shout" ng-repeat="s in shouts|reverse">
           <div class="shouter">

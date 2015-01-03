@@ -129,7 +129,30 @@
       }
     }
   }
-
+.break{
+  width: 100%;
+  .h-br{
+    @include calc(width,'25% - 18px');
+    @include border(0.4);
+    float: left;
+    margin-right: 24px;
+    @include border-radius(2px);
+    margin-top: 20px;
+    &:last-of-type{
+      margin-right: 0;
+    }
+    .h-title{
+      float:left;
+      width: 50%;
+      padding: 5px;
+      @include color(0.7);
+      text-align: center;
+      &:first-of-type{
+        @include bg-color(0.08);
+      }
+    }
+  }
+}
   .h-info {
     width: 100%;
     .h-dp {
@@ -156,8 +179,21 @@
       float: right;
     }
     .h-details {
-      @include calc(width, '100% - 184px');
+      @include calc(width, '100% - 210px');
       float: left;
+      span{
+        @include color(0.7);
+        display: block;
+        padding: 6px 10px;
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        &:last-of-type{
+          @include color(0.4);
+        }
+      }
     }
   }
 
@@ -169,7 +205,7 @@
 
       .input {
         width: 100%;
-        @include bg-color(0.2);
+        @include bg-color(0.15);
         @include border(0.4);
         @include border-radius(2px);
         padding: 7px;
@@ -177,9 +213,12 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         font-size: 14px/18px;
-        margin: 20px 0;
+        margin: 50px 0;
         margin-bottom: 0;
         text-transform: capitalize;
+        &:focus{
+          border-color:rgba(0,255,0,0.2);
+        }
       }
       .angucomplete-dropdown {
         width: 100%;

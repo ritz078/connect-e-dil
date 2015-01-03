@@ -73,7 +73,7 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
 
   }]);
 
-app.controller('HomeController', ['$scope', 'ngNotify', 'messages', function ($scope, ngNotify, messages) {
+app.controller('HomeController', ['$scope', 'ngNotify', 'messages','dashboardData', function ($scope, ngNotify, messages,dashboardData) {
 
   $scope.message = {
     'anon': true
@@ -94,6 +94,12 @@ app.controller('HomeController', ['$scope', 'ngNotify', 'messages', function ($s
       }
     }
   };
+
+  var dashPromise=dashboardData.getdashData();
+  dashPromise.then(function(d){
+    console.log(d);
+    $scope.dash=d;
+  });
 }]);
 
 

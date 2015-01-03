@@ -85,3 +85,13 @@ app.service('dataUser', ['$http', '$q', function ($http, $q) {
   };
 }]);
 
+app.service('dashboardData',['$http','$q',function($http,$q){
+  var deferred=$q.defer();
+  this.getdashData=function(){
+    $http.get('/data/dashboard.json').success(function(d){
+      deferred.resolve(d);
+    });
+    return deferred.promise;
+  };
+}]);
+
