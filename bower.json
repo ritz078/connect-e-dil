@@ -8,7 +8,6 @@
     "bourbon": "~4.0.2",
     "font-awesome": "~4.2.0",
     "ng-emoticons": "*",
-    "normalize-css": "~3.0.2",
     "angular-route": "~1.3.6",
     "angular-animate": "~1.3.6",
     "angular-moment": "~0.8.3",
@@ -18,8 +17,7 @@
     "ng-nanoscroller": "*",
     "ng-notify": "~0.5.1",
     "modernizr": "~2.8.3",
-    "hint.css": "~1.3.3",
-    "reset-css": "~2.0.20110126"
+    "hint.css": "~1.3.3"
   },
   "devDependencies": {},
   "resolutions": {
