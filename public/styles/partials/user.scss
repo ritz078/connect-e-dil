@@ -38,10 +38,11 @@
         border-radius: 2px;
         float: right;
         text-align: center;
-        padding: 10px;
+        padding:8px 10px;
         font-size: 50px;
         color: #ffffff;
-        font-family: 'latolight';
+        font-family: $font-default;
+        font-weight: 300;
       }
     }
     .linechart-wrapper {
