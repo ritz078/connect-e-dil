@@ -266,3 +266,7 @@ app.controller('LeaderboardController', ['$scope', '$http',
 
 
   }]);
+
+app.controller('LoveguruController',['$scope',function($scope){
+  
+}]);

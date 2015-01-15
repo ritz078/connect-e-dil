@@ -41,6 +41,11 @@ app.config(['$routeProvider', '$locationProvider',
         controller: 'LeaderboardController',
         resolve: resolve
       })
+      .when('/love-guru',{
+        templateUrl:'/views/loveGuru.html',
+        controller:'LoveguruController',
+        resolve:resolve
+      })
       .otherwise({
         redirectTo: '/'
       });

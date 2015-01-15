@@ -27,6 +27,8 @@
   font-size: 14px;
   line-height: 18px;
   font-family: $font-default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :-moz-placeholder {
@@ -36,6 +38,8 @@
   font-size: 14px;
   line-height: 18px;
   font-family: $font-default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::-moz-placeholder {
@@ -45,6 +49,8 @@
   font-size: 14px;
   line-height: 18px;
   font-family: $font-default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :-ms-input-placeholder {
@@ -53,6 +59,8 @@
   font-size: 14px;
   line-height: 18px;
   font-family: $font-default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ol, ul {
@@ -208,9 +216,7 @@ ol, ul {
   width: 5px;
   background: rgba(255, 255, 255, .15);
   opacity: .01;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  @include border-radius(5px);
 }
 
 .angucomplete-dropdown::-webkit-scrollbar-track {

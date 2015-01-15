@@ -92,6 +92,7 @@
         -webkit-transition: height 0.8s;
         -moz-transition: height 0.8s;
         transition: height 0.8s;
+        font-family: $font-default;
         &:disabled {
           cursor: not-allowed;
           background-color: rgba(255, 0, 0, 0.08);
@@ -119,6 +120,8 @@
         -moz-osx-font-smoothing: grayscale;
         box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.3);
         font-size: 14px;
+        cursor: pointer;
+        font-family: $font-default;
         &:hover {
           @include bg-color(0.4);
         }
@@ -217,6 +220,7 @@
         margin: 50px 0;
         margin-bottom: 0;
         text-transform: capitalize;
+        font-family: $font-default;
         &:focus{
           border-color:rgba(0,255,0,0.2);
         }

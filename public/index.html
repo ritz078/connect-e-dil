@@ -10,13 +10,13 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/ng-emoticons/ng-emoticons.css" />
   <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
   <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css" />
   <link rel="stylesheet" href="bower_components/nanoscroller/bin/css/nanoscroller.css" />
   <link rel="stylesheet" href="bower_components/ng-notify/src/styles/ng-notify.css" />
   <link rel="stylesheet" href="bower_components/hint.css/hint.min.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -41,7 +41,9 @@
   <header>
     <a href=""><span>Logout</span></a>
     <a href="/rules"><span>Rules</span></a>
-    <a href="/"><span><i class="fa fa-home"></i></span></a>
+
+    <a href="/love-guru"><span>Love-Guru</span></a>
+    <a href="/"><span>Home</span></a>
 
   </header>
   <div class="content">
@@ -59,7 +61,7 @@
       </div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable>
-          <a ng-href="/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:15" class="slide-left">
+          <a ng-href="/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:30" class="slide-left">
             <div class="row">
               <span class="serial">{{$index+1}}.</span>
               <span class="name"><img ng-src="{{l.dp}}" alt=""/><span>{{l.name}}</span></span>

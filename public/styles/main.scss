@@ -129,6 +129,8 @@ html {
                 @include border(0.05);
                 @include bg-color(0.10);
                 color: #fff;
+                font-family: $font-default;
+                cursor:pointer;
                 margin-bottom: 10px;
                 font-size: 13px;
                 -webkit-font-smoothing: antialiased;
@@ -352,6 +354,7 @@ html {
 @import "partials/shout";
 @import "partials/user";
 @import "partials/rules";
+@import "partials/loveguru";
 
 .mentions {
   background-color: rgba(131, 76, 196, 0.95);
