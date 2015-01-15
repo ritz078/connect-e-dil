@@ -175,12 +175,11 @@
       min-width: 100px;
       padding:4px 10px;
       text-align: center;
-      font-family: $font-default;
+      font-family: $font-light;
       background-color: $bg-center;
       color: #ffffff;
       border-radius: 2px;
       float: right;
-      font-weight: 300;
     }
     .h-details {
       @include calc(width, '100% - 210px');
