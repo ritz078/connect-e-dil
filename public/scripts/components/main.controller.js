@@ -2,7 +2,7 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
+app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard','dataShoutbox',
   function (ngNotify, $scope, $http, dataLeaderboard, dataShoutbox) {
 
     $scope.shouts = [];
@@ -20,7 +20,8 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
 
 
     $scope.user = {
-      'name': 'Ritesh Kumar'
+      'name': 'Ritesh Kumar',
+      'enrolmentNo':'11115078'
     };
 
 
@@ -268,5 +269,5 @@ app.controller('LeaderboardController', ['$scope', '$http',
   }]);
 
 app.controller('LoveguruController',['$scope',function($scope){
-  
+
 }]);
