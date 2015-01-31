@@ -2,7 +2,7 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard','dataShoutbox',
+app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
   function (ngNotify, $scope, $http, dataLeaderboard, dataShoutbox) {
 
     $scope.shouts = [];
@@ -21,7 +21,7 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
 
     $scope.user = {
       'name': 'Ritesh Kumar',
-      'enrolmentNo':'11115078'
+      'enrolmentNo': '11115078'
     };
 
 
@@ -31,7 +31,7 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
       if (e.keyCode !== 13 && !($('mentio-menu').is(':visible'))) {
         return;
       }
-      else if (e.keyCode === 13 && !e.shiftKey && !($('mentio-menu').is(':visible')) && $scope.user.data) {
+      else if (e.keyCode === 13 && !e.shiftKey && !($('mentio-menu').is(':visible')) && $scope.user.content) {
         e.preventDefault();
         $scope.user.time = new Date();
         $scope.shouts.push($scope.user);
@@ -74,7 +74,7 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
 
   }]);
 
-app.controller('HomeController', ['$scope', 'ngNotify', 'messages','dashboardData', function ($scope, ngNotify, messages,dashboardData) {
+app.controller('HomeController', ['$scope', 'ngNotify', 'messages', 'dashboardData', function ($scope, ngNotify, messages, dashboardData) {
 
   $scope.message = {
     'anon': true
@@ -96,10 +96,10 @@ app.controller('HomeController', ['$scope', 'ngNotify', 'messages','dashboardDat
     }
   };
 
-  var dashPromise=dashboardData.getdashData();
-  dashPromise.then(function(d){
+  var dashPromise = dashboardData.getdashData();
+  dashPromise.then(function (d) {
     console.log(d);
-    $scope.dash=d;
+    $scope.dash = d;
   });
 }]);
 
@@ -112,62 +112,60 @@ app.controller('RulesController', ['$scope', 'dataRules', function ($scope, data
   });
 }]);
 
-app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', function ($scope, $http, $sce, embed) {
+app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', '$routeParams', 'dataSingleShout',
+  function ($scope, $http, $sce, embed, $routeParams, dataSingleShout) {
+    console.log($routeParams.id);
 
-  var shout = {
-    'id': '4567',
-    'name': 'Ritesh Kumar',
-    'time': 'Fri Feb 06 1970 00:34:19 GMT+0000 (UTC)',
-    'data': 'Lorem ipsum https://www.google.com dolor sit <3 https://www.youtube.com/watch?v=0fXlZ3vnQd0 , consectetur adipisicing elit. Accusamus adipisci culpa debitis, distinctio error'
-  };
+    var shPromise = dataSingleShout.getShoutData($routeParams.id);
+    shPromise.then(function (d) {
+      $scope.shout = d;
 
-  String.prototype.truncate = function (n) {
-    return this.substr(0, n - 1) + (this.length > n ? '...' : '');
-  };
+      console.log(d);
 
-  /**
-   * Extracting youtube video url
-   * */
-  shout.youtube = {};
+      String.prototype.truncate = function (n) {
+        return this.substr(0, n - 1) + (this.length > n ? '...' : '');
+      };
 
-  var embedPromise = embed.getVideo(shout.data);
-  embedPromise.then(function (e) {
-    console.log(e);
-    shout.youtube.id = e.items[0].id;
-    shout.youtube.title = e.items[0].snippet.channelTitle;
-    shout.youtube.desc = e.items[0].snippet.description.truncate(250);
-    shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + e.items[0].id + '?autoplay=1&theme=light&rel=0');
-  });
-  console.log(embedPromise);
+      /**
+       * Extracting youtube video url
+       * */
+      $scope.shout.youtube = {};
 
-  /**
-   * Calculating Video Dimensions
-   */
-  var width = $('.center').width() - 100;
-  var height = width * (315 / 560);
-  $scope.videoDimensions = {
-    'height': height,
-    'width': width
-  };
+      var embedPromise = embed.getVideo($scope.shout.content);
+      embedPromise.then(function (e) {
+        console.log(e);
+        $scope.shout.youtube.id = e.items[0].id;
+        $scope.shout.youtube.title = e.items[0].snippet.channelTitle;
+        $scope.shout.youtube.desc = e.items[0].snippet.description.truncate(250);
+        $scope.shout.youtube.videoUrl = $sce.trustAsResourceUrl('https://www.youtube.com/embed/' + e.items[0].id + '?autoplay=1&theme=light&rel=0');
+      });
 
-  /**
-   Extracting image links
-   **/
+      /**
+       * Calculating Video Dimensions
+       */
+      var width = $('.center').width() - 100;
+      var height = width * (315 / 560);
+      $scope.videoDimensions = {
+        'height': height,
+        'width': width
+      };
 
-  var imgRegex = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
-  var img = shout.data.match(imgRegex);
-  if (img) {
-    shout.imageUrl = img[0];
-  }
+      /**
+       Extracting image links
+       **/
 
+      var imgRegex = /((?:https?):\/\/\S*\.(?:gif|jpg|jpeg|tiff|png|svg|webp))/gi;
+      var img = $scope.shout.content.match(imgRegex);
+      if (img) {
+        $scope.shout.imageUrl = img[0];
+      }
 
-  $scope.shout = shout;
+      console.log($scope.shout);
 
-
-  console.log(shout);
+    })
 
 
-}]);
+  }]);
 
 app.controller('UserController', ['$scope', '$http', '$routeParams', 'dataUser',
   function ($scope, $http, $routeParams, dataUser) {
@@ -268,6 +266,6 @@ app.controller('LeaderboardController', ['$scope', '$http',
 
   }]);
 
-app.controller('LoveguruController',['$scope',function($scope){
+app.controller('LoveguruController', ['$scope', function ($scope) {
 
 }]);

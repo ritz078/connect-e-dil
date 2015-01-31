@@ -80,7 +80,7 @@
           <button>See All</button>
         </a>
         <span class="copyright">
-          Made with <i class="fa fa-heart"></i> by<br/>
+          Made with <i class="fa fa-heart"></i> <br/>
           <a href="http://img.channeli.in" target="_blank">
             Information Management Group
           </a>
@@ -96,7 +96,7 @@
         <form action="">
           <textarea mentio mentio-for="shoutInput" mentio-typed-text="typedTerm"
                     mentio-template-url="/people-mentions.tpl" mentio-items="people|filter:typedTerm"
-                    ng-keydown="submitShout($event)" id="shoutInput" placeholder="Shout here" ng-model="user.data"
+                    ng-keydown="submitShout($event)" id="shoutInput" placeholder="Shout here" ng-model="user.content"
                     type="text" maxlength="255" required></textarea>
         </form>
 
@@ -105,15 +105,15 @@
 
         <div class="shout" ng-repeat="s in shouts|reverse">
           <div class="shouter">
-            <div class="userpic"><img src="images/user.png" alt=""/></div>
-            <div class="username"><a ng-href="/user/{{s.enrolmentNo}}">{{s.name}}</a></div>
+            <div class="userpic"><img ng-src="http://channeli.in{{s.photo_url}}" alt=""/></div>
+            <div class="username"><a ng-href="/user/{{s.sender}}">{{s.name}}</a></div>
 
-              <div am-time-ago="s.time" class="time"></div>
+              <div am-time-ago="s.date_time" class="time"></div>
             <a ng-href="/shout/{{s.id}}">
               <i class="fa fa-external-link"></i>
             </a>
           </div>
-          <div class="shout-data" ng-bind-html="s.data | profanity |linky:'_blank'| emoticons">
+          <div class="shout-data" ng-bind-html="s.content | profanity |linky:'_blank'| emoticons">
 
           </div>
 
