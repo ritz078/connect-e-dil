@@ -17,32 +17,32 @@ app.config(['$routeProvider', '$locationProvider',
   function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/views/home.html',
+        templateUrl: '../views/home.html',
         controller: 'HomeController',
         resolve: resolve
       })
       .when('/rules', {
-        templateUrl: '/views/rules.html',
+        templateUrl: '../views/rules.html',
         controller: 'RulesController',
         resolve: resolve
       })
       .when('/shout/:id', {
-        templateUrl: '/views/shout.html',
+        templateUrl: '../views/shout.html',
         controller: 'ShoutController',
         resolve: resolve
       })
       .when('/user/:enrolmentNo', {
-        templateUrl: '/views/user.html',
+        templateUrl: '../views/user.html',
         controller: 'UserController',
         resolve: resolve
       })
       .when('/leaderboard', {
-        templateUrl: '/views/leaderboard.html',
+        templateUrl: '../views/leaderboard.html',
         controller: 'LeaderboardController',
         resolve: resolve
       })
       .when('/love-guru',{
-        templateUrl:'/views/loveGuru.html',
+        templateUrl:'../views/loveGuru.html',
         controller:'LoveguruController',
         resolve:resolve
       })
