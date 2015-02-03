@@ -2,8 +2,8 @@
 
 var app = angular.module('valentinoApp');
 
-app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard', 'dataShoutbox',
-  function (ngNotify, $scope, $http, dataLeaderboard, dataShoutbox) {
+app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeaderboard', 'dataShoutbox','mySocket',
+  function (ngNotify, $scope, $http, dataLeaderboard, dataShoutbox,mySocket) {
 
     $scope.shouts = [];
     var promiseShoutbox = dataShoutbox.getShoutbox();
@@ -38,6 +38,12 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
         $scope.user = {
           'name': 'Ritesh Kumar'
         };
+        console.log($scope.user.content);
+        mySocket.emit('chat message',$scope.user.content);
+        mySocket.on('rfh', function(m){
+          console.log(m);
+          ngNotify.set(m,'error');
+        });
       }
 
 
@@ -162,7 +168,7 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', '$routePa
 
       console.log($scope.shout);
 
-    })
+    });
 
 
   }]);

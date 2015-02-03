@@ -108,4 +108,15 @@ app.service('dashboardData',['$http','$q',function($http,$q){
   };
 }]);
 
+app.factory('mySocket', function (socketFactory) {
+  var myIoSocket = io.connect('http://connect-e-dil.channeli.in:3003');
+
+
+  var mySocket = socketFactory({
+    ioSocket: myIoSocket
+  });
+
+  return mySocket;
+});
+
 

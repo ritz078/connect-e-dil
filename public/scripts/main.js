@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('valentinoApp', ['ngNotify', 'angucomplete-alt', 'chart.js', 'mentio', 'ngAnimate', 'ngSanitize', 'angularMoment', 'ngNanoscroller', 'ngEmoticons', 'ngRoute']);
+angular.module('valentinoApp', ['ngNotify', 'angucomplete-alt','ngAnimate', 'chart.js','btford.socket-io', 'mentio', 'ngSanitize', 'angularMoment', 'ngNanoscroller', 'ngEmoticons', 'ngRoute']);
 
 console.log(
 '▄████████  ▄██████▄  ███▄▄▄▄   ███▄▄▄▄      ▄████████  ▄████████     ███        ▄████████ ████████▄   ▄█   ▄█\n'+
