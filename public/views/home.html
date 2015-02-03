@@ -37,16 +37,15 @@
                       placeholder="Search your valentine/friend"
                       pause="100"
                       selected-object="selectedReceiver"
-                      remote-url="http://channeli.in/connect-e-dil/people_search/?term="
+                      remote-url="https://channeli.in/connect-e-dil/person_search/?term="
                       search-fields="name"
                       title-field="name"
                       minlength="2"
                       template-url="/templates/autocomplete.html"
                       input-class="input"
-                      description-field="details"
+                      description-field="label"
                       field-required="true"
-                      match-class="matched"
-                      image-field="image">
+                      image-field="photo_url">
     </angucomplete-alt>
   </div>
   <div class="h-receiver fade" ng-if="selectedReceiver">
@@ -54,7 +53,7 @@
 
       <div class="h-sendingInfo">
         <div class="hsi1">
-          <img ng-src="{{selectedReceiver.originalObject.image}}" alt=""/>
+          <img ng-src="{{selectedReceiver.originalObject.photo_url}}" alt=""/>
         <span class="hsi1-1">{{selectedReceiver.originalObject.name}}<br/>
         <span>{{selectedReceiver.originalObject.details}}</span></span>
         <span class="hsi1-2">
