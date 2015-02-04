@@ -17,13 +17,13 @@
     class="fa fa-male"></i> </span><span
     class="fl-num"><i class="fa fa-female"></i> </span>
   </div>
-  <div class="fl-list-wrapper" scrollable watchCollections="filteredlb" scrollend="addtoLeaderboard();">
-    <a ng-href="/user/{{u.enrolmentNo}}"
+  <div class="fl-list-wrapper" scrollable watchCollections="filteredlb" scrollend="addtoLeaderboard(users.length);">
+    <a ng-href="/user/{{u.enrollmentno}}"
        ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query2)) track by $index"
        class="slide-left">
       <div class="fl-list">
         <span class="fl-serial">{{$index+1}}.</span>
-      <span class="fl-name"><img ng-src="{{u.dp}}" alt="{{u.name}}"/>
+      <span class="fl-name"><img ng-src="https://channeli.in{{u.photo_url}}" alt="{{u.name}}"/>
         <span>{{u.name}}</span></span>
         <span class="fl-num">{{u.red_roses}}</span>
         <span class="fl-num">{{u.yellow_roses}}</span>

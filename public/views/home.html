@@ -1,34 +1,34 @@
-<div class="h-wrapper">
+<div class="h-wrapper" ng-show="dash">
   <div class="h-info">
 
     <div class="h-dp">
-      <img ng-src="images/user.png" alt=""/>
+      <img ng-src="https://channeli.in{{dash.photo_url}}" alt=""/>
     </div>
     <div class="h-details">
       <span>{{dash.name}}</span>
       <span>{{dash.course}}, {{dash.year|numberSuffix}} Year, {{dash.dept}}</span>
     </div>
     <div class="h-score">
-      {{dash.rosesReceived.total}}
+      {{dash.red_roses+dash.yellow_roses}}
     </div>
   </div>
 
   <div class="break">
     <div class="h-br">
       <div class="h-title">R</div>
-      <div class="h-title">{{dash.rosesReceived.r}}</div>
+      <div class="h-title">{{dash.red_roses}}</div>
     </div>
     <div class="h-br">
       <div class="h-title">Y</div>
-      <div class="h-title">{{dash.rosesReceived.y}}</div>
+      <div class="h-title">{{dash.yellow_roses}}</div>
     </div>
     <div class="h-br">
       <div class="h-title"><i class="fa fa-male"></i></div>
-      <div class="h-title">{{dash.rosesReceived.fromFemale}}</div>
+      <div class="h-title">{{dash.male_roses}}</div>
     </div>
     <div class="h-br">
       <div class="h-title"><i class="fa fa-female"></i></div>
-      <div class="h-title">{{dash.rosesReceived.fromMale}}</div>
+      <div class="h-title">{{dash.female_roses}}</div>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
         <div class="hsi1">
           <img ng-src="{{selectedReceiver.originalObject.photo_url}}" alt=""/>
         <span class="hsi1-1">{{selectedReceiver.originalObject.name}}<br/>
-        <span>{{selectedReceiver.originalObject.details}}</span></span>
+        <span>{{selectedReceiver.originalObject.label}}</span></span>
         <span class="hsi1-2">
           <input type="checkbox" id="anon" ng-model="message.anon"/>
           <label for="anon">Send as Anonymous</label>

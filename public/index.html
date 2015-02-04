@@ -61,10 +61,10 @@
       </div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable>
-          <a ng-href="/user/{{l.enrolmentNo}}" ng-repeat="l in leaderboard | limitTo:30" class="slide-left">
+          <a ng-href="/user/{{l.enrollmentno}}" ng-repeat="l in clb" class="slide-left">
             <div class="row">
               <span class="serial">{{$index+1}}.</span>
-              <span class="name"><img ng-src="{{l.dp}}" alt=""/><span>{{l.name}}</span></span>
+              <span class="name"><img ng-src="http://channeli.in{{l.photo_url}}" alt=""/><span>{{l.name}}</span></span>
               <span class="r-roses">{{l.red_roses}}</span>
               <span class="y-roses">{{l.yellow_roses}}</span>
             </div>

@@ -11,10 +11,10 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
       $scope.shouts = d;
     });
 
-    $scope.leaderboard = [];
-    var promiseLeaderboard = dataLeaderboard.getLeaderboard();
+    $scope.clb = [];
+    var promiseLeaderboard = dataLeaderboard.getCombinedLeaderboard();
     promiseLeaderboard.then(function (d) {
-      $scope.leaderboard = d;
+      $scope.clb = d;
 
     });
 
@@ -35,11 +35,13 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
         e.preventDefault();
         $scope.user.time = new Date();
         $scope.shouts.push($scope.user);
+        mySocket.emit('chat message',$scope.user.content);
         $scope.user = {
           'name': 'Ritesh Kumar'
         };
         console.log($scope.user.content);
-        mySocket.emit('chat message',$scope.user.content);
+
+        $scope.user.content='';
         mySocket.on('rfh', function(m){
           console.log(m);
           ngNotify.set(m,'error');
@@ -105,7 +107,13 @@ app.controller('HomeController', ['$scope', 'ngNotify', 'messages', 'dashboardDa
   var dashPromise = dashboardData.getdashData();
   dashPromise.then(function (d) {
     console.log(d);
-    $scope.dash = d;
+    if(!d.error_code){
+      $scope.dash = d;
+    }
+    else{
+      ngNotify.set('Alert','error');
+    }
+
   });
 }]);
 
@@ -176,27 +184,41 @@ app.controller('ShoutController', ['$scope', '$http', '$sce', 'embed', '$routePa
 app.controller('UserController', ['$scope', '$http', '$routeParams', 'dataUser',
   function ($scope, $http, $routeParams, dataUser) {
 
-    console.log($routeParams);
-
     var promise = dataUser.getUser($routeParams.enrolmentNo);
     promise.then(function (d) {
       console.log(d);
-      $scope.user = d;
+      $scope.wall = d;
       $scope.pieChart1 = {
         labels: ['Bande', 'Bandiyan'],
-        data: [d.rosesReceived.fromMale, d.rosesReceived.fromFemale]
+        data: [d.male_roses, d.female_roses]
       };
 
       $scope.pieChart2 = {
         labels: ['Red Roses', 'Yellow Roses'],
-        data: [d.rosesReceived.r, d.rosesReceived.y]
+        data: [d.red_roses, d.yellow_roses]
       };
 
+      var daily={
+        'red_roses':[0,0,0,0,0,0,0,0],
+        'yellow_roses':[0,0,0,0,0,0,0,0]
+      };
+
+      angular.forEach(d.rr_daywise,function(x){
+        daily.red_roses[x.day-1]= x.count;
+      });
+
+      angular.forEach(d.yr_daywise,function(x){
+        daily.yellow_roses[x.day-1]= x.count;
+        console.log(x);
+      });
+
+      console.log(daily);
+
       $scope.lineChart = {
-        labels: ['8th', '9th', '10th', '11th', '12th', '13th', '14th'],
+        labels: ['8th', '9th', '10th', '11th', '12th', '13th', '14th','15th'],
         series: ['Red Roses', 'Yellow Roses'],
         data: [
-          d.rosesReceived.daily[0], d.rosesReceived.daily[1]
+          daily.red_roses, daily.yellow_roses
         ],
         options: {
           scaleGridLineColor: 'rgba(255,255,255,.05)',
@@ -232,24 +254,25 @@ app.controller('UserController', ['$scope', '$http', '$routeParams', 'dataUser',
   }]);
 
 
-app.controller('LeaderboardController', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('/data/v-leaderboard.json').success(function (d) {
-      console.log(d);
-      $scope.users = d;
-    });
+app.controller('LeaderboardController', ['$scope', '$http','dataLeaderboard',
+  function ($scope, $http, dataLeaderboard) {
+    var promise=dataLeaderboard.getLeaderboard(1,30,'M');
+    promise.then(function(d){
+      $scope.users=d;
+    })
 
     /**
      * TODO:search optimizations
      */
 
-    $scope.addtoLeaderboard = function () {
-      $http.get('http://beta.json-generator.com/api/json/get/AG36ZZQ')
-        .success(function (ds) {
-          angular.forEach(ds, function (d) {
-            $scope.users.push(d);
-          });
+    $scope.addtoLeaderboard = function (l) {
+      console.log(l);
+      var add_promise=dataLeaderboard.getLeaderboard(l,5,'M');
+      add_promise.then(function(ds){
+        angular.forEach(ds, function (d) {
+          $scope.users.push(d);
         });
+      });
 
     };
 

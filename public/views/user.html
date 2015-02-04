@@ -1,13 +1,13 @@
-<div class="user-wrapper">
+<div class="user-wrapper" ng-if="wall">
 
   <div class="user-info">
-    <img ng-src="{{user.image}}" alt=""/>
+    <img ng-src="https://channeli.in{{wall.photo_url}}" alt=""/>
 
     <div class="user-details">
-      <span>{{user.name}}</span>
-      <span>{{user.course}}, {{user.year | numberSuffix}} Year, {{user.dept}}</span>
+      <span>{{wall.name}}</span>
+      <span>{{wall.course}}, {{wall.year | numberSuffix}} Year, {{wall.dept}}</span>
     </div>
-    <div class="user-score hint--left hint--rounded hint--error" data-hint="Roses Received">16</div>
+    <div class="user-score hint--left hint--rounded hint--error" data-hint="Roses Received">{{wall.red_roses+wall.yellow_roses}}</div>
   </div>
 
   <div class="title">

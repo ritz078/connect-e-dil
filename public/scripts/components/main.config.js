@@ -16,38 +16,38 @@ var app = angular.module('valentinoApp');
 app.config(['$routeProvider', '$locationProvider',
   function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/dil_test/', {
+      .when('/', {
         templateUrl: '../views/home.html',
         controller: 'HomeController',
         resolve: resolve
       })
-      .when('/dil_test/rules', {
+      .when('/rules', {
         templateUrl: '../views/rules.html',
         controller: 'RulesController',
         resolve: resolve
       })
-      .when('/dil_test/shout/:id', {
+      .when('/shout/:id', {
         templateUrl: '../views/shout.html',
         controller: 'ShoutController',
         resolve: resolve
       })
-      .when('/dil_test/user/:enrolmentNo', {
+      .when('/user/:enrolmentNo', {
         templateUrl: '../views/user.html',
         controller: 'UserController',
         resolve: resolve
       })
-      .when('/dil_test/leaderboard', {
+      .when('/leaderboard', {
         templateUrl: '../views/leaderboard.html',
         controller: 'LeaderboardController',
         resolve: resolve
       })
-      .when('/dil_test/love-guru',{
+      .when('/love-guru',{
         templateUrl:'../views/loveGuru.html',
         controller:'LoveguruController',
         resolve:resolve
       })
       .otherwise({
-        redirectTo: '/dil_test/'
+        redirectTo: '/'
       });
 
     $locationProvider.html5Mode(true).hashPrefix('!');
