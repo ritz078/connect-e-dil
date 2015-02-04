@@ -42,7 +42,7 @@ app.service('dataLeaderboard', ['$http', '$q',
 app.service('dataShoutbox', ['$http', '$q',
   function ($http, $q) {
     var deferred = $q.defer();
-    $http.get('http://172.25.55.147:3000/messages/1/10')
+    $http.get('http://connect-e-dil.channeli.in/messages/1/10')
       .success(function (d) {
         console.log(d);
         deferred.resolve(d);
@@ -57,7 +57,7 @@ app.service('dataSingleShout',['$http','$q',function($http,$q){
 var deferred;
   this.getShoutData=function(id){
     deferred=$q.defer();
-    $http.get('http://172.25.55.147:3000/message/'+id).success(function(d){
+    $http.get('http://connect-e-dil.channeli.in/message/'+id).success(function(d){
       deferred.resolve(d);
       console.log(d);
     });

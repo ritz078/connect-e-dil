@@ -103,7 +103,7 @@
       </div>
       <div class="shoutbox" scrollable scrollend="loadShout()">
 
-        <div class="shout" ng-repeat="s in shouts|reverse">
+        <div class="shout" ng-repeat="s in shouts">
           <div class="shouter">
             <div class="userpic"><img ng-src="http://channeli.in{{s.photo_url}}" alt=""/></div>
             <div class="username"><a ng-href="/user/{{s.sender}}">{{s.name}}</a></div>
@@ -154,6 +154,7 @@
 <script src="bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
 <script src="bower_components/ng-nanoscroller/scrollable.js"></script>
 <script src="bower_components/ng-notify/src/scripts/ng-notify.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <!-- endbower -->
 <script src="bower_components/socket.io-client/socket.io.js"></script>
 <script src="bower_components/angular-socket-io/socket.js"></script>

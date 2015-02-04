@@ -13,8 +13,8 @@ var resolve = {
 
 var app = angular.module('valentinoApp');
 
-app.config(['$routeProvider', '$locationProvider',
-  function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', '$locationProvider','$httpProvider',
+  function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '../views/home.html',
@@ -51,6 +51,10 @@ app.config(['$routeProvider', '$locationProvider',
       });
 
     $locationProvider.html5Mode(true).hashPrefix('!');
+
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    console.log($httpProvider.defaults);
 
 
   }]);

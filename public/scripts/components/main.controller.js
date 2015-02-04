@@ -44,12 +44,19 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
         $scope.user.content='';
         mySocket.on('rfh', function(m){
           console.log(m);
-          ngNotify.set(m,'error');
+          ngNotify.set(m,{
+            'position':'top',
+            'type':'error'
+          });
         });
       }
-
+mySocket.on('chat message',function(d){
+  console.log(d);
+});
 
     };
+
+    mySocket
 
     //shout infinitescroll
     $scope.loadShout = function () {
@@ -111,7 +118,10 @@ app.controller('HomeController', ['$scope', 'ngNotify', 'messages', 'dashboardDa
       $scope.dash = d;
     }
     else{
-      ngNotify.set('Alert','error');
+      ngNotify.set('Alert',{
+        'position':'top',
+        'type':'error'
+      });
     }
 
   });

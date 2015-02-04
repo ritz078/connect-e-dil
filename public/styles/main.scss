@@ -294,10 +294,11 @@ html {
 
               }
               .shout-data {
-                font-size: 12px;
+                font-size: 14px;
                 color: #ffffff;
                 padding: 5px 2px;
                 opacity: 0.9;
+                padding-left: 35px;
 
                 .icon-smiley {
                   font-size: 15px;
@@ -376,12 +377,17 @@ html {
   }
 }
 
+.ngn{
+  padding: 8px 80px;
+  font-size: 18px;
+}
+
 .ngn-success {
   background-color: rgba(0, 255, 34, 0.08);
   color: green;
 }
 
 .ngn-error {
-  background-color: red;
-  color: #ffffff;
+  background-color: transparent;
+  color: red;
 }
