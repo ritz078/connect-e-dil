@@ -6,7 +6,7 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
   function (ngNotify, $scope, $http, dataLeaderboard, dataShoutbox,mySocket) {
 
     $scope.shouts = [];
-    var promiseShoutbox = dataShoutbox.getShoutbox();
+    var promiseShoutbox = dataShoutbox.getShoutbox(1,15);
     promiseShoutbox.then(function (d) {
       $scope.shouts = d;
     });
@@ -59,13 +59,11 @@ mySocket.on('chat message',function(d){
     mySocket
 
     //shout infinitescroll
-    $scope.loadShout = function () {
-      $http.get('http://beta.json-generator.com/api/json/get/FR1rX3L')
-        .success(function (ds) {
-          angular.forEach(ds, function (d) {
-            $scope.shouts.push(d);
-          });
-        });
+    $scope.loadShout = function (s) {
+      var addShoutPromise=dataShoutbox.getShoutbox(s,5);
+      addShoutPromise.then(function(d){
+$scope.shouts=$scope.shouts.concat(d);
+      })
     };
 
     //transition effects

@@ -40,7 +40,6 @@ app.filter('profanity', function () {
   var words = ['sex', 'fuck'];
   return function (input) {
     if(input){
-      console.log(input);
       angular.forEach(words, function (word) {
         var x = word;
         var len = word.length;

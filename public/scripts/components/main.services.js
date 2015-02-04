@@ -41,14 +41,16 @@ app.service('dataLeaderboard', ['$http', '$q',
 
 app.service('dataShoutbox', ['$http', '$q',
   function ($http, $q) {
-    var deferred = $q.defer();
-    $http.get('http://connect-e-dil.channeli.in/messages/1/10')
-      .success(function (d) {
-        console.log(d);
-        deferred.resolve(d);
-      });
+    var deferred;
 
-    this.getShoutbox = function () {
+
+    this.getShoutbox = function (s,e) {
+      deferred=$q.defer();
+      $http.get('http://connect-e-dil.channeli.in/messages/'+s+'/'+e)
+        .success(function (d) {
+          console.log(d);
+          deferred.resolve(d);
+        });
       return deferred.promise;
     };
   }]);

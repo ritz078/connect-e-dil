@@ -278,6 +278,7 @@ html {
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
+                  font-weight: bolder;
                 }
                 .time {
                   @include calc(width,'50% - 30px');
