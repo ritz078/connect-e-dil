@@ -118,7 +118,7 @@ app.service('dataUser', ['$http', '$q', function ($http, $q) {
 app.service('dashboardData',['$http','$q',function($http,$q){
   var deferred=$q.defer();
   this.getdashData=function(){
-    $http.get('http://172.25.55.147:60003/connect-e-dil/person_json_private/?enrol='+11110059).success(function(d){
+    $http.get('http://172.25.55.147:60003/connect-e-dil/person_json_private/?enrol='+11115078).success(function(d){
       deferred.resolve(d);
     });
     return deferred.promise;

@@ -102,7 +102,7 @@
 
         <div class="shout" ng-repeat="s in shouts">
           <div class="shouter">
-            <div class="userpic"><img ng-src="http://channeli.in{{s.photo_url}}" alt=""/></div>
+            <div class="userpic"><img ng-src="https://channeli.in/photo/{{s.sender}}" alt=""/></div>
             <div class="username"><a ng-href="#/user/{{s.sender}}">{{s.name}}</a></div>
 
               <div am-time-ago="s.date_time" class="time"></div>
