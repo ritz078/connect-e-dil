@@ -34,7 +34,6 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
       else if (e.keyCode === 13 && !e.shiftKey && !($('mentio-menu').is(':visible')) && $scope.user.content) {
         e.preventDefault();
         $scope.user.time = new Date();
-        $scope.shouts.push($scope.user);
         mySocket.emit('chat message',$scope.user.content);
         $scope.user = {
           'name': 'Ritesh Kumar'
@@ -50,9 +49,13 @@ app.controller('ValentinoController', ['ngNotify', '$scope', '$http', 'dataLeade
           });
         });
       }
-mySocket.on('chat message',function(d){
+mySocket.on('sent',function(d){
   console.log(d);
 });
+      mySocket.on('chat message',function(d){
+        console.log(d);
+        $scope.shouts.unshift(d);
+      })
 
     };
 
@@ -87,7 +90,7 @@ $scope.shouts=$scope.shouts.concat(d);
 
   }]);
 
-app.controller('HomeController', ['$scope', 'ngNotify', 'messages', 'dashboardData', function ($scope, ngNotify, messages, dashboardData) {
+app.controller('HomeController', ['$scope', 'ngNotify', 'messages', 'dashboardData','$timeout', function ($scope, ngNotify, messages, dashboardData,$timeout) {
 
   $scope.message = {
     'anon': true
@@ -109,11 +112,93 @@ app.controller('HomeController', ['$scope', 'ngNotify', 'messages', 'dashboardDa
     }
   };
 
+
+
+  //tabs
+  $('#tabs li a').click(function(e) {
+
+    $('#tabs li, #content .current').removeClass('current').removeClass('fadeInLeft');
+    $(this).parent().addClass('current');
+    var currentTab = $(this).attr('href');
+    $(currentTab).addClass('current fadeInLeft');
+    e.preventDefault();
+
+  });
+
+
   var dashPromise = dashboardData.getdashData();
   dashPromise.then(function (d) {
     console.log(d);
     if(!d.error_code){
       $scope.dash = d;
+
+      $scope.pieChart = {
+        'colors': [{
+          fillColor: 'rgba(255,255,255,0.3)',
+          strokeColor: 'rgba(255,255,255,0.3)',
+          pointColor: 'rgba(255,255,255,0.3)',
+          pointStrokeColor: 'rgba(255,255,255,0.3)',
+          pointHighlightFill: 'rgba(255,255,255,0.3)',
+          pointHighlightStroke: 'rgba(255,255,255,0.3)'
+        }, {
+          fillColor: 'rgba(255,255,255,0.7)',
+          strokeColor: 'rgba(255,255,255,0.7)',
+          pointColor: 'rgba(255,255,255,0.7)',
+          pointStrokeColor: 'rgba(255,255,255,0.7)',
+          pointHighlightFill: 'rgba(255,255,255,0.7)',
+          pointHighlightStroke: 'rgba(255,255,255,0.7)'
+        }],
+        options: {
+          segmentShowStroke: false
+        }
+      };
+
+      $scope.pieChart1 = {
+        labels: ['Bande', 'Bandiyan'],
+        data: [d.male_roses, d.female_roses]
+      };
+
+      var daily={
+        'red_roses':[0,0,0,0,0,0,0,0],
+        'yellow_roses':[0,0,0,0,0,0,0,0]
+      };
+
+      angular.forEach(d.rr_daywise,function(x){
+        daily.red_roses[x.day-1]= x.count;
+      });
+
+      angular.forEach(d.yr_daywise,function(x){
+        daily.yellow_roses[x.day-1]= x.count;
+      });
+
+      console.log(daily);
+
+      $scope.lineChart = {
+        labels: ['8th', '9th', '10th', '11th', '12th', '13th', '14th','15th'],
+        series: ['Red Roses', 'Yellow Roses'],
+        data: [
+          daily.red_roses, daily.yellow_roses
+        ],
+        options: {
+          scaleGridLineColor: 'rgba(255,255,255,.05)',
+          bezierCurve: false
+        }
+      };
+
+      console.log(d.red_roses);
+      $scope.pieChart2 = {
+        labels: ['Red Roses', 'Yellow Roses'],
+        data: [d.red_roses, d.yellow_roses]
+      };
+
+      $scope.updateChart=function(){
+        alert('a');
+        $timeout(function(){
+          angular.element('#c').find('chartist').each(function(i, e) {
+            e.__chartist__.update();
+          });
+        }, 100);
+      }
     }
     else{
       ngNotify.set('Alert',{
@@ -217,7 +302,6 @@ app.controller('UserController', ['$scope', '$http', '$routeParams', 'dataUser',
 
       angular.forEach(d.yr_daywise,function(x){
         daily.yellow_roses[x.day-1]= x.count;
-        console.log(x);
       });
 
       console.log(daily);
@@ -274,7 +358,6 @@ app.controller('LeaderboardController', ['$scope', '$http','dataLeaderboard',
      */
 
     $scope.addtoLeaderboard = function (l) {
-      console.log(l);
       var add_promise=dataLeaderboard.getLeaderboard(l,5,'M');
       add_promise.then(function(ds){
         angular.forEach(ds, function (d) {

@@ -41,20 +41,13 @@ app.config(['$routeProvider', '$locationProvider','$httpProvider',
         controller: 'LeaderboardController',
         resolve: resolve
       })
-      .when('/love-guru',{
-        templateUrl:'../views/loveGuru.html',
-        controller:'LoveguruController',
-        resolve:resolve
-      })
       .otherwise({
         redirectTo: '/'
       });
 
-    $locationProvider.html5Mode(true).hashPrefix('!');
 
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-    console.log($httpProvider.defaults);
 
 
   }]);

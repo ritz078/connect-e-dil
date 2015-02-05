@@ -22,7 +22,7 @@ app.service('dataLeaderboard', ['$http', '$q',
 
     this.getLeaderboard = function (s,c,g) {
       d1=$q.defer();
-      $http.get('http://172.25.55.147:60002/connect-e-dil/leaders/?start='+s+'&count='+c+'&gender='+g)
+      $http.get('http://172.25.55.147:60003/connect-e-dil/leaders/?start='+s+'&count='+c+'&gender='+g)
         .success(function (d) {
           d1.resolve(d);
         });
@@ -31,7 +31,7 @@ app.service('dataLeaderboard', ['$http', '$q',
 
     this.getCombinedLeaderboard=function(){
       d2=$q.defer();
-      $http.get('http://172.25.55.147:60002/connect-e-dil/leaders/?start=1&count=25&combined=true').success(function(d){
+      $http.get('http://172.25.55.147:60003/connect-e-dil/leaders/?start=1&count=25&combined=true').success(function(d){
         console.log(d);
         d2.resolve(d);
       });
@@ -48,7 +48,6 @@ app.service('dataShoutbox', ['$http', '$q',
       deferred=$q.defer();
       $http.get('http://connect-e-dil.channeli.in/messages/'+s+'/'+e)
         .success(function (d) {
-          console.log(d);
           deferred.resolve(d);
         });
       return deferred.promise;
@@ -106,7 +105,7 @@ app.service('dataUser', ['$http', '$q', function ($http, $q) {
   var deferred;
   this.getUser = function (enr) {
     deferred=$q.defer();
-    $http.get('http://172.25.55.147:60002/connect-e-dil/person_json/?enrol=' + enr).success(function (d) {
+    $http.get('http://172.25.55.147:60003/connect-e-dil/person_json/?enrol=' + enr).success(function (d) {
       console.log(d);
       deferred.resolve(d);
     });
@@ -117,7 +116,7 @@ app.service('dataUser', ['$http', '$q', function ($http, $q) {
 app.service('dashboardData',['$http','$q',function($http,$q){
   var deferred=$q.defer();
   this.getdashData=function(){
-    $http.get('http://172.25.55.147:60002/connect-e-dil/person_json_private/?enrol='+11115078).success(function(d){
+    $http.get('http://172.25.55.147:60003/connect-e-dil/person_json_private/?enrol='+11115078).success(function(d){
       console.log(d);
       deferred.resolve(d);
     });

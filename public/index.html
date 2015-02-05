@@ -5,7 +5,6 @@
   <title>Connect-e-dil</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <base href="/"/>
   <link rel="shortcut icon" href="/favicon.ico">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
@@ -39,18 +38,16 @@
 <![endif]-->
 <div class="container">
   <header>
-    <a href=""><span>Logout</span></a>
-    <a href="/rules"><span>Rules</span></a>
-
-    <a href="/love-guru"><span>Love-Guru</span></a>
-    <a href="/"><span>Home</span></a>
+    <a href="/logout"><span>Logout</span></a>
+    <a href="#/rules"><span>Rules</span></a>
+    <a href="#/"><span>Home</span></a>
 
   </header>
   <div class="content">
     <div class="left">
       <div class="left-wrapper">
 
-        <a href="/leaderboard"><span class="title">LeaderBoard</span></a>
+        <a href="#/leaderboard"><span class="title">LeaderBoard</span></a>
 
         <div class="hd">
           <span class="serial">#</span>
@@ -61,7 +58,7 @@
       </div>
       <div class="left-wrapper1">
         <div class="leaderboard" scrollable>
-          <a ng-href="/user/{{l.enrollmentno}}" ng-repeat="l in clb" class="slide-left">
+          <a ng-href="#/user/{{l.enrollmentno}}" ng-repeat="l in clb" class="slide-left">
             <div class="row">
               <span class="serial">{{$index+1}}.</span>
               <span class="name"><img ng-src="http://channeli.in{{l.photo_url}}" alt=""/><span>{{l.name}}</span></span>
@@ -76,7 +73,7 @@
 
       <div class="left-wrapper">
 
-        <a href="/leaderboard">
+        <a href="#/leaderboard">
           <button>See All</button>
         </a>
         <span class="copyright">
@@ -106,10 +103,10 @@
         <div class="shout" ng-repeat="s in shouts">
           <div class="shouter">
             <div class="userpic"><img ng-src="http://channeli.in{{s.photo_url}}" alt=""/></div>
-            <div class="username"><a ng-href="/user/{{s.sender}}">{{s.name}}</a></div>
+            <div class="username"><a ng-href="#/user/{{s.sender}}">{{s.name}}</a></div>
 
               <div am-time-ago="s.date_time" class="time"></div>
-            <a ng-href="/shout/{{s.id}}">
+            <a ng-href="#/shout/{{s.id}}">
               <i class="fa fa-external-link"></i>
             </a>
           </div>
