@@ -7,7 +7,7 @@
   </div>
 
 
-  <input type="text" id="query" ng-model="query2" autocomplete="off"
+  <input type="text" id="query" ng-model="query2" ng-keydown="lbUpdate()" autocomplete="off"
          placeholder="Search for friends"/>
 
   <div class="fl-hd">
@@ -18,12 +18,26 @@
     class="fl-num"><i class="fa fa-female"></i> </span>
   </div>
   <div class="fl-list-wrapper" scrollable watchCollections="filteredlb" scrollend="addtoLeaderboard(users.length);">
-    <a ng-href="#/user/{{u.enrollmentno}}"
+    <a ng-href="#/user/{{u.enrollmentno}}" ng-init="x=true" ng-show="x"
        ng-repeat="u in (filteredlb=(users | orderBy:'-(red_roses+yellow_roses)' |leaderBfilter:query2)) track by $index"
        class="slide-left">
       <div class="fl-list">
         <span class="fl-serial">{{$index+1}}.</span>
       <span class="fl-name"><img ng-src="https://channeli.in{{u.photo_url}}" alt="{{u.name}}"/>
+        <span>{{u.name}}</span></span>
+        <span class="fl-num">{{u.red_roses}}</span>
+        <span class="fl-num">{{u.yellow_roses}}</span>
+        <span class="fl-num">6</span>
+        <span class="fl-num">5</span>
+      </div>
+    </a>
+
+    <a ng-href="#/user/{{u.id}}" ng-show="!x"
+       ng-repeat="u in (filteredlb=(users2 | orderBy:'-(red_roses+yellow_roses)')) track by $index"
+       class="slide-left">
+      <div class="fl-list">
+        <span class="fl-serial">{{$index+1}}.</span>
+      <span class="fl-name"><img ng-src="https://channeli.in/photo/{{u.id}}" alt="{{u.name}}"/>
         <span>{{u.name}}</span></span>
         <span class="fl-num">{{u.red_roses}}</span>
         <span class="fl-num">{{u.yellow_roses}}</span>

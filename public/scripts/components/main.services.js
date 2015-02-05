@@ -89,8 +89,10 @@ app.service('embed', ['$http', '$q',
   }]);
 
 app.service('messages', ['$http', '$q', function ($http, $q) {
-  var deferredSendMsg = $q.defer();
+  var deferredSendMsg;
   this.sendMsg = function (d) {
+    deferredSendMsg=$q.defer();
+    console.log(d);
     $http.post('abc', d).success(function (d) {
       deferredSendMsg.resolve(d);
     })
@@ -116,8 +118,7 @@ app.service('dataUser', ['$http', '$q', function ($http, $q) {
 app.service('dashboardData',['$http','$q',function($http,$q){
   var deferred=$q.defer();
   this.getdashData=function(){
-    $http.get('http://172.25.55.147:60003/connect-e-dil/person_json_private/?enrol='+11115078).success(function(d){
-      console.log(d);
+    $http.get('http://172.25.55.147:60003/connect-e-dil/person_json_private/?enrol='+11110059).success(function(d){
       deferred.resolve(d);
     });
     return deferred.promise;

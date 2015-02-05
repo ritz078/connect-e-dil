@@ -2,11 +2,11 @@
   <div class="h-info">
 
     <div class="h-dp">
-      <img ng-src="https://channeli.in{{dash.photo_url}}" alt=""/>
+      <img ng-src="https://channeli.in/photo/{{dash.enrollment_no}}" alt=""/>
     </div>
     <div class="h-details">
       <span>{{dash.name}}</span>
-      <span>{{dash.course}}, {{dash.year|numberSuffix}} Year, {{dash.dept}}</span>
+      <span>{{dash.label}}</span>
     </div>
     <div class="h-score">
       {{dash.red_roses+dash.yellow_roses}}
@@ -58,7 +58,7 @@
                           input-class="input"
                           description-field="label"
                           field-required="true"
-                          image-field="photo_url">
+                          image-field="id">
         </angucomplete-alt>
       </div>
       <div class="h-receiver fade" ng-if="selectedReceiver">
@@ -66,7 +66,7 @@
 
           <div class="h-sendingInfo">
             <div class="hsi1">
-              <img ng-src="{{selectedReceiver.originalObject.photo_url}}" alt=""/>
+              <img ng-src="https://channeli.in/photo/{{selectedReceiver.originalObject.id}}" alt=""/>
         <span class="hsi1-1">{{selectedReceiver.originalObject.name}}<br/>
         <span>{{selectedReceiver.originalObject.label}}</span></span>
         <span class="hsi1-2">
@@ -86,7 +86,7 @@
     </div>
     <div id="b">
       <div class="r-msg" ng-repeat="r in dash.message_received">
-        <img src="https://channeli.in/photo/{{r.enrol}}" alt=""/>
+        <img ng-src="https://channeli.in/photo/{{r.enrol}}" alt=""/>
        <span class="r-name"><a ng-href="#/user/{{r.enrol}}">{{r.message_from}}</a></span>
         <div class="message" ng-bind-html="r.message | linky:'_blank'| emoticons"></div>
       </div>

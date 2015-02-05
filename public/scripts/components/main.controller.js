@@ -346,12 +346,38 @@ app.controller('UserController', ['$scope', '$http', '$routeParams', 'dataUser',
   }]);
 
 
-app.controller('LeaderboardController', ['$scope', '$http','dataLeaderboard',
-  function ($scope, $http, dataLeaderboard) {
+app.controller('LeaderboardController', ['$scope', '$http','dataLeaderboard','$timeout',
+  function ($scope, $http, dataLeaderboard,$timeout) {
+
+
+
+
     var promise=dataLeaderboard.getLeaderboard(1,30,'M');
     promise.then(function(d){
       $scope.users=d;
-    })
+    });
+
+    var x=true;
+    $scope.query2='';
+
+    $scope.lbUpdate=function(){
+      if($scope.query2.length>=2){
+        $http.get('http://172.25.55.147:60003/connect-e-dil/person_search/?term='+$scope.query2+'&roses=true')
+          .success(function(d){
+            $scope.users2=d;
+          });
+        $timeout(function(){
+          x=false;
+        },2);
+      }
+      else{
+        $scope.user2=[];
+        $timeout(function(){
+          x=true;
+        },2);
+      }
+
+    };
 
     /**
      * TODO:search optimizations
