@@ -13,8 +13,8 @@ var resolve = {
 
 var app = angular.module('valentinoApp');
 
-app.run(['$http','$cookies',function($http,$cookies){
-$http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
+app.run(['$http', '$cookies', function ($http, $cookies) {
+  $http.defaults.headers.post['X-CSRFToken'] = $cookies['csrftoken'];
 }]);
 app.config(['$routeProvider', '$locationProvider',
   function ($routeProvider, $locationProvider) {
@@ -58,5 +58,5 @@ Chart.defaults.global.animationSteps = 150;
 Chart.defaults.global.tooltipFillColor = 'rgba(131, 76, 196, 0.95)';
 Chart.defaults.global.tooltipFontFamily = 'latoregular,sans-serif';
 Chart.defaults.global.tooltipTitleFontFamily = 'lato-regular,sans-serif';
-Chart.defaults.global.animationSteps=30;
+Chart.defaults.global.animationSteps = 30;
 

@@ -14,25 +14,25 @@ app.service('dataRules', ['$http', '$q',
     };
   }]);
 
-app.service('dataLeaderboard', ['$http', '$q','$cookies',
+app.service('dataLeaderboard', ['$http', '$q', '$cookies',
   function ($http, $q, $cookies) {
     var d1;
     var d2;
 
 
-    this.getLeaderboard = function (s,c,g) {
-      d1=$q.defer();
-      $http.get('http://dil.channeli.in/valentino/leaders/?start='+s+'&count='+c+'&gender='+g+'&PHPSESSID='+$cookies.PHPSESSID)
+    this.getLeaderboard = function (s, c, g) {
+      d1 = $q.defer();
+      $http.get('http://dil.channeli.in/valentino/leaders/?start=' + s + '&count=' + c + '&gender=' + g + '&PHPSESSID=' + $cookies.PHPSESSID)
         .success(function (d) {
-	//	if(d.error==2){location.reload();}
+          //	if(d.error==2){location.reload();}
           d1.resolve(d);
         });
       return d1.promise;
     };
 
-    this.getCombinedLeaderboard=function(){
-      d2=$q.defer();
-      $http.get('http://dil.channeli.in/valentino/leaders/?start=1&count=25&combined=true&PHPSESSID='+$cookies.PHPSESSID).success(function(d){
+    this.getCombinedLeaderboard = function () {
+      d2 = $q.defer();
+      $http.get('http://dil.channeli.in/valentino/leaders/?start=1&count=25&combined=true&PHPSESSID=' + $cookies.PHPSESSID).success(function (d) {
         //if(d.error==2){location.reload();}
         d2.resolve(d);
       });
@@ -45,9 +45,9 @@ app.service('dataShoutbox', ['$http', '$q',
     var deferred;
 
 
-    this.getShoutbox = function (s,e) {
-      deferred=$q.defer();
-      $http.get('http://dil.channeli.in/messages/'+s+'/'+e)
+    this.getShoutbox = function (s, e) {
+      deferred = $q.defer();
+      $http.get('http://dil.channeli.in/messages/' + s + '/' + e)
         .success(function (d) {
           deferred.resolve(d);
         });
@@ -55,11 +55,11 @@ app.service('dataShoutbox', ['$http', '$q',
     };
   }]);
 
-app.service('dataSingleShout',['$http','$q',function($http,$q){
-var deferred;
-  this.getShoutData=function(id){
-    deferred=$q.defer();
-    $http.get('http://dil.channeli.in/message/'+id).success(function(d){
+app.service('dataSingleShout', ['$http', '$q', function ($http, $q) {
+  var deferred;
+  this.getShoutData = function (id) {
+    deferred = $q.defer();
+    $http.get('http://dil.channeli.in/message/' + id).success(function (d) {
       deferred.resolve(d);
     });
     return deferred.promise;
@@ -88,23 +88,25 @@ app.service('embed', ['$http', '$q',
     };
   }]);
 
-app.service('messages', ['$http', '$q','$cookies', function ($http, $q,$cookies) {
+app.service('messages', ['$http', '$q', '$cookies', function ($http, $q, $cookies) {
   var deferredSendMsg;
-  this.sendMsg = function (d,e) {
-    deferredSendMsg=$q.defer();
-    if(!d.message){d.message=e+' has sent you a rose.';}
-  //  $http.post('https://channeli.in/valentino/rose_handler/',{
+  this.sendMsg = function (d, e) {
+    deferredSendMsg = $q.defer();
+    if (!d.message) {
+      d.message = e + ' has sent you a rose.';
+    }
+    //  $http.post('https://channeli.in/valentino/rose_handler/',{
 //		'rc':d.rose_color,
 //		'anon':d.anon,
 //		'to':d.to,
 //		'message':d.message,
 //		'PHPSESSID':$cookies.PHPSESSID
 //		})
-	$http.get('http://dil.channeli.in/valentino/rose_handler/?rc='+d.rose_color+'&anon='+d.anon+'&to='+d.to+'&PHPSESSID='+$cookies.PHPSESSID+'&message='+d.message)
-	.success(function (d) {
+    $http.get('http://dil.channeli.in/valentino/rose_handler/?rc=' + d.rose_color + '&anon=' + d.anon + '&to=' + d.to + '&PHPSESSID=' + $cookies.PHPSESSID + '&message=' + d.message)
+      .success(function (d) {
 //	if(d.error==2){location.reload();}
-      deferredSendMsg.resolve(d);
-    })
+        deferredSendMsg.resolve(d);
+      })
       .error(function (d) {
         deferredSendMsg.resolve(d);
       });
@@ -112,12 +114,12 @@ app.service('messages', ['$http', '$q','$cookies', function ($http, $q,$cookies)
   };
 }]);
 
-app.service('dataUser', ['$http', '$q','$cookies', function ($http, $q,$cookies) {
+app.service('dataUser', ['$http', '$q', '$cookies', function ($http, $q, $cookies) {
   var deferred;
   this.getUser = function (enr) {
-    deferred=$q.defer();
-    $http.get('http://dil.channeli.in/valentino/person_json/?enrol=' + enr+'&PHPSESSID='+$cookies.PHPSESSID).success(function (d) {
-  //    if(d.error==2){location.reload();}
+    deferred = $q.defer();
+    $http.get('http://dil.channeli.in/valentino/person_json/?enrol=' + enr + '&PHPSESSID=' + $cookies.PHPSESSID).success(function (d) {
+      //    if(d.error==2){location.reload();}
       deferred.resolve(d);
     });
     return deferred.promise;
@@ -127,7 +129,7 @@ app.service('dataUser', ['$http', '$q','$cookies', function ($http, $q,$cookies)
 app.factory('mySocket', function (socketFactory) {
   var myIoSocket = io.connect('http://dil.channeli.in'
 //,{transports: ['xhr-polling','websocket', 'flashsocket', 'htmlfile', 'jsonp-polling', 'polling']}
-);
+  );
 
 
   var mySocket = socketFactory({
@@ -137,14 +139,14 @@ app.factory('mySocket', function (socketFactory) {
   return mySocket;
 });
 
-app.service('dashData',['$http','$cookies','$q',function($http,$cookies,$q){
-	var deferred;
-	this.getData=function(e){
-	deferred=$q.defer();
-	$http.get('http://dil.channeli.in/valentino/person_json_private/?enrol='+e+'&PHPSESSID='+$cookies.PHPSESSID)
-		.success(function(d){
-			deferred.resolve(d);
-})
-	return deferred.promise;
-}
+app.service('dashData', ['$http', '$cookies', '$q', function ($http, $cookies, $q) {
+  var deferred;
+  this.getData = function (e) {
+    deferred = $q.defer();
+    $http.get('http://dil.channeli.in/valentino/person_json_private/?enrol=' + e + '&PHPSESSID=' + $cookies.PHPSESSID)
+      .success(function (d) {
+        deferred.resolve(d);
+      })
+    return deferred.promise;
+  }
 }])

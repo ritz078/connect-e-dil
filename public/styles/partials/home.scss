@@ -1,12 +1,21 @@
-.r-rose{
-	width:115px !important;
-	clear:both;
-	margin:10px auto;
-	position:relative;
-	overflow:auto;
-	span{cursor:pointer;padding:10px;float:left;border-radius:2px;border:1px solid transparent;
-}.active{@include border(0.2);}
+.r-rose {
+  width: 115px !important;
+  clear: both;
+  margin: 10px auto;
+  position: relative;
+  overflow: auto;
+  span {
+    cursor: pointer;
+    padding: 10px;
+    float: left;
+    border-radius: 2px;
+    border: 1px solid transparent;
+  }
+  .active {
+    @include border(0.2);
+  }
 }
+
 .h-wrapper {
   width: 100%;
 
@@ -17,7 +26,7 @@
     padding: 8px;
     border-radius: 2px;
     position: relative;
-	overflow:auto;
+    overflow: auto;
     .h-sendingInfo {
       width: 100%;
       float: left;
@@ -161,10 +170,10 @@
         padding: 5px;
         @include color(0.7);
         text-align: center;
-	font-size:50px;
-	font-weight:lighter;
-	height:70px;
-	opacity:0.8;
+        font-size: 50px;
+        font-weight: lighter;
+        height: 70px;
+        opacity: 0.8;
         &:first-of-type {
           @include bg-color(0.08);
         }
@@ -190,7 +199,7 @@
       min-width: 100px;
       padding: 4px 10px;
       text-align: center;
-      font-weight:300;
+      font-weight: 300;
       background-color: $bg-center;
       color: #ffffff;
       border-radius: 2px;
@@ -215,7 +224,7 @@
     }
   }
 
-  #a{
+  #a {
     .angucomplete-wrapper {
       width: 100%;
       overflow: visible;
@@ -270,7 +279,7 @@
             .angucomplete-image-holder {
               margin-left: 0;
               margin-right: 5px;
-              float:left;
+              float: left;
               width: 23px;
               .angucomplete-image {
                 height: 23px;
@@ -309,20 +318,18 @@
     }
   }
 
-
-
-  #b{
-    a{
+  #b {
+    a {
       text-decoration: none;
       color: aquamarine;
       padding: 2px 3px;
     }
   }
 
-  #c{
-    .pchart{
+  #c {
+    .pchart {
       width: 25%;
-      float:left;
+      float: left;
       .piechart-wrapper {
         padding: 20px;
         width: 100%;
@@ -338,8 +345,7 @@
 
     }
 
-
-    span{
+    span {
       @include color(0.7);
       display: inline-block;
       text-align: center;
@@ -347,9 +353,9 @@
       margin-top: 15px;
     }
 
-    .linechart-wrapper{
+    .linechart-wrapper {
       width: 100%;
-      float:left;
+      float: left;
       margin-top: 35px;
     }
   }
@@ -388,7 +394,7 @@
   text-decoration: none;
   text-align: center;
   font-size: 15px;
-  border:1px solid transparent;
+  border: 1px solid transparent;
   border-bottom: 1px solid $bg-center;
 }
 
@@ -481,32 +487,32 @@
   margin: 0 0 20px 0;
 }
 
-#content{
+#content {
   width: 100%;
-  div{
+  div {
     width: 100%;
   }
 }
 
-
-.r-msg{
-  img{
-    @include dimensions(30px,30px);
+.r-msg {
+  img {
+    @include dimensions(30px, 30px);
     @include border-radius(1px);
-    float:left;
-   }
-.rose{
-float:right;
-}  .r-name{
-    float:left;
+    float: left;
+  }
+  .rose {
+    float: right;
+  }
+  .r-name {
+    float: left;
     padding: 4px 10px;
   }
-  .message{
+  .message {
     @include color(0.6);
     padding: 10px;
     padding-left: 42px;
     text-align: justify;
-    font-size:14px;
+    font-size: 14px;
     margin-bottom: 15px;
   }
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);

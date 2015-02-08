@@ -1,6 +1,7 @@
 <div class="shoutView" ng-if="shout.content">
   <div class="userInfo">
     <img ng-src="http://dil.channeli.in/photo/{{shout.sender}}" alt=""/>
+
     <h3 class="name">{{shout.name}}</h3>
     <span am-time-ago="shout.date_time"></span>
   </div>
@@ -31,4 +32,5 @@
     </div>
   </div>
 </div>
-<div class="shoutView" ng-if="!shout.content" style="text-align:center;font-size:20px;color:#fff;">Shout Doesn't Exist</div>
+<div class="shoutView" ng-if="!shout.content" style="text-align:center;font-size:20px;color:#fff;">Shout Doesn't Exist
+</div>

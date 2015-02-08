@@ -30,11 +30,14 @@ html {
     .container {
       height: 100%;
       header {
-a{color:#020031;}
-	img{
-margin-left: 20px;
-height: 66%;
-margin-top: 5px;}
+        a {
+          color: #020031;
+        }
+        img {
+          margin-left: 20px;
+          height: 66%;
+          margin-top: 5px;
+        }
         @include span(12);
         height: 40px;
         background-color: #ffffff;
@@ -47,13 +50,13 @@ margin-top: 5px;}
           float: right;
           cursor: pointer;
           font-size: 14px;
-img{
+          img {
 
-width:25px;
-height:25px;
-@include border-radius(2px);
-margin-top:-2px;
-}
+            width: 25px;
+            height: 25px;
+            @include border-radius(2px);
+            margin-top: -2px;
+          }
           i {
             font-size: 20px;
           }
@@ -86,7 +89,9 @@ margin-top:-2px;
                 padding: 6px;
                 font-size: 13px;
                 border-right: 1px solid rgba(255, 255, 255, 0.04);
-		img{width:20px;}
+                img {
+                  width: 20px;
+                }
                 &:last-of-type {
                   border-right: 0;
                 }
@@ -143,7 +148,7 @@ margin-top:-2px;
                 @include bg-color(0.10);
                 color: #fff;
                 font-family: $font-default;
-                cursor:pointer;
+                cursor: pointer;
                 margin-bottom: 10px;
                 font-size: 13px;
                 -webkit-font-smoothing: antialiased;
@@ -262,14 +267,14 @@ margin-top:-2px;
               padding: 5px;
               .shouter {
                 width: 100%;
-                a{
+                a {
                   text-decoration: none;
                   color: $linkcolor;
                   padding: 2px 3px;
-                  i{
+                  i {
                     font-size: 14px;
                   }
-                  &:hover{
+                  &:hover {
                     color: aqua;
                   }
                 }
@@ -293,7 +298,7 @@ margin-top:-2px;
                   text-overflow: ellipsis;
                 }
                 .time {
-                  @include calc(width,'50% - 30px');
+                  @include calc(width, '50% - 30px');
                   text-align: right;
                   padding: 4px 5px 4px 9px;
                   float: left;
@@ -312,8 +317,8 @@ margin-top:-2px;
                 padding: 5px 2px;
                 opacity: 0.9;
                 padding-left: 35px;
-		cursor:pointer;
-		width:100%;
+                cursor: pointer;
+                width: 100%;
                 .icon-smiley {
                   font-size: 15px;
                   display: inline-block;
@@ -390,18 +395,18 @@ margin-top:-2px;
   }
 }
 
-.ngn{
+.ngn {
   padding: 18px 80px;
   font-size: 18px;
-font-weight:bolder;
+  font-weight: bolder;
 }
 
 .ngn-success {
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   color: green;
 }
 
 .ngn-error {
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   color: red;
 }

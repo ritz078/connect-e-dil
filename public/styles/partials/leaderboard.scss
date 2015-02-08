@@ -128,7 +128,9 @@
             width: 40px;
           }
           .fl-num {
-img{width:20px;}
+            img {
+              width: 20px;
+            }
             display: block;
             @include span(6/2);
             text-align: center;
@@ -149,4 +151,7 @@ img{width:20px;}
     }
   }
 }
-.abc{width:20px;}
+
+.abc {
+  width: 20px;
+}

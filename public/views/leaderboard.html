@@ -13,10 +13,11 @@
   <div class="fl-hd">
     <span class="fl-serial">#</span>
     <span class="fl-name">Name</span>
-    <span class="fl-num"><img class="abc" src="images/redrose2.png"/></span><span class="fl-num"><img class="abc" src="images/yellowrose2.png"/></span>
+    <span class="fl-num"><img class="abc" src="images/redrose2.png"/></span><span class="fl-num"><img class="abc"
+                                                                                                      src="images/yellowrose2.png"/></span>
   </div>
   <div class="fl-list-wrapper" scrollable watchCollections="filteredlb">
-    <a ng-href="#/user/{{u.enrollmentno}}"  ng-repeat="u in users |leaderBfilter:query2"
+    <a ng-href="#/user/{{u.enrollmentno}}" ng-repeat="u in users |leaderBfilter:query2"
        class="slide-left">
       <div class="fl-list">
         <span class="fl-serial">{{u.rank}}.</span>

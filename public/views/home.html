@@ -85,7 +85,7 @@
         <textarea class="" ng-model="message.message" ng-disabled="message.anon" maxlength="200"
                   placeholder="{{message.anon?'You cannot send message while being anonymous':'Message'}}"></textarea>
 
-            <div class="hsi2" style="width:50%;"  ng-show="!(message.anon)">{{200-message.message.length}}</div>
+            <div class="hsi2" style="width:50%;" ng-show="!(message.anon)">{{200-message.message.length}}</div>
             <button type="submit"><i class="fa fa-send"></i>Send</button>
           </div>
         </form>
@@ -95,20 +95,22 @@
     <div id="b">
       <div class="r-msg" ng-repeat="r in dash.message_received">
         <img ng-src="http://dil.channeli.in/photo/{{r.enrol}}" alt=""/>
-       <span class="r-name"><a ng-href="#/user/{{r.enrol}}">{{r.message_from}}</a></span>
-	<span class="rose" ng-if="r.rose_color=='YR'">	<img src="images/yellowrose2.png"/></span>
-	<span class="rose" ng-if="r.rose_color=='RR'">	<img src="images/redrose2.png"/></span>
+        <span class="r-name"><a ng-href="#/user/{{r.enrol}}">{{r.message_from}}</a></span>
+        <span class="rose" ng-if="r.rose_color=='YR'">	<img src="images/yellowrose2.png"/></span>
+        <span class="rose" ng-if="r.rose_color=='RR'">	<img src="images/redrose2.png"/></span>
+
         <div class="message" ng-bind-html="r.message | linky:'_blank'| emoticons"></div>
       </div>
-	<div class="r-msg">
-	<img src="http://dil.channeli.in/photo/img"/>
-	<span class="r-name" style="color:#fff;">Information Management Group</span>
-<span class="rose"><img src="images/yellowrose2.png"/></span>
-<div class="message">Kickstart your valentine week with loads of love and fun <span ng-bind-html="':)'|emoticons"></span></div>
-	</div>
+      <div class="r-msg">
+        <img src="http://dil.channeli.in/photo/img"/>
+        <span class="r-name" style="color:#fff;">Information Management Group</span>
+        <span class="rose"><img src="images/yellowrose2.png"/></span>
+
+        <div class="message">Kickstart your valentine week with loads of love and fun <span
+          ng-bind-html="':)'|emoticons"></span></div>
+      </div>
     </div>
     <div id="c">
-
 
 
       <div class="linechart-wrapper" ng-if="h">
@@ -118,7 +120,7 @@
       </div>
 
 
+    </div>
+
+
   </div>
-
-
-</div>

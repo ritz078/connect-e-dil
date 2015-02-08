@@ -31,28 +31,27 @@
         1
       ]
     ]
-
   },
-  "msgsReceived":[
+  "msgsReceived": [
     {
-      "sender":{
-        "image":"/images/user.png",
-        "name":"Random girl",
-        "enrolmentNo":"11111111"
+      "sender": {
+        "image": "/images/user.png",
+        "name": "Random girl",
+        "enrolmentNo": "11111111"
       },
-      "roseColour":"red",
-      "message":"lorem ipsum doler ",
-      "time":""
+      "roseColour": "red",
+      "message": "lorem ipsum doler ",
+      "time": ""
     },
     {
-      "sender":{
-        "image":"/images/user.png",
-        "name":"Random girl",
-        "enrolmentNo":"11111111"
+      "sender": {
+        "image": "/images/user.png",
+        "name": "Random girl",
+        "enrolmentNo": "11111111"
       },
-      "roseColour":"red",
-      "message":"lorem ipsum doler ",
-      "time":""
+      "roseColour": "red",
+      "message": "lorem ipsum doler ",
+      "time": ""
     }
   ]
 }
