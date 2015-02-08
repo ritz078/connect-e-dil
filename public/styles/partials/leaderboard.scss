@@ -69,7 +69,7 @@
         text-align: center;
       }
       .fl-num {
-        @include span(6/4);
+        @include span(6/2);
         text-align: center;
 
       }
@@ -128,8 +128,9 @@
             width: 40px;
           }
           .fl-num {
+img{width:20px;}
             display: block;
-            @include span(6/4);
+            @include span(6/2);
             text-align: center;
             &:nth-of-type(2n) {
               border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -148,3 +149,4 @@
     }
   }
 }
+.abc{width:20px;}

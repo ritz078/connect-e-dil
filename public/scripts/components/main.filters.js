@@ -37,7 +37,7 @@ app.filter('leaderBfilter', function () {
 });
 
 app.filter('profanity', function () {
-  var words = ['sex', 'fuck'];
+  var words = ['sex', 'fuck','chod'];
   return function (input) {
     if(input){
       angular.forEach(words, function (word) {

@@ -1,4 +1,4 @@
-<div class="user-wrapper" ng-if="wall">
+<div class="user-wrapper" ng-if="wall.name">
 
   <div class="user-info">
     <img ng-src="https://channeli.in/photo/{{wall.enrollment_no}}" alt=""/>
@@ -10,7 +10,7 @@
     <div class="user-score hint--left hint--rounded hint--error" data-hint="Roses Received">{{wall.red_roses+wall.yellow_roses}}</div>
   </div>
 
-  <div class="title">
+<!--<div class="title">
     <span>Received from boy/girl</span>
     <span>Roses Received</span>
   </div>
@@ -28,7 +28,7 @@
     <canvas id="pie2" class="chart chart-pie" data="::pieChart1.data"
             labels="::pieChart1.labels" colours="::pieChart.colors" options="::pieChart.options"></canvas>
 
-  </div>
+  </div>-->
 
   <div class="title">Daywise statistics</div>
   <div class="linechart-wrapper">
@@ -38,3 +38,4 @@
   </div>
 
 </div>
+<div class="user-wrapper" ng-if="wall.error" style="text-align:center;color:#fff;font-size:20px;">User Doesn't exist</div>

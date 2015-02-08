@@ -30,6 +30,11 @@ html {
     .container {
       height: 100%;
       header {
+a{color:#020031;}
+	img{
+margin-left: 20px;
+height: 66%;
+margin-top: 5px;}
         @include span(12);
         height: 40px;
         background-color: #ffffff;
@@ -42,6 +47,13 @@ html {
           float: right;
           cursor: pointer;
           font-size: 14px;
+img{
+
+width:25px;
+height:25px;
+@include border-radius(2px);
+margin-top:-2px;
+}
           i {
             font-size: 20px;
           }
@@ -74,6 +86,7 @@ html {
                 padding: 6px;
                 font-size: 13px;
                 border-right: 1px solid rgba(255, 255, 255, 0.04);
+		img{width:20px;}
                 &:last-of-type {
                   border-right: 0;
                 }
@@ -278,7 +291,6 @@ html {
                   white-space: nowrap;
                   overflow: hidden;
                   text-overflow: ellipsis;
-                  font-weight: bolder;
                 }
                 .time {
                   @include calc(width,'50% - 30px');
@@ -300,7 +312,8 @@ html {
                 padding: 5px 2px;
                 opacity: 0.9;
                 padding-left: 35px;
-
+		cursor:pointer;
+		width:100%;
                 .icon-smiley {
                   font-size: 15px;
                   display: inline-block;
@@ -378,16 +391,17 @@ html {
 }
 
 .ngn{
-  padding: 8px 80px;
+  padding: 18px 80px;
   font-size: 18px;
+font-weight:bolder;
 }
 
 .ngn-success {
-  background-color: rgba(0, 255, 34, 0.08);
+  background-color: rgba(255,255,255,0.95);
   color: green;
 }
 
 .ngn-error {
-  background-color: transparent;
+  background-color: rgba(255,255,255,0.95);
   color: red;
 }

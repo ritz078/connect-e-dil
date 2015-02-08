@@ -1,3 +1,12 @@
+.r-rose{
+	width:115px !important;
+	clear:both;
+	margin:10px auto;
+	position:relative;
+	overflow:auto;
+	span{cursor:pointer;padding:10px;float:left;border-radius:2px;border:1px solid transparent;
+}.active{@include border(0.2);}
+}
 .h-wrapper {
   width: 100%;
 
@@ -8,6 +17,7 @@
     padding: 8px;
     border-radius: 2px;
     position: relative;
+	overflow:auto;
     .h-sendingInfo {
       width: 100%;
       float: left;
@@ -135,14 +145,13 @@
   .break {
     width: 100%;
     margin-bottom: 40px;
-    overflow: auto;
     .h-br {
       @include calc(width, '25% - 18px');
-      @include border(0.2);
+      @include border(0.1);
       float: left;
       margin-right: 24px;
       @include border-radius(2px);
-      margin-top: 50px;
+      margin-top: 20px;
       &:last-of-type {
         margin-right: 0;
       }
@@ -152,6 +161,10 @@
         padding: 5px;
         @include color(0.7);
         text-align: center;
+	font-size:50px;
+	font-weight:lighter;
+	height:70px;
+	opacity:0.8;
         &:first-of-type {
           @include bg-color(0.08);
         }
@@ -177,7 +190,7 @@
       min-width: 100px;
       padding: 4px 10px;
       text-align: center;
-      font-family: $font-light;
+      font-weight:300;
       background-color: $bg-center;
       color: #ffffff;
       border-radius: 2px;
@@ -481,9 +494,10 @@
     @include dimensions(30px,30px);
     @include border-radius(1px);
     float:left;
-  }
-
-  .r-name{
+   }
+.rose{
+float:right;
+}  .r-name{
     float:left;
     padding: 4px 10px;
   }
@@ -498,3 +512,4 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 20px;
 }
+
