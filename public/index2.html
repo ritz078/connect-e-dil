@@ -42,9 +42,10 @@
     <a href="https://channeli.in/logout/"><span>Logout</span></a>
     <a href="#/rules"><span>Rules</span></a>
     <a href="#/"><span>Home</span></a>
+<span id="lbData" style="display:none;"><%=data_leaderboard%></span>
 <a href="#/"><span id="data" style="display:none;"><%=data%></span></a>
 <a href="#/"><span><%=data_basic.name%></span></a>
-<a href="#/"><span><img src="https://channeli.in/photo/<%=data.enrollment_no%>"/></span></a>
+<a href="#/"><span><img src="http://dil.channeli.in/photo/<%=data.enrollment_no%>"/></span></a>
 
   </header>
   <div class="content">
@@ -65,7 +66,7 @@
           <a ng-href="#/user/{{l.enrollmentno}}" ng-repeat="l in clb" class="slide-left">
             <div class="row">
               <span class="serial">{{$index+1}}.</span>
-              <span class="name"><img ng-src="http://channeli.in{{l.photo_url}}" alt=""/><span>{{l.name}}</span></span>
+              <span class="name"><img ng-src="http://dil.channeli.in/photo/{{l.enrollmentno}}" alt=""/><span>{{l.name}}</span></span>
               <span class="r-roses">{{l.red_roses}}</span>
               <span class="y-roses">{{l.yellow_roses}}</span>
             </div>
@@ -104,7 +105,7 @@
 
         <div class="shout" ng-repeat="s in shouts track by $index">
           <div class="shouter">
-            <div class="userpic"><img ng-src="https://channeli.in/photo/{{s.sender}}" alt=""/></div>
+            <div class="userpic"><img ng-src="http://dil.channeli.in/photo/{{s.sender}}" alt=""/></div>
             <div class="username"><a ng-href="#/user/{{s.sender}}">{{s.name}}</a></div>
 
               <div am-time-ago="s.date_time" class="time"></div>

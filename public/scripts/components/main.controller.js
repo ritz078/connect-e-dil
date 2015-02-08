@@ -16,12 +16,14 @@ app.controller('ValentinoController', ['ngNotify','$location', '$scope', '$http'
       $scope.shouts = d;
     });
 
-    $scope.clb = [];
- var promiseLeaderboard = dataLeaderboard.getCombinedLeaderboard();
-    promiseLeaderboard.then(function (d) {
-      $scope.clb = d;
+  //  $scope.clb = [];
+var lbdata=angular.element('#lbData')[0].innerHTML;
+$scope.clb=JSON.parse(lbdata);
+//	 var promiseLeaderboard = dataLeaderboard.getCombinedLeaderboard();
+ //   promiseLeaderboard.then(function (d) {
+ //     $scope.clb = d;
 
-    });
+ //   });
 //$interval(function(){
 //   var p2 = dataLeaderboard.getCombinedLeaderboard();
 //    p2.then(function (d) {
@@ -101,9 +103,11 @@ var sendMsgPromise = messages.sendMsg($scope.message,$scope.dash.name);
 	type:'success'
 })
 	$scope.selectedReceiver=0;
+	$scope.message.message='';
  }
 else if(d.info){ngNotify.set(d.msg,{position:'bottom',type:'error'});
-$scope.selectedReceiver=0;}
+$scope.selectedReceiver=0;
+$scope.message.message='';}
         });		
       }
     }

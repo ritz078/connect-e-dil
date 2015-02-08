@@ -2,7 +2,7 @@
   <div class="h-info">
 
     <div class="h-dp">
-      <img ng-src="https://channeli.in/photo/{{dash.enrollment_no}}" alt=""/>
+      <img ng-src="http://dil.channeli.in/photo/{{dash.enrollment_no}}" alt=""/>
     </div>
     <div class="h-details">
       <span>{{dash.name}}</span>
@@ -50,7 +50,7 @@
                           placeholder="Search your valentine/friend"
                           pause="100"
                           selected-object="selectedReceiver"
-                          remote-url="https://channeli.in/valentino/person_search/?term="
+                          remote-url="http://dil.channeli.in/valentino/person_search/?term="
                           search-fields="name"
                           title-field="name"
                           minlength="2"
@@ -66,7 +66,7 @@
 
           <div class="h-sendingInfo">
             <div class="hsi1">
-              <img ng-src="https://channeli.in/photo/{{selectedReceiver.originalObject.id}}" alt=""/>
+              <img ng-src="http://dil.channeli.in/photo/{{selectedReceiver.originalObject.id}}" alt=""/>
         <span class="hsi1-1">{{selectedReceiver.originalObject.name}}<br/>
         <span>{{selectedReceiver.originalObject.label}}</span></span>
         <span class="hsi1-2">
@@ -94,14 +94,14 @@
     </div>
     <div id="b">
       <div class="r-msg" ng-repeat="r in dash.message_received">
-        <img ng-src="https://channeli.in/photo/{{r.enrol}}" alt=""/>
+        <img ng-src="http://dil.channeli.in/photo/{{r.enrol}}" alt=""/>
        <span class="r-name"><a ng-href="#/user/{{r.enrol}}">{{r.message_from}}</a></span>
 	<span class="rose" ng-if="r.rose_color=='YR'">	<img src="images/yellowrose2.png"/></span>
 	<span class="rose" ng-if="r.rose_color=='RR'">	<img src="images/redrose2.png"/></span>
         <div class="message" ng-bind-html="r.message | linky:'_blank'| emoticons"></div>
       </div>
 	<div class="r-msg">
-	<img src="https://channeli.in/photo/img"/>
+	<img src="http://dil.channeli.in/photo/img"/>
 	<span class="r-name" style="color:#fff;">Information Management Group</span>
 <span class="rose"><img src="images/yellowrose2.png"/></span>
 <div class="message">Kickstart your valentine week with loads of love and fun <span ng-bind-html="':)'|emoticons"></span></div>

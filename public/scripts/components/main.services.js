@@ -22,7 +22,7 @@ app.service('dataLeaderboard', ['$http', '$q','$cookies',
 
     this.getLeaderboard = function (s,c,g) {
       d1=$q.defer();
-      $http.get('https://channeli.in/valentino/leaders/?start='+s+'&count='+c+'&gender='+g+'&PHPSESSID='+$cookies.PHPSESSID)
+      $http.get('http://dil.channeli.in/valentino/leaders/?start='+s+'&count='+c+'&gender='+g+'&PHPSESSID='+$cookies.PHPSESSID)
         .success(function (d) {
 	//	if(d.error==2){location.reload();}
           d1.resolve(d);
@@ -32,7 +32,7 @@ app.service('dataLeaderboard', ['$http', '$q','$cookies',
 
     this.getCombinedLeaderboard=function(){
       d2=$q.defer();
-      $http.get('https://channeli.in/valentino/leaders/?start=1&count=25&combined=true&PHPSESSID='+$cookies.PHPSESSID).success(function(d){
+      $http.get('http://dil.channeli.in/valentino/leaders/?start=1&count=25&combined=true&PHPSESSID='+$cookies.PHPSESSID).success(function(d){
         //if(d.error==2){location.reload();}
         d2.resolve(d);
       });
@@ -100,7 +100,7 @@ app.service('messages', ['$http', '$q','$cookies', function ($http, $q,$cookies)
 //		'message':d.message,
 //		'PHPSESSID':$cookies.PHPSESSID
 //		})
-	$http.get('https://channeli.in/valentino/rose_handler/?rc='+d.rose_color+'&anon='+d.anon+'&to='+d.to+'&PHPSESSID='+$cookies.PHPSESSID+'&message='+d.message)
+	$http.get('http://dil.channeli.in/valentino/rose_handler/?rc='+d.rose_color+'&anon='+d.anon+'&to='+d.to+'&PHPSESSID='+$cookies.PHPSESSID+'&message='+d.message)
 	.success(function (d) {
 //	if(d.error==2){location.reload();}
       deferredSendMsg.resolve(d);
@@ -116,7 +116,7 @@ app.service('dataUser', ['$http', '$q','$cookies', function ($http, $q,$cookies)
   var deferred;
   this.getUser = function (enr) {
     deferred=$q.defer();
-    $http.get('https://channeli.in/valentino/person_json/?enrol=' + enr+'&PHPSESSID='+$cookies.PHPSESSID).success(function (d) {
+    $http.get('http://dil.channeli.in/valentino/person_json/?enrol=' + enr+'&PHPSESSID='+$cookies.PHPSESSID).success(function (d) {
   //    if(d.error==2){location.reload();}
       deferred.resolve(d);
     });
@@ -141,7 +141,7 @@ app.service('dashData',['$http','$cookies','$q',function($http,$cookies,$q){
 	var deferred;
 	this.getData=function(e){
 	deferred=$q.defer();
-	$http.get('https://channeli.in/valentino/person_json_private/?enrol='+e+'&PHPSESSID='+$cookies.PHPSESSID)
+	$http.get('http://dil.channeli.in/valentino/person_json_private/?enrol='+e+'&PHPSESSID='+$cookies.PHPSESSID)
 		.success(function(d){
 			deferred.resolve(d);
 })
