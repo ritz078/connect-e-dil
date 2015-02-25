@@ -3,7 +3,7 @@
 Features
 --------
 
-1. Send yellow or red roses to friends or valentine.
+1. Send yellow/red roses to friends/valentine.
   * Both as anonymous and non-anonymous.
   * Message sending feature if not anonymous.
   * Easily search friends/valentine using autocomplete ([angucomplete-alt](https://github.com/ghiden/angucomplete-alt))
@@ -30,7 +30,12 @@ Features
 Languages/Frameworks/Tools used
 ------------------------------------
 
-[AngularJS](https://angularjs.org/), [SASS](http://sass-lang.com/), [susy](http://susy.oddbird.net/), [grunt](http://gruntjs.com/),[yeoman.io](http://yeoman.io/),[bower](http://bower.io/)
+* [AngularJS](https://angularjs.org/)
+* [SASS](http://sass-lang.com/)
+* [susy](http://susy.oddbird.net/)
+* [grunt](http://gruntjs.com/)
+* [yeoman.io](http://yeoman.io/)
+* [Bower](http://bower.io/)
 
 Setting it Up
 ---------------
@@ -47,7 +52,7 @@ Setting it Up
 
 Credits
 -------
-* Yeoman.io for the webapp generator.
+* [Yeoman.io](http://yeoman.io) for the webapp generator.
 * M from nounproject for the heart vector used in the logo.
 
 
