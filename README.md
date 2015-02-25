@@ -1,4 +1,4 @@
-[Imgur](http://i.imgur.com/FTgXHpo.png?1)
+![Imgur](http://i.imgur.com/FTgXHpo.png?1)
 
 Features
 --------
