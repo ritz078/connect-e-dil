@@ -3,410 +3,390 @@
 // endbower
 @import "config";
 @import "bootstrap";
-
 * {
-  margin: 0;
-  padding: 0;
-  @include box-sizing(border-box);
-  outline: none;
+    margin: 0;
+    padding: 0;
+    @include box-sizing(border-box);
+    outline: none;
 }
-
 html {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  body {
-    background: #fafafa;
-    font-family: $font-default;
-    color: #333;
-    height: 100%;
     width: 100%;
-    @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
-    background-attachment: fixed;
-    @include container;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
-    .container {
-      height: 100%;
-      header {
-        a {
-          color: #020031;
-        }
-        img {
-          margin-left: 20px;
-          height: 66%;
-          margin-top: 5px;
-        }
-        @include span(12);
-        height: 40px;
-        background-color: #ffffff;
-        opacity: 0.8;
-        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.62);
-        span {
-          display: block;
-          padding: 10px;
-          text-align: center;
-          float: right;
-          cursor: pointer;
-          font-size: 14px;
-          img {
-
-            width: 25px;
-            height: 25px;
-            @include border-radius(2px);
-            margin-top: -2px;
-          }
-          i {
-            font-size: 20px;
-          }
-        }
-      }
-      .content {
-        @include calc(height, '100% - 40px');
-        div {
-          float: left;
-        }
-        .left, .right {
-          @include span(3);
-          height: 100%;
-          @include bg-color(0.2);
-        }
-        .left {
-          .left-wrapper {
-            width: 100%;
-            padding: 10px;
-            .hd {
-              width: 100%;
-              @include bg-color(0.04);
-              margin-top: 5px;
-              border-radius: 2px;
-              box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
-              .name, .serial, .r-roses, .y-roses {
-                float: left;
-                display: block;
-                @include color(0.6);
-                padding: 6px;
-                font-size: 13px;
-                border-right: 1px solid rgba(255, 255, 255, 0.04);
+    height: 100%;
+    overflow: hidden;
+    body {
+        background: #fafafa;
+        font-family: $font-default;
+        color: #333;
+        height: 100%;
+        width: 100%;
+        @include linear-gradient(135deg, $gradient1 0%, $gradient2 100%);
+        background-attachment: fixed;
+        @include container;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        .container {
+            height: 100%;
+            header {
+                a {
+                    color: #020031;
+                }
                 img {
-                  width: 20px;
+                    margin-left: 20px;
+                    height: 66%;
+                    margin-top: 5px;
                 }
-                &:last-of-type {
-                  border-right: 0;
-                }
-              }
-              .name {
-                width: 60%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-
-              }
-              .serial {
-                width: 10%;
-                text-align: center;
-              }
-              .r-roses {
-                width: 15%;
-                text-align: center;
-              }
-              .y-roses {
-                width: 15%;
-                text-align: center;
-              }
-            }
-            .copyright {
-              display: block;
-              font-size: 13px;
-              @include color(0.7);
-              text-align: center;
-              padding-top: 5px;
-              a {
-                color: $linkcolor;
-              }
-            }
-            a {
-              display: block;
-              width: 100%;
-              text-decoration: none;
-              .title {
-                @include color(0.8);
-                display: block;
-                text-align: center;
-                padding: 8px;
-                @include border-radius(2px);
-                &:hover {
-                  color: #ffffff;
-                }
-              }
-              button {
-                padding: 5px;
-                width: 100%;
-                border-radius: 2px;
-                @include border(0.05);
-                @include bg-color(0.10);
-                color: #fff;
-                font-family: $font-default;
-                cursor: pointer;
-                margin-bottom: 10px;
-                font-size: 13px;
-                -webkit-font-smoothing: antialiased;
-                box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
-                &:hover {
-                  color: #ffffff;
-                  @include bg-color(0.4);
-                }
-              }
-            }
-            input {
-              width: 100%;
-              @include bg-color(0.3);
-              @include border(0.5);
-              @include border-radius(2px);
-              padding: 5px;
-              color: #ffffff;
-              -webkit-font-smoothing: antialiased;
-              -moz-osx-font-smoothing: grayscale;
-            }
-          }
-          .left-wrapper1 {
-            width: 100%;
-            @include calc(height, '100% - 180px');
-
-            .leaderboard {
-              width: 100%;
-              height: 100%;
-              a {
-                display: block;
-                overflow: auto;
-                .row {
-                  &:hover {
-                    @include bg-color(0.1);
-                  }
-                  width: 100%;
-                  padding: 2px 10px;
-                  font-size: 14px;
-                  border-bottom: 1px solid $bg-center;
-                  span:not(.name) {
-                    float: left;
-                    display: block;
-                    @include color(0.6);
-                    padding: 6px;
-                  }
-                  .name {
-                    width: 60%;
-                    display: block;
-                    float: left;
-                    img {
-                      float: left;
-                      height: 25px;
-                      width: 25px;
-                      margin-top: 2px;
-                      @include border-radius(2px);
-                    }
-                    span {
-                      padding: 6px;
-                      white-space: nowrap;
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                      display: block;
-                      @include calc(width, '100% - 30px')
-                    }
-
-                  }
-                  .serial {
-                    width: 10%;
-                  }
-                  .r-roses {
-                    width: 15%;
-                    text-align: center;
-                  }
-                  .y-roses {
-                    width: 15%;
-                    text-align: center;
-                  }
-
-                }
-              }
-
-            }
-          }
-        }
-
-        .center {
-          @include span(6);
-          height: 100%;
-          .ng-view {
-            width: 100%;
-            padding: 20px;
-            @include calc(min-height, '100% - 100px');
-          }
-        }
-        .right {
-          @include span(3);
-          .shoutbox {
-            @include calc(height, '100% - 50px');
-            overflow: hidden;
-            padding: 5px;
-            padding-right: 2px;
-            width: 100%;
-            -webkit-font-smoothing: antialiased;
-            outline: none;
-            .loading {
-              width: 100%;
-              img {
-                display: block;
-                margin: 10px auto;
-                height: 30px;
-              }
-            }
-            .shout {
-              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-              width: 100%;
-              padding: 5px;
-              .shouter {
-                width: 100%;
-                a {
-                  text-decoration: none;
-                  color: $linkcolor;
-                  padding: 2px 3px;
-                  i {
-                    font-size: 14px;
-                  }
-                  &:hover {
-                    color: aqua;
-                  }
-                }
-                .userpic {
-                  img {
-                    @include border-radius(2px);
-                    height: 25px;
-                    width: 25px;
-                    overflow: hidden;
-                    background-color: #ffffff;
-                  }
-                }
-                .username {
-                  color: #ffffff;
-                  padding: 3px 5px;
-                  @include calc(width, '50% - 25px');
-                  float: left;
-                  font-size: 15px;
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                }
-                .time {
-                  @include calc(width, '50% - 30px');
-                  text-align: right;
-                  padding: 4px 5px 4px 9px;
-                  float: left;
-                  font-size: 13px;
-                  color: #ffffff;
-                  opacity: 0.7;
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                }
-
-              }
-              .shout-data {
-                font-size: 14px;
-                color: #ffffff;
-                padding: 5px 2px;
-                opacity: 0.9;
-                padding-left: 35px;
-                cursor: pointer;
-                width: 100%;
-                .icon-smiley {
-                  font-size: 15px;
-                  display: inline-block;
-                  width: 20px;
-                  text-align: center;
-                  color: lightyellow;
-                }
-                .icon-heart {
-                  //color:#BA5183;
-                }
-                a {
-                  text-decoration: none;
-                  color: aquamarine;
-                  &:hover {
-                    color: aqua;
-                  }
-                }
-
-              }
-
-            }
-          }
-          .shoutInput {
-            width: 100%;
-            padding: 8px;
-            form {
-              textarea {
-                width: 100%;
-                background-color: transparent;
-                border: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-                @include border-top-radius(2px);
-                padding: 8px 10px;
+                @include span(12);
                 height: 40px;
-                resize: none;
-                color: #ffffff;
-                font-family: $font-default;
-                -webkit-font-smoothing: antialiased;
-                font-size: 14px;
-              }
+                background-color: #ffffff;
+                opacity: 0.8;
+                box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.62);
+                span {
+                    display: block;
+                    padding: 10px;
+                    text-align: center;
+                    float: right;
+                    cursor: pointer;
+                    font-size: 14px;
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        @include border-radius(2px);
+                        margin-top: -2px;
+                    }
+                    i {
+                        font-size: 20px;
+                    }
+                }
             }
-          }
+            .content {
+                @include calc(height, '100% - 40px');
+                div {
+                    float: left;
+                }
+                .left, .right {
+                    @include span(3);
+                    height: 100%;
+                    @include bg-color(0.2);
+                }
+                .left {
+                    .left-wrapper {
+                        width: 100%;
+                        padding: 10px;
+                        .hd {
+                            width: 100%;
+                            @include bg-color(0.04);
+                            margin-top: 5px;
+                            border-radius: 2px;
+                            box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+                            .name, .serial, .r-roses, .y-roses {
+                                float: left;
+                                display: block;
+                                @include color(0.6);
+                                padding: 6px;
+                                font-size: 13px;
+                                border-right: 1px solid rgba(255, 255, 255, 0.04);
+                                img {
+                                    width: 20px;
+                                }
+                                &:last-of-type {
+                                    border-right: 0;
+                                }
+                            }
+                            .name {
+                                width: 60%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            .serial {
+                                width: 10%;
+                                text-align: center;
+                            }
+                            .r-roses {
+                                width: 15%;
+                                text-align: center;
+                            }
+                            .y-roses {
+                                width: 15%;
+                                text-align: center;
+                            }
+                        }
+                        .copyright {
+                            display: block;
+                            font-size: 13px;
+                            @include color(0.7);
+                            text-align: center;
+                            padding-top: 5px;
+                            a {
+                                color: $linkcolor;
+                            }
+                        }
+                        a {
+                            display: block;
+                            width: 100%;
+                            text-decoration: none;
+                            .title {
+                                @include color(0.8);
+                                display: block;
+                                text-align: center;
+                                padding: 8px;
+                                @include border-radius(2px);
+                                &:hover {
+                                    color: #ffffff;
+                                }
+                            }
+                            button {
+                                padding: 5px;
+                                width: 100%;
+                                border-radius: 2px;
+                                @include border(0.05);
+                                @include bg-color(0.10);
+                                color: #fff;
+                                font-family: $font-default;
+                                cursor: pointer;
+                                margin-bottom: 10px;
+                                font-size: 13px;
+                                -webkit-font-smoothing: antialiased;
+                                box-shadow: 0px 1px 1px 0px rgba(50, 50, 50, 0.1);
+                                &:hover {
+                                    color: #ffffff;
+                                    @include bg-color(0.4);
+                                }
+                            }
+                        }
+                        input {
+                            width: 100%;
+                            @include bg-color(0.3);
+                            @include border(0.5);
+                            @include border-radius(2px);
+                            padding: 5px;
+                            color: #ffffff;
+                            -webkit-font-smoothing: antialiased;
+                            -moz-osx-font-smoothing: grayscale;
+                        }
+                    }
+                    .left-wrapper1 {
+                        width: 100%;
+                        @include calc(height, '100% - 180px');
+                        .leaderboard {
+                            width: 100%;
+                            height: 100%;
+                            a {
+                                display: block;
+                                overflow: auto;
+                                .row {
+                                    &:hover {
+                                        @include bg-color(0.1);
+                                    }
+                                    width: 100%;
+                                    padding: 2px 10px;
+                                    font-size: 14px;
+                                    border-bottom: 1px solid $bg-center;
+                                    span:not(.name) {
+                                        float: left;
+                                        display: block;
+                                        @include color(0.6);
+                                        padding: 6px;
+                                    }
+                                    .name {
+                                        width: 60%;
+                                        display: block;
+                                        float: left;
+                                        img {
+                                            float: left;
+                                            height: 25px;
+                                            width: 25px;
+                                            margin-top: 2px;
+                                            @include border-radius(2px);
+                                        }
+                                        span {
+                                            padding: 6px;
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            display: block;
+                                            @include calc(width, '100% - 30px')
+                                        }
+                                    }
+                                    .serial {
+                                        width: 10%;
+                                    }
+                                    .r-roses {
+                                        width: 15%;
+                                        text-align: center;
+                                    }
+                                    .y-roses {
+                                        width: 15%;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .center {
+                    @include span(6);
+                    height: 100%;
+                    .ng-view {
+                        width: 100%;
+                        padding: 20px;
+                        @include calc(min-height, '100% - 100px');
+                    }
+                }
+                .right {
+                    @include span(3);
+                    .shoutbox {
+                        @include calc(height, '100% - 50px');
+                        overflow: hidden;
+                        padding: 5px;
+                        padding-right: 2px;
+                        width: 100%;
+                        -webkit-font-smoothing: antialiased;
+                        outline: none;
+                        .loading {
+                            width: 100%;
+                            img {
+                                display: block;
+                                margin: 10px auto;
+                                height: 30px;
+                            }
+                        }
+                        .shout {
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                            width: 100%;
+                            padding: 5px;
+                            .shouter {
+                                width: 100%;
+                                a {
+                                    text-decoration: none;
+                                    color: $linkcolor;
+                                    padding: 2px 3px;
+                                    i {
+                                        font-size: 14px;
+                                    }
+                                    &:hover {
+                                        color: aqua;
+                                    }
+                                }
+                                .userpic {
+                                    img {
+                                        @include border-radius(2px);
+                                        height: 25px;
+                                        width: 25px;
+                                        overflow: hidden;
+                                        background-color: #ffffff;
+                                    }
+                                }
+                                .username {
+                                    color: #ffffff;
+                                    padding: 3px 5px;
+                                    @include calc(width, '50% - 25px');
+                                    float: left;
+                                    font-size: 15px;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+                                .time {
+                                    @include calc(width, '50% - 30px');
+                                    text-align: right;
+                                    padding: 4px 5px 4px 9px;
+                                    float: left;
+                                    font-size: 13px;
+                                    color: #ffffff;
+                                    opacity: 0.7;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
+                            }
+                            .shout-data {
+                                font-size: 14px;
+                                color: #ffffff;
+                                padding: 5px 2px;
+                                opacity: 0.9;
+                                padding-left: 35px;
+                                cursor: pointer;
+                                width: 100%;
+                                .icon-smiley {
+                                    font-size: 15px;
+                                    display: inline-block;
+                                    width: 20px;
+                                    text-align: center;
+                                    color: lightyellow;
+                                }
+                                .icon-heart {
+                                    //color:#BA5183;
+                                }
+                                a {
+                                    text-decoration: none;
+                                    color: aquamarine;
+                                    &:hover {
+                                        color: aqua;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .shoutInput {
+                        width: 100%;
+                        padding: 8px;
+                        form {
+                            textarea {
+                                width: 100%;
+                                background-color: transparent;
+                                border: none;
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                                @include border-top-radius(2px);
+                                padding: 8px 10px;
+                                height: 40px;
+                                resize: none;
+                                color: #ffffff;
+                                font-family: $font-default;
+                                -webkit-font-smoothing: antialiased;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-
-  }
 }
-
 @import "partials/home";
 @import "partials/leaderboard";
 @import "partials/shout";
 @import "partials/user";
 @import "partials/rules";
-
 .mentions {
-  background-color: rgba(131, 76, 196, 0.95);
-  border-radius: 2px;
-  margin-left: 10px;
-  min-width: 200px;
-  li {
-    list-style-type: none;
-    color: #ffffff;
-    padding: 5px 10px;
-    font-size: 13px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
-    &:last-of-type {
-      border-bottom: none;
+    background-color: rgba(131, 76, 196, 0.95);
+    border-radius: 2px;
+    margin-left: 10px;
+    min-width: 200px;
+    li {
+        list-style-type: none;
+        color: #ffffff;
+        padding: 5px 10px;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        &:last-of-type {
+            border-bottom: none;
+        }
     }
-  }
-  .active {
-    background-color: rgb(100, 58, 196);
-  }
+    .active {
+        background-color: rgb(100, 58, 196);
+    }
 }
-
 .ngn {
-  padding: 18px 80px;
-  font-size: 18px;
-  font-weight: bolder;
+    padding: 18px 80px;
+    font-size: 18px;
+    font-weight: bolder;
 }
-
 .ngn-success {
-  background-color: rgba(255, 255, 255, 0.95);
-  color: green;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: green;
 }
-
 .ngn-error {
-  background-color: rgba(255, 255, 255, 0.95);
-  color: red;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: red;
 }

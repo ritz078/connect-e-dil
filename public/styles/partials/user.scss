@@ -1,118 +1,106 @@
 .ng-view {
-  .user-wrapper {
-    padding: 10px;
-    width: 100%;
-    .user-info {
-      width: 100%;
-      padding-bottom: 15px;
-
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      img {
-        height: 80px;
-        width: 80px;
-        float: left;
-        @include border-radius(2px);
-
-      }
-      .user-details {
-        @include calc(width, '100% - 160px');
-        span {
-          display: block;
-          float: left;
-          @include color(0.7);
-          padding: 5px 10px;
-          width: 100%;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-          &:last-of-type {
-            @include color(0.4);
+    .user-wrapper {
+        padding: 10px;
+        width: 100%;
+        .user-info {
+            width: 100%;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            img {
+                height: 80px;
+                width: 80px;
+                float: left;
+                @include border-radius(2px);
+            }
+            .user-details {
+                @include calc(width, '100% - 160px');
+                span {
+                    display: block;
+                    float: left;
+                    @include color(0.7);
+                    padding: 5px 10px;
+                    width: 100%;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    &:last-of-type {
+                        @include color(0.4);
+                        font-size: 14px;
+                    }
+                }
+            }
+            .user-score {
+                height: 80px;
+                min-width: 80px;
+                background-color: $bg-center;
+                border-radius: 2px;
+                float: right;
+                text-align: center;
+                padding: 8px 10px;
+                font-size: 50px;
+                color: #ffffff;
+                font-weight: 300;
+            }
+        }
+        .linechart-wrapper {
+            padding: 20px;
+            width: 100%;
+            background-color: $bg-center;
+            border-radius: 2px;
+            margin-top: 12px;
+            .chart-container {
+                width: 100%;
+            }
+        }
+        .piechart-wrapper {
+            padding: 20px;
+            width: 48%;
+            background-color: $bg-center;
+            border-radius: 2px;
+            margin-top: 10px;
+            float: right;
+            &:nth-of-type(2n) {
+                margin-right: 2%;
+            }
+            &:nth-of-type(2n+1) {
+                margin-left: 2%;
+            }
+            .chart-container {
+                width: 100%;
+            }
+        }
+        .title {
+            width: 100%;
+            padding-top: 10px;
+            @include color(0.50);
             font-size: 14px;
-          }
+            span {
+                display: block;
+                width: 48%;
+                float: left;
+                &:last-of-type {
+                    margin-left: 4%;
+                }
+            }
         }
-      }
-      .user-score {
-        height: 80px;
-        min-width: 80px;
-        background-color: $bg-center;
-        border-radius: 2px;
-        float: right;
-        text-align: center;
-        padding: 8px 10px;
-        font-size: 50px;
-        color: #ffffff;
-        font-weight: 300;
-      }
     }
-    .linechart-wrapper {
-      padding: 20px;
-      width: 100%;
-      background-color: $bg-center;
-      border-radius: 2px;
-      margin-top: 12px;
-      .chart-container {
-        width: 100%;
-      }
-    }
-    .piechart-wrapper {
-      padding: 20px;
-      width: 48%;
-      background-color: $bg-center;
-      border-radius: 2px;
-      margin-top: 10px;
-      float: right;
-      &:nth-of-type(2n) {
-        margin-right: 2%;
-      }
-      &:nth-of-type(2n+1) {
-        margin-left: 2%;
-      }
-
-      .chart-container {
-        width: 100%;
-      }
-    }
-    .title {
-      width: 100%;
-      padding-top: 10px;
-      @include color(0.50);
-      font-size: 14px;
-      span {
-
-        display: block;
-        width: 48%;
-        float: left;
-        &:last-of-type {
-          margin-left: 4%;
-        }
-      }
-    }
-  }
 }
-
 .hint:after, [data-hint]:after {
-  font-weight: bolder;
+    font-weight: bolder;
 }
-
 .hint--error:after {
-  @include bg-color(0.3);
-  text-shadow: 0 -1px 0px #592726;
+    @include bg-color(0.3);
+    text-shadow: 0 -1px 0px #592726;
 }
-
 .hint--error.hint--top:before {
-  border-top-color: rgba(255, 255, 255, 0.3);
+    border-top-color: rgba(255, 255, 255, 0.3);
 }
-
 .hint--error.hint--bottom:before {
-  border-bottom-color: rgba(255, 255, 255, 0.3);
+    border-bottom-color: rgba(255, 255, 255, 0.3);
 }
-
 .hint--error.hint--left:before {
-  border-left-color: rgba(255, 255, 255, 0.3);
+    border-left-color: rgba(255, 255, 255, 0.3);
 }
-
 .hint--error.hint--right:before {
-  border-right-color: rgba(255, 255, 255, 0.3);
+    border-right-color: rgba(255, 255, 255, 0.3);
 }
-
-

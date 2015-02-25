@@ -1,13 +1,12 @@
-valentino
-=========
-The boilerplate used for the project is Yeoman's angular-generator
+Connect-e-Dil
+=============
+An Angular JS app developed for valentines week by the students of IMG, IIT Roorkee.
 
-You need 
-```Node.JS bower and Grunt``` installed in the system.
+The current features include :
 
-After cloning the repository run ```npm install && bower install```
 
-Then run ```grunt serve``` to run the production server.
+1.Send yellow or red roses to friends or valentine.
+ 
 
 Happy valentine
 ===============
