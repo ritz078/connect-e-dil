@@ -1,5 +1,26 @@
 {
   "name": "valentino",
+  "version":"1.0.0",
+  "description":"An Angular application to send flowers",
+  "contributors":[{
+    "name":"Jagannadh",
+    "email":"shanmuk.mir@gmail.com"
+  }],
+  "repository":{
+    "type":"git",
+    "url":"https://github.com/ritz078/valentino.git"
+  },
+  "bugs":{
+    "url":"https://github.com/ritz078/valentino/issues"
+  },
+  "keywords":[
+    "valentino",
+    "connect-e-dil",
+    "iitr",
+    "img",
+    "Information Management Group"
+  ],
+  "license":"MIT",
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
     "connect-modrewrite": "^0.7.9",
@@ -33,7 +54,6 @@
   },
   "dependencies": {
     "express": "^4.10.6",
-    "sequelize": "^2.0.0-rc4",
     "socket.io": "^1.2.1"
   }
 }
