@@ -27,6 +27,10 @@ Features
   * View received messages and flowers.
   * Personal Data visualisation on graphs and in numbers.
 
+Languages/Frameworks/Tools used
+------------------------------------
+
+[AngularJS](https://angularjs.org/), [SASS](http://sass-lang.com/), [susy](http://susy.oddbird.net/), [grunt](http://gruntjs.com/),[yeoman.io](http://yeoman.io/),[bower](http://bower.io/)
 
 Setting it Up
 ---------------
@@ -34,6 +38,9 @@ Setting it Up
 * Clone the repo.
 * Install ```NodeJS``` ```Grunt``` and ```bower```
 * Run ```npm install && bower install```
+* Install Ruby.
+* Install SASS and susy using ```gem install sass``` and ```gem install
+  susy```
 * Run ```grunt serve``` to run the server and start development.
 * For production files run ```grunt build```
 
