@@ -1,12 +1,10 @@
-Connect-e-Dil
-=============
-An Angular JS app developed for valentines week by the students of IMG, IIT Roorkee.
+[Imgur](http://i.imgur.com/FTgXHpo.png?1)
 
-The current features include :
+Features
+--------
 
-
-1.Send yellow or red roses to friends or valentine.
- 
+1. Send yellow or red roses to friends or valentine.
+2. Shoutbox where everyone can post literally anything :stuck_out_tongue_winking_eye:
 
 Happy valentine
 ===============
