@@ -1,25 +1,25 @@
 <div class="fl-wrapper">
-    <div class="fl-gender">
-        <div ng-click="selectedGender.gender='M';updateGender('M');" ng-class="{true:'active',false:'gender'}[selectedGender.gender=='M']"><i class="fa fa-male"></div>
+  <div class="fl-gender">
+    <div ng-click="selectedGender.gender='M';updateGender('M');" ng-class="{true:'active',false:'gender'}[selectedGender.gender=='M']"><i class="fa fa-male"></div>
     <div ng-click="selectedGender.gender='F';updateGender('F');"
-         ng-class="{true:'active',false:'gender'}[selectedGender.gender=='F']"><i class="fa fa-female"></div>
+    ng-class="{true:'active',false:'gender'}[selectedGender.gender=='F']"><i class="fa fa-female"></div>
   </div>
 
 
   <input type="text" id="query" ng-model="query2" autocomplete="off"
-         placeholder="Search for friends"/>
+  placeholder="Search for friends"/>
 
   <div class="fl-hd">
     <span class="fl-serial">#</span>
     <span class="fl-name">Name</span>
     <span class="fl-num"><img class="abc" src="images/redrose2.png"/></span><span class="fl-num"><img class="abc"
-                                                                                                      src="images/yellowrose2.png"/></span>
+    src="images/yellowrose2.png"/></span>
   </div>
   <div class="fl-list-wrapper" scrollable watchCollections="filteredlb">
     <a ng-href="#/user/{{u.enrollmentno}}" ng-repeat="u in users |leaderBfilter:query2"
-       class="slide-left">
-      <div class="fl-list">
-        <span class="fl-serial">{{u.rank}}.</span>
+    class="slide-left">
+    <div class="fl-list">
+      <span class="fl-serial">{{u.rank}}.</span>
       <span class="fl-name"><img ng-src="http://dil.channeli.in/photo/{{u.enrollmentno}}" alt="{{u.name}}"/>
         <span>{{u.name}}</span></span>
         <span class="fl-num">{{u.red_roses}}</span>

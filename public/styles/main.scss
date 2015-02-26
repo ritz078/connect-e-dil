@@ -3,6 +3,8 @@
 // endbower
 @import "config";
 @import "bootstrap";
+
+
 * {
     margin: 0;
     padding: 0;
@@ -314,9 +316,6 @@ html {
                                     width: 20px;
                                     text-align: center;
                                     color: lightyellow;
-                                }
-                                .icon-heart {
-                                    //color:#BA5183;
                                 }
                                 a {
                                     text-decoration: none;
