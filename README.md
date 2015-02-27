@@ -1,5 +1,17 @@
 ![Imgur](http://i.imgur.com/2Q0rKr7.jpg?1)
 
+
+Contents
+--------
+* [Screenshots](https://github.com/ritz078/valentino/blob/canary/screenshots/screenshots.md)
+* [Features](#features)
+* [Languages / Frameworks/ Tools used](#languages/frameworks/tools-used)
+* [Setting it up](#setting-it-up)
+* [Credits](#credits)
+
+![Screen](https://github.com/ritz078/valentino/blob/canary/screenshots/screen.jpg)
+
+
 Features
 --------
 
