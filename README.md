@@ -1,5 +1,13 @@
 ![Imgur](http://i.imgur.com/2Q0rKr7.jpg?1)
 
+
+Contents
+--------
+* [Features](#features)
+* [Languages / Frameworks/ Tools used](#languages/frameworks/tools-used)
+* [Setting it up](#setting-it-up)
+* [Credits](#credits)
+
 Features
 --------
 
