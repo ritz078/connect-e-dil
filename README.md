@@ -3,7 +3,7 @@
 
 Contents
 --------
-* [Screenshots](https://github.com/ritz078/valentino/blob/canary/screenshots/screenshots.md)
+* [Screenshots](screenshots/screenshots.md)
 * [Features](#features)
 * [Languages / Frameworks/ Tools used](#languages/frameworks/tools-used)
 * [Setting it up](#setting-it-up)
